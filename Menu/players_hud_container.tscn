@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://bke034tyehh1s"]
+
+[ext_resource type="Texture2D" uid="uid://8e8u3att7r5k" path="res://icon.svg" id="1_hjqj3"]
+[ext_resource type="Script" path="res://Menu/Scripts/players_hud_container.gd" id="1_kl3nx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbh1i"]
+
+[node name="PlayerContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 128
+script = ExtResource("1_kl3nx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbh1i")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbh1i")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+color = Color(0.71, 0.71, 0.71, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Player0" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_hjqj3")
+expand_mode = 3
+
+[node name="Player1" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_hjqj3")
+expand_mode = 3
+
+[node name="Player2" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_hjqj3")
+expand_mode = 3
+
+[node name="Player3" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_hjqj3")
+expand_mode = 3
+
+[node name="KeyboardSeparator" type="VSeparator" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="Player5" type="TextureRect" parent="VBoxContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_hjqj3")
+expand_mode = 3

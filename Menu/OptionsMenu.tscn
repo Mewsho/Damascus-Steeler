@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://xqmbygw0vs75"]
+
+[ext_resource type="Script" path="res://Menu/Scripts/OptionsMenu.gd" id="1_0h4rp"]
+[ext_resource type="PackedScene" uid="uid://bueqppcwiky5d" path="res://Menu/TabContainer.tscn" id="2_q1bar"]
+[ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="3_k2nox"]
+
+[sub_resource type="SystemFont" id="SystemFont_6fwia"]
+font_names = PackedStringArray("Consolas")
+subpixel_positioning = 0
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0h4rp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -28
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = SubResource("SystemFont_6fwia")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_q1bar")]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../ExitButton")
+
+[node name="TabContainer" parent="MarginContainer/VBoxContainer/TabContainer" index="0"]
+focus_neighbor_bottom = NodePath("../../ExitButton")
+
+[node name="Controls" parent="MarginContainer/VBoxContainer/TabContainer/TabContainer" index="1"]
+focus_neighbor_bottom = NodePath("../../../ExitButton")
+focus_next = NodePath("MarginContainer/ScrollContainer/VBoxContainer/HotkeyRebindButton/HBoxContainer/Button")
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+focus_neighbor_bottom = NodePath("../TabContainer")
+text = "Exit"
+
+[node name="ButtonPressStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k2nox")
+bus = &"UI"
+
+[connection signal="tab_button_pressed" from="MarginContainer/VBoxContainer/TabContainer/TabContainer/Controls" to="MarginContainer/VBoxContainer/TabContainer" method="_on_controls_tab_button_pressed"]
+
+[editable path="MarginContainer/VBoxContainer/TabContainer"]
+[editable path="MarginContainer/VBoxContainer/TabContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer/HotkeyRebindButton"]
+[editable path="MarginContainer/VBoxContainer/TabContainer/TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer/HotkeyRebindButton6"]
+[editable path="MarginContainer/VBoxContainer/TabContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/WindowModeButton"]
+[editable path="MarginContainer/VBoxContainer/TabContainer/TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer/AudioSliderSettings2"]
+[editable path="MarginContainer/VBoxContainer/TabContainer/TabContainer/Accesiblity/MarginContainer/ScrollContainer/VBoxContainer/SubtitleToggleButton"]

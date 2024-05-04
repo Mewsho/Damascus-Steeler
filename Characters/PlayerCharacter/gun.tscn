@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2hf4qkol6lyl"]
+
+[ext_resource type="PackedScene" uid="uid://bvr72d76t4jxr" path="res://Guns/scene.gltf" id="1_8nu2p"]
+
+[sub_resource type="Animation" id="Animation_hp408"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0796101, -0.13804, -0.00639677), Vector3(-0.359053, -0.13804, -0.00639677)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbq7w"]
+_data = {
+"Shoot": SubResource("Animation_hp408")
+}
+
+[sub_resource type="GDScript" id="GDScript_kkto3"]
+script/source = "extends Node3D
+
+# Velocidad de el proyectil
+const SPEED = 10
+# Import External Meshes
+@onready var mesh = $MeshInstance3D
+@onready var ray = $RayCast3D
+@onready var particles = $GPUParticles3D
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	position += transform.basis * Vector3(0, -SPEED ,0) * delta
+	if ray.is_colliding():
+		mesh.visible = false
+		particles.emitting = true
+		ray.enabled = false
+		if ray.get_collider().is_in_group(\"enemy\"):
+			ray.get_collider().hit()
+			
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
+
+
+func _on_timer_timeout():
+	queue_free()
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_8to4l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1y8q"]
+albedo_color = Color(1, 0.0901961, 0.498039, 1)
+emission_enabled = true
+emission = Color(0.968627, 0, 0.52549, 1)
+emission_energy_multiplier = 3.58
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sirxn"]
+angular_velocity_min = 3.0
+angular_velocity_max = 5.0
+radial_velocity_min = 3.0
+radial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jj12"]
+albedo_color = Color(1, 0.105882, 1, 1)
+emission_enabled = true
+emission = Color(0.517647, 0.0509804, 0.352941, 1)
+emission_energy_multiplier = 5.69
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfcr2"]
+material = SubResource("StandardMaterial3D_3jj12")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="Gun" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495131, 0.0334821, 0.265625)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(4.81798e-08, -1.10223, 0, -1.18707, -5.18882e-08, 0, 0, 0, 1.49184, 0.282384, 0.149744, -0.00603056)
+collision_mask = 3
+
+[node name="Pistola" parent="." instance=ExtResource("1_8nu2p")]
+transform = Transform3D(-0.0430681, 0, 0, 0, 0.046383, 0, 0, 0, 0.0582918, 0.0796101, -0.13804, -0.00639677)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pistola"]
+libraries = {
+"": SubResource("AnimationLibrary_wbq7w")
+}
+
+[node name="Bullet" type="Node3D" parent="."]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 0, 0, 0)
+script = SubResource("GDScript_kkto3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bullet"]
+transform = Transform3D(-2.18557e-09, -0.05, -4.37114e-08, 0, -2.18557e-09, 1, -0.05, 2.18557e-09, -1.42109e-14, -0.00146484, 0.00311279, 3.8147e-06)
+mesh = SubResource("BoxMesh_8to4l")
+surface_material_override/0 = SubResource("StandardMaterial3D_i1y8q")
+
+[node name="RayCast3D" type="RayCast3D" parent="Bullet"]
+transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, -0.0232536, 0.00111353)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Bullet"]
+transform = Transform3D(-0.173886, 0.715423, 0.113431, -1.57575, -0.0767645, -0.0537675, -0.0512081, -0.0671832, 1.26934, 0.131696, 0.448397, 0.0129842)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1, -3, -2, 2, 6, 4)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sirxn")
+draw_pass_1 = SubResource("BoxMesh_nfcr2")
+
+[node name="Timer" type="Timer" parent="Bullet"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Bullet/Timer" to="Bullet" method="_on_timer_timeout"]

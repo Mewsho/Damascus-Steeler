@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://t6fxrh51j7l4"
+path="res://.godot/imported/error_008.ogg-225707dcff52e5d2af5ba2aecf76b3a7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/UI Audio/error_008.ogg"
+dest_files=["res://.godot/imported/error_008.ogg-225707dcff52e5d2af5ba2aecf76b3a7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

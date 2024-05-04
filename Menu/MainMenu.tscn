@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn2civsgcxpq3"]
+
+[ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_4fi5l"]
+[ext_resource type="PackedScene" uid="uid://xqmbygw0vs75" path="res://Menu/OptionsMenu.tscn" id="2_1pl5r"]
+[ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="2_lqmsg"]
+[ext_resource type="AudioStream" uid="uid://ftndj7r410he" path="res://Music/20210720_Death's Door OST - 05 - Lost Cemetery.mp3" id="3_a5yna"]
+[ext_resource type="PackedScene" uid="uid://bke034tyehh1s" path="res://Menu/players_hud_container.tscn" id="3_ckkqy"]
+
+[sub_resource type="SystemFont" id="SystemFont_3axuj"]
+font_names = PackedStringArray("Bookman Old Style")
+subpixel_positioning = 0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4fi5l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonPressStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lqmsg")
+bus = &"UI"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Separator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+theme_override_font_sizes/font_size = 24
+text = "Start
+"
+
+[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Options
+"
+
+[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 60
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("SystemFont_3axuj")
+theme_override_font_sizes/font_size = 64
+text = "DAMASCUS FANTASY XXL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerContainer" parent="MarginContainer" instance=ExtResource("3_ckkqy")]
+layout_mode = 2
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_1pl5r")]
+visible = false
+layout_mode = 1
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a5yna")
+volume_db = -14.857
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="MarginContainer/PlayerContainer"]

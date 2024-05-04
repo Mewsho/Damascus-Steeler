@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwv6abxv1tnpx"
+path="res://.godot/imported/Skeleton_Blade.obj-aa2770c6b7294250569c1fe0354d79cb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Blade.obj-aa2770c6b7294250569c1fe0354d79cb.mesh"]
+
+source_file="res://Assets/KayKit Skeletons/assets/obj/Skeleton_Blade.obj"
+dest_files=["res://.godot/imported/Skeleton_Blade.obj-aa2770c6b7294250569c1fe0354d79cb.mesh", "res://.godot/imported/Skeleton_Blade.obj-aa2770c6b7294250569c1fe0354d79cb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

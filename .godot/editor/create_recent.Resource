@@ -1,0 +1,3 @@
+PCGResource
+PlayerKeybindResource
+DefaultSettingsResource

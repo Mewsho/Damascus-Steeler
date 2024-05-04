@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6oi1se3uv30c"]
+
+[ext_resource type="Script" path="res://Core.gd" id="1_qruwx"]
+[ext_resource type="PackedScene" uid="uid://bn2civsgcxpq3" path="res://Menu/MainMenu.tscn" id="2_uec3o"]
+
+[node name="Core" type="Node"]
+script = ExtResource("1_qruwx")
+
+[node name="SceneNodeContainer" type="Node" parent="."]
+
+[node name="MainMenu" parent="SceneNodeContainer" groups=["Menus"] instance=ExtResource("2_uec3o")]
+
+[editable path="SceneNodeContainer/MainMenu"]
+[editable path="SceneNodeContainer/MainMenu/MarginContainer/PlayerContainer"]

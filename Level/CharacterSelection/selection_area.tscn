@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c50md27irn0pm"]
+
+[ext_resource type="Script" path="res://Level/CharacterSelection/Scripts/SelectionArea.gd" id="1_xxi0v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rclj1"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_p0evf"]
+inner_radius = 0.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjjh8"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="SelectionArea" type="Area3D"]
+script = ExtResource("1_xxi0v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.36208, 0, 0, 0, 1.31755, 0, 0, 0, 1.7436, 0, 1.20929, 0)
+shape = SubResource("CapsuleShape3D_rclj1")
+
+[node name="SelectionRing" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_p0evf")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mjjh8")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

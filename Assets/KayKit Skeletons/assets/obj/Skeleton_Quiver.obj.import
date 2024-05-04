@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvq8jhsi7fcot"
+path="res://.godot/imported/Skeleton_Quiver.obj-287a00ce37f1f918ab589dd1bcd92b0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Quiver.obj-287a00ce37f1f918ab589dd1bcd92b0c.mesh"]
+
+source_file="res://Assets/KayKit Skeletons/assets/obj/Skeleton_Quiver.obj"
+dest_files=["res://.godot/imported/Skeleton_Quiver.obj-287a00ce37f1f918ab589dd1bcd92b0c.mesh", "res://.godot/imported/Skeleton_Quiver.obj-287a00ce37f1f918ab589dd1bcd92b0c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

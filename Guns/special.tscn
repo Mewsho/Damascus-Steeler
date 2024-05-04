@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://oqaivcrqyf7j"]
+
+[ext_resource type="Script" path="res://Guns/Special.gd" id="1_dgd7e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8to4l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6car"]
+albedo_color = Color(0, 0.95901, 0.872916, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 65.3
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sirxn"]
+radial_velocity_min = 3.0
+radial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jj12"]
+albedo_color = Color(1, 0.105882, 1, 1)
+emission_enabled = true
+emission = Color(0.517647, 0.0509804, 0.352941, 1)
+emission_energy_multiplier = 5.69
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfcr2"]
+material = SubResource("StandardMaterial3D_3jj12")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="Special" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.305767, 6.46825e-08, -1.82679e-14, 0, -1.49791e-08, 2.32095, 5.77149e-08, 0.342681, 1.01452e-07, 3.81491e-06, 0.00311279, 0.00146484)
+mesh = SubResource("BoxMesh_8to4l")
+skeleton = NodePath("../Bullet")
+surface_material_override/0 = SubResource("StandardMaterial3D_f6car")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-2.70792e-07, 2.57252e-07, 6.195, -5.41587e-07, 6.195, -2.57252e-07, -6.195, -5.41587e-07, -2.70792e-07, 0.00111349, -1.07599, 0.00146494)
+collide_with_areas = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.00940728, -0.00916092, -1.2754, -0.0212663, 0.722535, -0.0162687, 1.58597, 0.00974296, 0.00734681, -0.00695931, 0.556154, 0.00663341)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1, -0.888475, -0.28266, 2, 1.77695, 0.56532)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sirxn")
+draw_pass_1 = SubResource("BoxMesh_nfcr2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Bullet" type="Node3D" parent="."]
+transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 0, 0, 0)
+script = ExtResource("1_dgd7e")
+
+[connection signal="timeout" from="Timer" to="Bullet" method="_on_timer_timeout"]

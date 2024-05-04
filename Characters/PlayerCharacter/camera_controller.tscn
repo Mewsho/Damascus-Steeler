@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cxvd1nk22r7e"]
+
+[node name="Camera_controller" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534622, 1.12543, 0.566811)
+top_level = true
+
+[node name="Camera_target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.990641, 0.136494, 0, -0.136494, 0.990641, -0.00012207, 1.40711, 5.94472)
+
+[node name="Camera3D" type="Camera3D" parent="Camera_target"]
+transform = Transform3D(1, 0, 0, 0, 0.990885, -0.134713, 0, 0.134713, 0.990885, 0.137051, 0.143456, 0.688455)
+fov = 79.3

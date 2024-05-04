@@ -1,0 +1,14 @@
+CollisionShape3D
+CharacterBody3D
+MeshInstance3D
+Timer
+AnimationTree
+PCGCode
+HSeparator
+Control
+MarginContainer
+Container
+PanelContainer
+Button
+VSeparator
+TextureRect

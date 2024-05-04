@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://j63lv012s5py"
+path="res://.godot/imported/tick_002.ogg-2b72b0649b32d145f27714c6cc1b86b3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/UI Audio/tick_002.ogg"
+dest_files=["res://.godot/imported/tick_002.ogg-2b72b0649b32d145f27714c6cc1b86b3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

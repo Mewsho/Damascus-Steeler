@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://car17oh8u2bun"
+path="res://.godot/imported/Skeleton_Arrow.obj-cc6ecebbcb533874e609c82e7a5a1ffc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Arrow.obj-cc6ecebbcb533874e609c82e7a5a1ffc.mesh"]
+
+source_file="res://Assets/KayKit Skeletons/assets/obj/Skeleton_Arrow.obj"
+dest_files=["res://.godot/imported/Skeleton_Arrow.obj-cc6ecebbcb533874e609c82e7a5a1ffc.mesh", "res://.godot/imported/Skeleton_Arrow.obj-cc6ecebbcb533874e609c82e7a5a1ffc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
