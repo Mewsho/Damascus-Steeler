@@ -1,6 +1,8 @@
 class_name DefaultSettingsResource
 extends Resource
 
+## Recurso donde se almacenan los predeterminados de las opciones
+
 const DEFAULT_WINDOW_MODE_INDEX : int = 1
 const DEFAULT_RESOLUTION_INDEX : int = 0
 
