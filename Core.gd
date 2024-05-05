@@ -72,7 +72,7 @@ func spawn_player(player: int, player_node):
 	
 	add_child(player_node) # Lo agrega a la escena
 	# Spawn
-	player_node.position = Vector3(randf_range(4, 6), randf_range(4, 6),7)
+	player_node.position = Vector3(randf_range(4, 6), randf_range(10, 14),1)
 	
 ## Funcion para eliminar al jugador cuando salga, si esta en un menu, elimina el icono del hud tambien
 func delete_player(player: int):
