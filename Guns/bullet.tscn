@@ -1,36 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://fl2vg3o2ggy5"]
 
-[sub_resource type="GDScript" id="GDScript_jtsgl"]
-script/source = "extends Node3D
-
-# Velocidad de el proyectil
-const SPEED = 10
-# Import External Meshes
-@onready var mesh = $MeshInstance3D
-@onready var ray = $RayCast3D
-@onready var particles = $GPUParticles3D
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position += transform.basis * Vector3(0, -SPEED ,0) * delta
-	if ray.is_colliding():
-		mesh.visible = false
-		particles.emitting = true
-		ray.enabled = false
-		if ray.get_collider().is_in_group(\"enemy\"):
-			ray.get_collider().hit()
-			
-		await get_tree().create_timer(1.0).timeout
-		queue_free()
-
-
-func _on_timer_timeout():
-	queue_free()
-"
+[ext_resource type="Script" path="res://Guns/bullet.gd" id="1_bbf6h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8to4l"]
 
@@ -56,7 +26,7 @@ size = Vector3(0.05, 0.05, 0.05)
 
 [node name="Bullet" type="Node3D"]
 transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 0, 0, 0)
-script = SubResource("GDScript_jtsgl")
+script = ExtResource("1_bbf6h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-09, -0.05, -4.37114e-08, 0, -2.18557e-09, 1, -0.05, 2.18557e-09, -1.42109e-14, -0.00146484, 0.00311279, 3.8147e-06)

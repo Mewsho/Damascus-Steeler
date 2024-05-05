@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://codr6s3ctkcyg"]
+
+[ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_rogue.gd" id="1_5bcac"]
+[ext_resource type="PackedScene" uid="uid://c02xl2oj1fe7p" path="res://Enemies/NormalEnemies/skeleton_rogue.tscn" id="2_u81qk"]
+[ext_resource type="Script" path="res://Enemies/NormalEnemies/Area3D.gd" id="3_00x4t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3iktj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpm01"]
+size = Vector3(1.34875, 3.32422, 14.6475)
+
+[node name="EnemyRogue" type="CharacterBody3D"]
+script = ExtResource("1_5bcac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.395, 0, 0, 0, 1.395, 0, 0, 0, 1.395, 0, 1.09864, 0)
+shape = SubResource("CapsuleShape3D_3iktj")
+
+[node name="Skeleton_Rogue" parent="." instance=ExtResource("2_u81qk")]
+
+[node name="Area3D" parent="Skeleton_Rogue" index="2"]
+transform = Transform3D(1.82106, 0, 0, 0, 1.82106, 0, 0, 0, 1.82106, 0.0417541, 1.17217, 0.0387392)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_00x4t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.00966, 0, 0, 0, 1.00966, 0, 0, 0, 1.00966, 0.174636, 1.16211, 1.17627)
+shape = SubResource("BoxShape3D_fpm01")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+
+[editable path="Skeleton_Rogue"]

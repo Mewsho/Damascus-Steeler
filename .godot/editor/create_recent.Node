@@ -1,5 +1,7 @@
-CollisionShape3D
 CharacterBody3D
+CollisionShape3D
+Area3D
+RayCast3D
 MeshInstance3D
 Timer
 AnimationTree
@@ -10,5 +12,3 @@ MarginContainer
 Container
 PanelContainer
 Button
-VSeparator
-TextureRect

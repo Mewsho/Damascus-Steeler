@@ -2,11 +2,11 @@ class_name PCGCode
 extends Node
 
 # Se precargan los objetos que se usaran para reemplazar
-
-const SKELETON_MAGE = preload("res://Enemies/NormalEnemies/skeleton_mage.tscn")
-const SKELETON_MINION = preload("res://Enemies/NormalEnemies/skeleton_minion.tscn")
-const SKELETON_ROGUE = preload("res://Enemies/NormalEnemies/skeleton_rogue.tscn")
-const SKELETON_WARRIOR = preload("res://Enemies/NormalEnemies/skeleton_warrior.tscn")
+const ENEMY_ROGUE = preload("res://Enemies/NormalEnemies/enemy_rogue.tscn")
+const ENEMY_MAGE = preload("res://Enemies/NormalEnemies/enemy_mage.tscn")
+const ENEMY_MINION = preload("res://Enemies/NormalEnemies/enemy_minion.tscn")
+const ENEMY_WARRIOR = preload("res://Enemies/NormalEnemies/enemy_warrior.tscn")
+ 
 #const tamanoPoblacion = 50
 #const rateElitism = 0.05
 #const rateMutation = 0.005 #0.0005
@@ -105,10 +105,10 @@ func chunks_creation(chunks_selected ,grid : GridMap):
 	var enemy2 = grid.get_used_cells_by_id(2)
 	var enemy3 = grid.get_used_cells_by_id(3)
 	var enemy4 = grid.get_used_cells_by_id(4)
-	grid.basicTileReplace(enemy1, SKELETON_MAGE)
-	grid.basicTileReplace(enemy2, SKELETON_MINION)
-	grid.basicTileReplace(enemy3, SKELETON_ROGUE)
-	grid.basicTileReplace(enemy4, SKELETON_WARRIOR)
+	grid.basicTileReplace(enemy1, ENEMY_MAGE)
+	grid.basicTileReplace(enemy2, ENEMY_MINION)
+	grid.basicTileReplace(enemy3, ENEMY_ROGUE)
+	grid.basicTileReplace(enemy4, ENEMY_WARRIOR)
 
 func cellCreation(c : Chunk, cNumber: int, grid : GridMap):
 	for i in range(0,GCporChunk):

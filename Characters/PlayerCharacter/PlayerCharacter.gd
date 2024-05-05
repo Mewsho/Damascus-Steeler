@@ -10,7 +10,9 @@ var y_velo = 0
 const BULLET = preload("res://Guns/bullet.tscn")
 # Instanciacion de la bala
 var instance 
-# Cargar el ataque especial al pj
+# Instanciar el ataque especial al pj
+var instancesp
+#Cargar el ataque especial al pj
 const SPECIAL = preload("res://Guns/special.tscn")
 # Cantidad de mana 
 var mana = 100
@@ -95,10 +97,10 @@ func _physics_process(delta):
 	# Solucion al problema del spam continuo de disparos
 		if !gun_animation_player.is_playing():
 			gun_animation_player.play("Shoot")
-			instance = SPECIAL.instantiate()
-			instance.position = gun_ray_cast_3d.global_position
-			instance.transform.basis = gun_ray_cast_3d.global_transform.basis
-			get_parent().add_child(instance)
+			instancesp = SPECIAL.instantiate()
+			instancesp.position = gun_ray_cast_3d.global_position
+			instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+			get_parent().add_child(instancesp)
 	# Amalgamacion para disparar en direcciones del Metal Slug
 	if input.is_action_pressed("move_down") && !is_on_floor():
 		gun.rotation.z = -1.5

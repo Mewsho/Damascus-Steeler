@@ -84,7 +84,7 @@ func spawn_player(player: int, player_node):
 	add_child(player_node)
 	
 	# random spawn position
-	player_node.position = Vector3(randf_range(4, 6), randf_range(4, 6),7)
+	player_node.position = Vector3(randf_range(4, 6), randf_range(10, 14),1)
 	
 func delete_player(player: int):
 	var current_scene = scene_node_container.get_child(0)

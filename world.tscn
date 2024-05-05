@@ -59,4 +59,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35142, 9.31951, 0.89633)
 
 [node name="PCGCode" type="Node" parent="."]
 script = ExtResource("5_rxltn")
-maxGen = 25
+maxGen = 5
