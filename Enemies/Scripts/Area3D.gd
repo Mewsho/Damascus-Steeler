@@ -13,5 +13,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func hit():
+func hit(damage):
 	emit_signal("body_part_hit", damage)

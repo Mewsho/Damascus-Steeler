@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://g28pkrumutin"]
+
+[ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_minion.gd" id="1_b51ai"]
+[ext_resource type="PackedScene" uid="uid://b1d7kgh26u33t" path="res://Enemies/NormalEnemies/skeleton_minion.tscn" id="1_pcye2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4eop"]
+
+[node name="EnemyMinion" type="CharacterBody3D"]
+script = ExtResource("1_b51ai")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l4eop")
+
+[node name="Skeleton_Minion" parent="." instance=ExtResource("1_pcye2")]
+
+[node name="Skeleton_Rogue_Hood" parent="Skeleton_Minion/Rig/Skeleton3D" index="0"]
+visible = false
+
+[editable path="Skeleton_Minion"]
