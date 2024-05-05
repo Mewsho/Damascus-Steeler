@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://2g1atrxcpa2s"
-path="res://.godot/imported/Robot.glb-a09728034c4f52156b1caffbc171dffa.scn"
+path="res://.godot/imported/Robot.glb-31fbb99581f5e935e93aaebad0604df5.scn"
 
 [deps]
 
-source_file="res://MishoCosas/Characters/Robot.glb"
-dest_files=["res://.godot/imported/Robot.glb-a09728034c4f52156b1caffbc171dffa.scn"]
+source_file="res://Characters/Robot.glb"
+dest_files=["res://.godot/imported/Robot.glb-31fbb99581f5e935e93aaebad0604df5.scn"]
 
 [params]
 

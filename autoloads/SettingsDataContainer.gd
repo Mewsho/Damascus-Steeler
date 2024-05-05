@@ -1,9 +1,18 @@
 extends Node
 #Los autoloads nos permiten comunicar y guardar cosas, en este caso las opciones
 
+## Autoload encargado de contener toda la informacion que se modifica en el menu de opciones
+## Ademas se conecta con las multiples señales del Settings SignalBus para conectarse con el resto del codigo
+##
+## TASK Si se agregan mas opciones es necesario modificar esto
+## WARNING Las opciones relacionadas a las keybind es posible que no funcione del todo bien por el uso de multiplayer
+## TASK Ademas, no se han agregado nuevas keybinds desde hace rato
+
+## DEFAULTS
 @onready var DEFAULT_SETTINGS : DefaultSettingsResource = preload("res://resources/settings/DefaultSettings.tres")
 @onready var keybind_resource : PlayerKeybindResource = preload("res://resources/settings/PlayerKeybindDefault.tres")
 
+## Variables conectadas a las opciones
 var window_mode_index : int = 0
 var resolution_index : int = 0
 var master_volume :float = 0.0
@@ -14,11 +23,12 @@ var subtitles_set : bool = false
 
 var loaded_data : Dictionary = {}
 
-# Called when the node enters the scene tree for the first time.
+# Llama a manejarSeñales
 func _ready():
 	manejarSeñales()
 
-
+## Funcion que crea el diccionario de la informacion de opciones para guardarla, usa lo valores del script de cada
+## atributo del menu de opciones, al final retorna ese diccionario
 func create_storage_dictionary() -> Dictionary:
 	var graphics_settings_dict : Dictionary = {
 		"window_mode_index" : window_mode_index,
@@ -33,13 +43,6 @@ func create_storage_dictionary() -> Dictionary:
 	var accesibility_settings_dict : Dictionary = {
 		"subtitles_set" : subtitles_set
 	}
-	#var hotkey_dict : Dictionary = {
-		#"move_left" : InputMap.action_get_events("move_left"),
-		#"move_right" : InputMap.action_get_events("move_rigt"),
-		#"jump" : InputMap.action_get_events("jump"),
-		#"move_forward" : InputMap.action_get_events("move_forward"),
-		#"move_backward" : InputMap.action_get_events("move_backward")
-	#}
 
 	var settings_container_dict : Dictionary = {
 		"graphics_settings_dict" : graphics_settings_dict,
@@ -50,7 +53,10 @@ func create_storage_dictionary() -> Dictionary:
 	
 	return settings_container_dict
 
-
+##Funcion auxiliar de la anterior, crea el diccionario de keybinds para guardar la informacion,
+## por ultimo retorna el diccionario. Se comuna con el keybind_resource, donde se guarda la informacion
+## de las keybinds
+## TASK Agregar keybinds nuevas
 func create_keybind_dictionary() -> Dictionary:
 	var keybinds_container_dict = {
 		keybind_resource.MOVE_LEFT : keybind_resource.move_left_key,
@@ -63,6 +69,9 @@ func create_keybind_dictionary() -> Dictionary:
 	
 	return keybinds_container_dict
 
+## Funciones "get" de los atributos del script, todas revisan si hay datos que cargar, si no lo hay
+## usan los defaults
+#region Funciones get
 func get_window_mode_index()->int:
 	if loaded_data == {}:
 		return DEFAULT_SETTINGS.DEFAULT_WINDOW_MODE_INDEX
@@ -123,10 +132,10 @@ func get_keybind(action : String):
 				return keybind_resource.jump_key
 			keybind_resource.PAUSE:
 				return keybind_resource.pause_key
+#endregion
 
-
-	
-	
+## Funciones "set" o "on" como estan planteadas, modifican el valor de los atributos segun lo que reciben
+#region Funciones set/on
 func on_window_mode_selected(index : int):
 	window_mode_index = index
 func on_resolution_selected(index : int):
@@ -144,22 +153,8 @@ func on_ui_sound_set(value: float):
 func on_subtitles_toggled(value: bool):
 	subtitles_set = value
 
-
-func set_keybind(action :String, event) -> void:
-	match action:
-		keybind_resource.MOVE_LEFT:
-			keybind_resource.move_left_key = event
-		keybind_resource.MOVE_RIGHT:
-			keybind_resource.move_right_key = event
-		keybind_resource.MOVE_FORWARD:
-			keybind_resource.move_forward_key = event
-		keybind_resource.MOVE_BACKWARD:
-			keybind_resource.move_backward_key = event
-		keybind_resource.JUMP:
-			keybind_resource.jump_key = event
-		keybind_resource.PAUSE:
-			keybind_resource.pause_key = event
-
+## Funcion set/on de los keybinds, es mas grande debido a que son datos mas complejos
+## Guarda la informacion en el recurso de keybinds
 func on_keybinds_loaded(data : Dictionary) -> void:
 	var loaded_move_left = InputEventKey.new()
 	var loaded_move_right = InputEventKey.new()
@@ -181,8 +176,9 @@ func on_keybinds_loaded(data : Dictionary) -> void:
 	keybind_resource.move_backward_key = loaded_move_backward
 	keybind_resource.jump_key = loaded_jump
 	keybind_resource.pause_key = loaded_pause
-	
 
+## Funcion usada cuando se carga informacion guardada, llama a todas las funciones anteriores
+## usando la informacion cargada
 func on_settings_data_loaded(data : Dictionary) -> void:
 	loaded_data = data
 	on_window_mode_selected(loaded_data.graphics_settings_dict.window_mode_index)
@@ -193,7 +189,30 @@ func on_settings_data_loaded(data : Dictionary) -> void:
 	on_ui_sound_set(loaded_data.volume_settings_dict.ui_volume)
 	on_subtitles_toggled(loaded_data.accesibility_settings_dict.subtitles_set)
 	on_keybinds_loaded(loaded_data.keybinds)
+	
+#endregion
 
+## Esta funcion recibe una accion que modificar y el input que se le asignara
+## TASK Agregar las keybinds nuevas
+## Es usado principalmente por el menu de opciones, cuando modificas el valor
+func set_keybind(action :String, event) -> void:
+	match action:
+		keybind_resource.MOVE_LEFT:
+			keybind_resource.move_left_key = event
+		keybind_resource.MOVE_RIGHT:
+			keybind_resource.move_right_key = event
+		keybind_resource.MOVE_FORWARD:
+			keybind_resource.move_forward_key = event
+		keybind_resource.MOVE_BACKWARD:
+			keybind_resource.move_backward_key = event
+		keybind_resource.JUMP:
+			keybind_resource.jump_key = event
+		keybind_resource.PAUSE:
+			keybind_resource.pause_key = event
+
+
+## Funcion que conecta las señales que emite el SettingsSignalBus con las funciones "on" de este script
+## para que se ejecuten cuando se emita la señal
 func manejarSeñales() -> void:
 	SettingsSignalBus.on_window_mode_selected.connect(on_window_mode_selected)
 	SettingsSignalBus.on_resolution_selected.connect(on_resolution_selected)
