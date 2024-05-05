@@ -28,7 +28,7 @@ func _process(_delta):
 	## Constantemente revisa si alguien se quiere unir o salir
 	PlayerManager.handle_join_input()
 	PlayerManager.handle_leave_input()
-	print(PlayerManager.player_data)
+	#print(PlayerManager.player_data)
 	
 ## Funcion que ve que hacer cuando se une un jugador, dependiendo si es un menu o un nivel
 func handle_player_join(player: int):
@@ -88,6 +88,7 @@ func on_player_leave(player: int):
 	
 ## Funcion de cambio de escena, es la funcion que llaman el resto de escenas para cambiar la escena actual
 func switch_scene(scene_path: String,level=-1):
+	var ini = Time.get_ticks_msec()
 	var current_scenes = scene_node_container.get_children()
 	var scene_count: int = current_scenes.size() # Se obtiene la cantidad de hijos del scene container
 	
@@ -108,3 +109,5 @@ func switch_scene(scene_path: String,level=-1):
 	for player in range(PlayerManager.get_player_count()):
 		handle_player_join(player)
 	
+	var fin = Time.get_ticks_msec()
+	print("Tiempo cambio de scena: ", fin-ini, "milisegundos")

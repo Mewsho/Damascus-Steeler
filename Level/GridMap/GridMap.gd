@@ -17,6 +17,7 @@ func get_used_cells_by_id(id: int): # Viaja a traves de las celdas usadas buscan
 ## avanza en ese arreglo y en cada uno de ellos llama a la funcion newObject
 func basicTileReplace(cellArr : Array, inst):#Viaja en los placeholder, e invoca newObject en cada uno
 	var cellPos = Vector3()
+	var size = cellArr.size()
 	for i in cellArr:
 		var newObject = newObject(i, cellPos, inst)
 	#Genera la instancia del objeto

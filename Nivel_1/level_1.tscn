@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://15n5mtnevnxb"]
 
 [ext_resource type="MeshLibrary" uid="uid://cn72lmq33t21q" path="res://UnusedOrPrevThings/TilesetPrev/Cubo.tres" id="1_28mpp"]
-[ext_resource type="PackedScene" uid="uid://da3flwiayxm0e" path="res://Characters/Player.tscn" id="2_yre27"]
+[ext_resource type="PackedScene" uid="uid://da3flwiayxm0e" path="res://Characters/Unused/Player.tscn" id="2_yre27"]
 [ext_resource type="PackedScene" uid="uid://klogvtyrea31" path="res://Enemies/Enemy1.tscn" id="3_bt7pd"]
 [ext_resource type="PackedScene" uid="uid://5h6uouxyyc4f" path="res://Characters/PlayerCharacter/PlayerCharacter.tscn" id="4_iy7bv"]
+
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ltxdn"]
 

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Nerf Gun
+* source:	https://sketchfab.com/3d-models/nerf-gun-ba0ad4ac188147548e1574c7fe4ea87b
+* author:	Paulo.liv (https://sketchfab.com/Reivilodius)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Nerf Gun" (https://sketchfab.com/3d-models/nerf-gun-ba0ad4ac188147548e1574c7fe4ea87b) by Paulo.liv (https://sketchfab.com/Reivilodius) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

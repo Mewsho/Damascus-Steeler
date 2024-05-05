@@ -6,7 +6,7 @@ extends Node
 
 ## Especificamente, el algoritmo crea objetos chunks y gccolumns que evalua y combina por multiples generaciones,
 ## para generar una poblacion donde se elije el mejor para crear en el mundo
-
+## TASK WARNING DANGER HAY QUE AGREGAR LIBERACION DE MEMORIA RAM, EN TAMAÑOS GRANDES SE MANTIENEN EN RAM LOS CHUNKS ANTERIORES
 # Se precargan las escenas de los enemigos que se usaran para poner enemigos
 const ENEMY_ROGUE = preload("res://Enemies/NormalEnemies/enemy_rogue.tscn")
 const ENEMY_MAGE = preload("res://Enemies/NormalEnemies/enemy_mage.tscn")
@@ -23,14 +23,14 @@ const ENEMY_WARRIOR = preload("res://Enemies/NormalEnemies/enemy_warrior.tscn")
 #const maxGen = 75
 ## Region de datos y valores iniciales, algunos son export para facilitar el cambio
 #region Datos
-@export var tamanoPoblacion : int = 50
+@export var tamanoPoblacion : int = 25
 @export var rateElitism : float = 0.05
-@export var tamanoElite = int(max(1,round(tamanoPoblacion*rateElitism)))
-@export var tamanoDescendencia : int = tamanoPoblacion-tamanoElite
+var tamanoElite = int(max(1,round(tamanoPoblacion*rateElitism)))
+var tamanoDescendencia : int = tamanoPoblacion-tamanoElite
 @export var rateMutation = 0.005
 @export var GCporChunk : int = 16
 @export var FilasporGC :int = 8
-@export var maxGen : int = 75
+@export var maxGen : int = 50
 #Los principales factores de rendimiento son maxgen y tamanopoblacion
 var iGen = 0
 var enemySpawn = 1.0
@@ -103,6 +103,7 @@ func PCG_General():
 		Chunks_Elegidos.append(chunk_elegido)
 		#chunkElegido.gcs[0].alturaTile = alturaAnterior #DEPRECATED Asegurando que se conecten
 		print("Current Fitness: ", chunk_elegido.fitness)
+		print("Altura inicial elegido: ", chunk_elegido.get_altura_inicial())
 		print("Altura Anterior:", altura_anterior)
 		print("Chunk cargado = ", chunkCargado)
 		chunkCargado +=1
@@ -115,7 +116,7 @@ func PCG_General():
 func chunks_creation(chunks_selected ,grid : GridMap):
 	#Genera un plataforma previa a la generación en si
 	var altura_inicial = chunks_selected[0].get_altura_inicial()
-	for i in range(0,4):
+	for i in range(-5,4):
 		var altura = altura_inicial
 		while altura != 0:
 			grid.set_cell_item(Vector3i(i,altura,0),0)
@@ -363,7 +364,7 @@ func seleccionParientesCrossover(p : Array):
 				r1 -=1
 			else:
 				r1+=1
-		l = p[r1] 
+		l = p[r1]  
 		r = p[r2]
 		descendencia.append(crossover(l,r)) # Llama a crossover y agrega lo resultante a una lista
 		#datos(descendencia[i])
