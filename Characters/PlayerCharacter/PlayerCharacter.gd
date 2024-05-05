@@ -6,14 +6,15 @@ const JUMP_VELOCITY = 12.5
 # Gravedad del socio
 var gravity = 26.2
 var y_velo = 0
-# Variable con la bala
-const BULLET = preload("res://Guns/bullet.tscn")
+
 # Instanciacion de la bala
 var instance 
 # Instanciar el ataque especial al pj
 var instancesp
 #Cargar el ataque especial al pj
-const SPECIAL = preload("res://Guns/special.tscn")
+const SPECIAL = preload("res://Characters/Guns/special.tscn")
+# Variable con la bala
+const BULLET = preload("res://Characters/Guns/bullet.tscn")
 # Cantidad de mana 
 var mana = 100
 # Regeneracion de mana por dificultad de juego

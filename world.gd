@@ -5,18 +5,19 @@ extends Node3D
 ## Cargar los elementos a usar
 @onready var grid_map = $GridMap as GridMap
 @onready var pause_menu = $PauseMenu as PauseMenu
-var paused : bool = false
-var pj = load("res://Level/CharacterSelection/mage.tscn") as PackedScene
 @onready var player_position = $PlayerPosition as Marker3D
 @onready var core = get_tree().get_root().get_node("Core") as Node
 @onready var pcg_code = $PCGCode as PCGCode
-
+var paused : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var ini = Time.get_ticks_msec()
 	pcg_code.PCG_General() ## Invoca a la generacion procedural
 	var chunks = pcg_code.get_chunk_elegidos() ## Guarda los chunks elegidos
 	pcg_code.chunks_creation(chunks,grid_map) ## Los dibuja en el mundo
-
+	var fin = Time.get_ticks_msec()
+	print("Tiempo ejecucion pst pcg chunk creation:", fin-ini)
+	
 func _process(delta):
 	## Revisa constantemente si alguien quiere pausar
 	for player in range(PlayerManager.get_player_count()):

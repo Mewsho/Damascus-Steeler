@@ -18,7 +18,7 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.989008, 0)
 shape = SubResource("CapsuleShape3D_iyt7g")
 
 [node name="Camera_controller" parent="." instance=ExtResource("2_2r7ub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534622, 3.12543, 0.566811)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534622, 7.19159, 0.566811)
 
 [node name="Camera3D" parent="Camera_controller/Camera_target" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.990885, -0.134713, 0, 0.134713, 0.990885, 0.137051, -1.10393, 9.74168)

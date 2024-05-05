@@ -1,8 +1,9 @@
-res://Guns
+res://Characters/Guns
+res://Characters/PlayerCharacter
+D:/Godot
 res://Enemies/NormalEnemies
 res://Level/GridMap
 res://Level/CharacterSelection
-res://Characters/PlayerCharacter
 res://autoloads
 C:/Users/Francisco/Documents/Testeo Proyecto
 res://Menu

@@ -1,7 +1,7 @@
 extends Node
 
 
-const Enemigo = preload("res://enemigo.tscn") # Se precargan los objetos que se usaran para reemplazar
+
 const tamanoPoblacion = 10
 const rateElitism = 0.05
 const rateMutation = 0.0005
@@ -93,7 +93,7 @@ func _ready():
 	
 
 	var enemies = $GridMap.get_used_cells_by_id(1)
-	$GridMap.basicTileReplace(enemies, Enemigo)
+	#$GridMap.basicTileReplace(enemies, Enemigo)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
