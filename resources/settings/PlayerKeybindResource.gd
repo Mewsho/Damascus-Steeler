@@ -1,6 +1,8 @@
 class_name PlayerKeybindResource
 extends Resource
 
+## Recurso donde se almacenan los controles del usuario y sus predeterminados
+
 const MOVE_LEFT : String = "move_left"
 const MOVE_RIGHT : String = "move_right"
 const MOVE_FORWARD : String = "move_forward"

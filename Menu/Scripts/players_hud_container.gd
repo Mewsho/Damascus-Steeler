@@ -1,5 +1,9 @@
 class_name PlayerHudContainer
 extends HBoxContainer
+
+## Script de un elemento del hud que muestra los jugadores que se han unido con un icono
+
+## Cargar elementos a usar
 @onready var player_0 = $VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Player0 as TextureRect
 @onready var player_1 = $VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Player1 as TextureRect
 @onready var player_2 = $VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Player2 as TextureRect
@@ -8,6 +12,7 @@ extends HBoxContainer
 @onready var player_5 = $VBoxContainer/MarginContainer/MarginContainer/HBoxContainer/Player5 as TextureRect
 
 
+## Funcion que muestra el icono del player que recibe
 func toggle_player_icon(player:int):
 	match player:
 		0:
@@ -22,6 +27,7 @@ func toggle_player_icon(player:int):
 			keyboard_separator.show()
 			player_5.show()
 
+## Funcion que oculta el icono del jugador que recibe
 func untoggle_player_icon(player:int):
 	match player:
 		0:
