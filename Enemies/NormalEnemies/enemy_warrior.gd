@@ -28,7 +28,7 @@ func _ready():
 	
 	
 func _on_area_3d_body_part_hit(dam):
-	enemy_life -= dam/2
+	enemy_life -= max(dam/2,1)
 	if enemy_life <= 0:
 		queue_free()
 	

@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
 folder_colors={
 "res://Assets/": "yellow",
 "res://Characters/": "orange",
+"res://Characters/Unused/": "gray",
 "res://Level/": "red",
 "res://Menu/": "green",
 "res://MishoCosas/": "purple",
