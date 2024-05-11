@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1vpwd"]
 
 [node name="EnemyWarrior" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_viu24")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -14,7 +16,12 @@ shape = SubResource("CapsuleShape3D_1vpwd")
 
 [node name="Skeleton_Warrior" parent="." instance=ExtResource("1_nwvor")]
 
+[node name="Skeleton_Warrior_Helmet" parent="Skeleton_Warrior/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.99972, -1.40145e-09, 0.0236468, 1.39343e-09, 1, 3.55687e-10, -0.0236468, -3.22638e-10, 0.99972, -7.48338e-09, 1.20227, -1.35927e-07)
+
 [node name="Area3D" parent="Skeleton_Warrior" index="2"]
 transform = Transform3D(1.58, 0, 0, 0, 1.58, 0, 0, 0, 1.58, 0, 1.0758, 0)
+collision_layer = 7
 
 [editable path="Skeleton_Warrior"]
+[editable path="Skeleton_Warrior/Area3D"]

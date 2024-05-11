@@ -8,6 +8,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iyt7g"]
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_485if")
 
 [node name="Mage" parent="." instance=ExtResource("1_lx5eq")]
@@ -26,11 +28,15 @@ transform = Transform3D(1, 0, 0, 0, 0.990885, -0.134713, 0, 0.134713, 0.990885, 
 [node name="Gun" parent="." instance=ExtResource("3_p321f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495131, 1.03348, 0.265625)
 
-[node name="Pistola" parent="Gun" index="1"]
-transform = Transform3D(-0.0430681, 0, 0, 0, 0.046383, 0, 0, 0, 0.0582918, -0.359053, -0.13804, -0.00639677)
+[node name="RayCast3D" parent="Gun" index="0"]
+collision_mask = 5
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.066
 
+[node name="PetFollowPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45144, 0, 0)
+
 [editable path="Camera_controller"]
 [editable path="Gun"]
+[editable path="Gun/Pistola"]

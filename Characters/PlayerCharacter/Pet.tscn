@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://oknnxy1kt7km"]
+
+[ext_resource type="Script" path="res://Characters/PlayerCharacter/Pet.gd" id="1_x8gia"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_38n03"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8q44d"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0.6, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sbidn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xufk"]
+
+[sub_resource type="Animation" id="Animation_125cs"]
+resource_name = "Attack"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 2, 0, 0, 0.9, 1, 0, 0, 0)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rig/MeshInstance3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1.2, 0.4, 1, 0.3, 1, 0.8, 1.4, 1, 0.4, 1, 1, 1.2, 1, 0.7, 1, 1, 0.8, 1, 1, 1, 1, 1, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Rig/MeshInstance3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, -0.5, 0, 0, 0.3, 1, 0.7, 0, 0, 0.9, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_fi784"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77neh"]
+_data = {
+"Attack": SubResource("Animation_125cs"),
+"RESET": SubResource("Animation_fi784")
+}
+
+[node name="Pet" type="CharacterBody3D" groups=["pet"]]
+collision_layer = 8
+script = ExtResource("1_x8gia")
+
+[node name="Rig" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rig"]
+mesh = SubResource("SphereMesh_38n03")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8q44d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sbidn")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 4.8, 0, 0, 0, 2, 1.52652, 0, 0)
+shape = SubResource("BoxShape3D_1xufk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_77neh")
+}
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

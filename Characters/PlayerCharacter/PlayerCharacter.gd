@@ -13,26 +13,32 @@ var instance
 var instancesp
 #Cargar el ataque especial al pj
 const SPECIAL = preload("res://Characters/Guns/special.tscn")
-# Variable con la bala
 const BULLET = preload("res://Characters/Guns/bullet.tscn")
+const PET = preload("res://Characters/PlayerCharacter/Pet.tscn")
 # Cantidad de mana 
-var mana = 100
+var mana = 100 : set = _set_mana
 # Regeneracion de mana por dificultad de juego
 var mana_regen_rate = 1 
 # variable por mientras de dificultad ( 0 extremo , 10 dificil, 25 normal, 50 facil,
 var difficulty_level = 50
 const DeviceInput = preload("res://addons/multiplayer_input/device_input.gd")
-signal leave
 
+signal leave
+signal mana_change(n_player, amount)
+
+@onready var pet_follow_point = $PetFollowPoint as Marker3D
 @onready var gun = $Gun
-@onready var gun_ray_cast_3d = $Gun/RayCast3D
-@onready var gun_animation_player = $Gun/Pistola/AnimationPlayer
+@onready var gun_ray_cast_3d = $Gun/RayCast3D as RayCast3D
+@onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
 @onready var camera_controller = $Camera_controller
+@onready var player_node_container = get_parent()
 
 
 var player: int
 var input : DeviceInput
 var device 
+var player_class : String = "Mage"
+var pet_number = 0
 
 # call this function when yspawning this player to set up the input object based on the device
 func init(player_num: int):
@@ -42,7 +48,13 @@ func init(player_num: int):
 	
 
 func _ready():
-	pass
+	connect
+	
+func set_player_class(name : String):
+	self.player_class = name
+	
+func get_player_class()-> String:
+	return self.player_class
 	
 func _physics_process(delta):
 	# Make Cam follow this mf | La funcion lerp sirve para darle un poco de smoothing para que no se vea tan choppi |
@@ -52,6 +64,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if player_class == "Ranger":
+		var pet_counter
 	
 	var input_dir = input.get_vector("move_left", "move_right", "move_down","move_up")
 	var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
@@ -95,13 +110,8 @@ func _physics_process(delta):
 			get_parent().add_child(instance)
 	
 	if input.is_action_just_pressed("special"):
-	# Solucion al problema del spam continuo de disparos
-		if !gun_animation_player.is_playing():
-			gun_animation_player.play("Shoot")
-			instancesp = SPECIAL.instantiate()
-			instancesp.position = gun_ray_cast_3d.global_position
-			instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
-			get_parent().add_child(instancesp)
+		handle_special(player_class)
+		
 	# Amalgamacion para disparar en direcciones del Metal Slug
 	if input.is_action_pressed("move_down") && !is_on_floor():
 		gun.rotation.z = -1.5
@@ -121,10 +131,64 @@ func _physics_process(delta):
 		gun.rotation.z = 0
 	# Existen formas mas eficintes lo se
 	
-	if input.is_action_just_pressed("special") && mana > 20:
-		mana -= 20
-		print(mana)
+	if mana < 60:
+		mana += 0.1
+	
+	
+func handle_special(p_class : String):
+	if mana < 20:
+		return
+	var class_special = p_class
+	match class_special:
+		"Mage":
+			mage_special()
+		"Knight":
+			knight_special()
+		"Barbarian":
+			barbarian_special()
+		"Ranger":
+			ranger_special()
 
-	if mana <40:
-		mana += mana_regen_rate * difficulty_level
 		
+		
+func mage_special():
+	if !gun_animation_player.is_playing():
+			gun_animation_player.play("Shoot")
+			instancesp = SPECIAL.instantiate()
+			instancesp.position = gun_ray_cast_3d.global_position
+			instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+			get_parent().add_child(instancesp)
+			mana = mana - 20
+
+func knight_special():
+	if !gun_animation_player.is_playing():
+		gun_animation_player.play("Shoot")
+		instancesp = SPECIAL.instantiate()
+		instancesp.position = gun_ray_cast_3d.global_position
+		instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+		get_parent().add_child(instancesp)
+		mana -= 20
+
+func barbarian_special():
+	if !gun_animation_player.is_playing():
+		gun_animation_player.play("Shoot")
+		instancesp = SPECIAL.instantiate()
+		instancesp.position = gun_ray_cast_3d.global_position
+		instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+		get_parent().add_child(instancesp)
+		mana = mana - 20
+
+func ranger_special():
+	var pet_instance = PET.instantiate()
+	pet_instance.global_position = pet_follow_point.global_position
+	pet_instance.player_id = player
+	pet_instance.name = str("Pet",pet_number)
+	#pet_instance.pet_offset = pet_number
+	get_parent().add_child(pet_instance) 
+	pet_number+=1
+	mana = mana - 40
+
+func _set_mana(_mana):
+	var previus_mana = mana
+	mana = _mana
+	emit_signal("mana_change",player, mana)

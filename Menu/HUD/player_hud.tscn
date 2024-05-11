@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm3inftubtnc1"]
+
+[ext_resource type="Script" path="res://Menu/HUD/player_hud.gd" id="1_2urxf"]
+[ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_p7b8i"]
+[ext_resource type="Texture2D" uid="uid://w3vir2ygmso3" path="res://Menu/HUD/CharactersIcons/tile_0087.png" id="2_fa0n6"]
+[ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="3_e5hkq"]
+[ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_pcldv"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_opv61"]
+grow_begin = 30.0
+grow_end = 30.0
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugos4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx75o"]
+bg_color = Color(0, 0.85098, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kre3"]
+bg_color = Color(0.0941176, 0.12549, 0.14902, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aflu"]
+bg_color = Color(0, 0.439216, 0.541176, 1)
+
+[node name="PlayerHUD" type="MarginContainer"]
+offset_right = 304.0
+offset_bottom = 77.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("1_2urxf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="IconContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MageIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+layout_mode = 2
+texture = ExtResource("1_p7b8i")
+expand_mode = 2
+
+[node name="BarbarianIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_fa0n6")
+expand_mode = 2
+
+[node name="KnightIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_e5hkq")
+expand_mode = 2
+
+[node name="RangerIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_pcldv")
+expand_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -12
+theme_override_styles/separator = SubResource("StyleBoxLine_opv61")
+
+[node name="InfoContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="HBoxContainer/InfoContainer"]
+layout_mode = 2
+text = "Jugador 1"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InfoContainer"]
+layout_mode = 2
+
+[node name="ManaBar" type="ProgressBar" parent="HBoxContainer/InfoContainer/MarginContainer"]
+z_index = 1
+custom_minimum_size = Vector2(150, 12)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_ugos4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sx75o")
+value = 60.0
+show_percentage = false
+
+[node name="ManaDelayBar" type="ProgressBar" parent="HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+z_index = -1
+custom_minimum_size = Vector2(150, 12)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3kre3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5aflu")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+wait_time = 0.6
+one_shot = true
+
+[node name="Control2" type="Control" parent="HBoxContainer/InfoContainer"]
+layout_mode = 2
+
+[connection signal="timeout" from="HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer" to="." method="_on_timer_timeout"]

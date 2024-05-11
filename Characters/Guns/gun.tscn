@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqfgai53rrftp"]
+[gd_scene load_steps=4 format=3 uid="uid://bqfgai53rrftp"]
 
-[ext_resource type="Script" path="res://Characters/Guns/gun.gd" id="1_65d7p"]
 [ext_resource type="PackedScene" uid="uid://bvr72d76t4jxr" path="res://Characters/Guns/scene.gltf" id="1_hcfdw"]
 
 [sub_resource type="Animation" id="Animation_hp408"]
@@ -25,7 +24,6 @@ _data = {
 }
 
 [node name="Gun" type="Node3D"]
-script = ExtResource("1_65d7p")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(4.81798e-08, -1.10223, 0, -1.18707, -5.18882e-08, 0, 0, 0, 1.49184, 0.282384, 0.149744, -0.00603056)

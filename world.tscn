@@ -44,6 +44,8 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20714, 0)
 mesh_library = ExtResource("2_1e1fv")
 cell_scale = 2.0
+collision_layer = 7
+collision_mask = 7
 data = {
 "cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436)
 }

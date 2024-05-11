@@ -42,6 +42,7 @@ folder_colors={
 "res://Assets/": "yellow",
 "res://Characters/": "orange",
 "res://Characters/Unused/": "gray",
+"res://Enemies/": "orange",
 "res://Level/": "red",
 "res://Menu/": "green",
 "res://MishoCosas/": "purple",

@@ -6,6 +6,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4eop"]
 
 [node name="EnemyMinion" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_b51ai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -14,7 +16,14 @@ shape = SubResource("CapsuleShape3D_l4eop")
 
 [node name="Skeleton_Minion" parent="." instance=ExtResource("1_pcye2")]
 
+[node name="Area3D" parent="Skeleton_Minion" index="0"]
+collision_layer = 7
+
 [node name="Skeleton_Rogue_Hood" parent="Skeleton_Minion/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.978317, 0.16553, 0.124485, 0.167982, -0.985745, -0.00939308, 0.121155, 0.0301006, -0.992177, 1.89929e-06, 1.20227, -1.82892e-07)
 visible = false
+
+[node name="Skeleton_Rogue_Cape" parent="Skeleton_Minion/Rig/Skeleton3D" index="1"]
+transform = Transform3D(0.996275, 0.0330843, 0.0796368, -2.29741e-07, 0.92348, -0.383647, -0.0862356, 0.382218, 0.92004, -1.91598e-06, 1.20227, 3.08702e-08)
 
 [editable path="Skeleton_Minion"]
