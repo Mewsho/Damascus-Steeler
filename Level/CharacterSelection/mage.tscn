@@ -30758,11 +30758,17 @@ transform = Transform3D(4.37053e-07, -0.149894, 0.988701, 0.999999, -9.21064e-07
 [node name="2H_Staff" parent="Rig/Skeleton3D" index="3"]
 transform = Transform3D(4.37053e-07, -0.149894, 0.988701, 0.999999, -9.21064e-07, -8.64267e-07, 1.3353e-06, 0.988702, 0.149894, -0.491061, 0.64103, 0.106596)
 
+[node name="2H_Staff" parent="Rig/Skeleton3D/2H_Staff" index="0"]
+gi_lightmap_scale = 3
+
 [node name="Mage_Hat" parent="Rig/Skeleton3D" index="4"]
 transform = Transform3D(0.99972, -0.00612025, 0.0228411, 1.39343e-09, 0.965926, 0.258819, -0.0236468, -0.258747, 0.965656, -7.48423e-09, 1.7705, -1.02479e-07)
 
 [node name="Mage_Cape" parent="Rig/Skeleton3D" index="5"]
 transform = Transform3D(0.996275, -5.14962e-09, 0.0862354, 5.13044e-09, 1, 4.44078e-10, -0.0862354, 1.47756e-15, 0.996275, -1.2997e-08, 1.20227, -1.01951e-07)
+
+[node name="Mage_Head" parent="Rig/Skeleton3D" index="9"]
+gi_lightmap_scale = 3
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

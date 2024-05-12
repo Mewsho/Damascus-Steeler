@@ -3,21 +3,20 @@
 [ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_minion.gd" id="1_b51ai"]
 [ext_resource type="PackedScene" uid="uid://b1d7kgh26u33t" path="res://Enemies/NormalEnemies/skeleton_minion.tscn" id="1_pcye2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4eop"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jme0d"]
+size = Vector3(1.34448, 2.16797, 0.920181)
 
 [node name="EnemyMinion" type="CharacterBody3D"]
-collision_layer = 4
-collision_mask = 3
 script = ExtResource("1_b51ai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_l4eop")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128174, 1.0791, -0.000587463)
+shape = SubResource("BoxShape3D_jme0d")
 
 [node name="Skeleton_Minion" parent="." instance=ExtResource("1_pcye2")]
 
 [node name="Area3D" parent="Skeleton_Minion" index="0"]
-collision_layer = 7
+transform = Transform3D(1.38001, 0, 0, 0, 2.2624, 0, 0, 0, 0.990215, 0, 1.11073, 0)
 
 [node name="Skeleton_Rogue_Hood" parent="Skeleton_Minion/Rig/Skeleton3D" index="0"]
 transform = Transform3D(0.978317, 0.16553, 0.124485, 0.167982, -0.985745, -0.00939308, 0.121155, 0.0301006, -0.992177, 1.89929e-06, 1.20227, -1.82892e-07)

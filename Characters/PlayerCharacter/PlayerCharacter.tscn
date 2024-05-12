@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cxvd1nk22r7e" path="res://Characters/PlayerCharacter/camera_controller.tscn" id="2_2r7ub"]
 [ext_resource type="PackedScene" uid="uid://c2hf4qkol6lyl" path="res://Characters/PlayerCharacter/gun.tscn" id="3_p321f"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iyt7g"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rj2a1"]
+size = Vector3(1, 2.05951, 1)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -88,8 +89,8 @@ transform = Transform3D(0.99972, -0.00612025, 0.0228411, 1.39343e-09, 0.965926, 
 transform = Transform3D(0.996275, -5.14962e-09, 0.0862354, 5.13044e-09, 1, 4.44078e-10, -0.0862354, 1.44986e-15, 0.996275, -1.2997e-08, 1.20227, -1.01951e-07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.989008, 0)
-shape = SubResource("CapsuleShape3D_iyt7g")
+transform = Transform3D(0.899022, 0, 0, 0, 1.28711, 0, 0, 0, 1.1, 0, 1.32047, 0)
+shape = SubResource("BoxShape3D_rj2a1")
 
 [node name="Camera_controller" parent="." instance=ExtResource("2_2r7ub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534622, 7.19159, 0.566811)
