@@ -1,7 +1,7 @@
 extends Node3D
 
 # Velocidad de el proyectil
-const SPEED = 10
+const SPEED = 210
 # Import External Meshes
 @onready var mesh = $MeshInstance3D
 @onready var ray = $RayCast3D
