@@ -18,6 +18,10 @@ var player_data: Dictionary = {}
 
 const MAX_PLAYERS = 4 ## Cantidad maxima de jugadores
 
+func _process(delta):
+	pass
+
+
 ## Funcion del plugin original, le asigna un numero al jugador, y agrega la informacion del
 ## dispositivo y clase default, luego emite la señal de que se unio un jugador
 func join(device: int):
@@ -27,7 +31,8 @@ func join(device: int):
 		# "team" and "car" are remnants from my game just to provide an example
 		player_data[player] = {
 			"device": device,
-			"class" : "Mage"
+			"class" : "Mage",
+			"is_preselected" : false
 		}
 		player_joined.emit(player)
 
@@ -45,7 +50,7 @@ func get_player_count():
 func get_player_indexes():
 	return player_data.keys()
 ## Funcion original del plugin, obtiene el device del player que recibe
-func get_player_device(player: int) -> int:
+func get_player_device(player: int):
 	return get_player_data(player, "device")
 
 ## Funcion nueva, obtiene el jugador en base al device que recibe

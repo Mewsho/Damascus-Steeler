@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtsqun1706yk7"]
+
+[ext_resource type="Script" path="res://Menu/HUD/Scripts/character_selection_container.gd" id="1_coix5"]
+[ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_iqfjr"]
+[ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="2_s5s8k"]
+[ext_resource type="Texture2D" uid="uid://w3vir2ygmso3" path="res://Menu/HUD/CharactersIcons/tile_0087.png" id="3_c80b5"]
+[ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_lnpx2"]
+
+[node name="CharacterSelectionContainer" type="MarginContainer"]
+visible = false
+script = ExtResource("1_coix5")
+
+[node name="CharactersButtons" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="MageButton" type="Button" parent="CharactersButtons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_neighbor_left = NodePath("../RangerButton")
+icon = ExtResource("1_iqfjr")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="KnightButton" type="Button" parent="CharactersButtons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+icon = ExtResource("2_s5s8k")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BarbarianButton" type="Button" parent="CharactersButtons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+icon = ExtResource("3_c80b5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="RangerButton" type="Button" parent="CharactersButtons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_neighbor_right = NodePath("../MageButton")
+icon = ExtResource("4_lnpx2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="CharactersButtons/MageButton" to="." method="_on_mage_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/KnightButton" to="." method="_on_knight_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/BarbarianButton" to="." method="_on_barbarian_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/RangerButton" to="." method="_on_ranger_button_pressed"]

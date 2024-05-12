@@ -8,7 +8,7 @@ var player_classes : Dictionary = {
 	"Mage" : load("res://Level/CharacterSelection/mage.tscn"),
 	"Knight" : load("res://Level/CharacterSelection/knight.tscn"),
 	"Barbarian" : load("res://Level/CharacterSelection/barbarian.tscn"),
-	"Rogue" : load("res://Level/CharacterSelection/rogue.tscn")
+	"Ranger" : load("res://Level/CharacterSelection/ranger.tscn")
 }
 
 var player_character : String

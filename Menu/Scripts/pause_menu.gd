@@ -47,6 +47,7 @@ func on_main_menu_pressed():
 func on_exit_options_menu():
 	margin_container.visible = true
 	options_menu.visible = false
+	options_button.grab_focus()
 
 ## Funcion que conecta las señales con las funciones
 func manejarSenales():

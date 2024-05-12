@@ -22,8 +22,9 @@ func _process(delta):
 	## Revisa constantemente si alguien quiere pausar
 	for player in range(PlayerManager.get_player_count()):
 		var device = PlayerManager.get_player_device(player)
-		if MultiplayerInput.is_action_just_pressed(device, "pause"):
-			pause_menu_pressed()
+		if device != null:
+			if MultiplayerInput.is_action_just_pressed(device, "pause"):
+				pause_menu_pressed()
 
 ## Funcion cuando se apreta pause, se muestra el menu de pausa y se para el juego, para mostrar el menu de pausa
 func pause_menu_pressed():

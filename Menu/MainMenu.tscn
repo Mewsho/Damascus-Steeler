@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_4fi5l"]
 [ext_resource type="PackedScene" uid="uid://xqmbygw0vs75" path="res://Menu/OptionsMenu.tscn" id="2_1pl5r"]
 [ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="2_lqmsg"]
-[ext_resource type="AudioStream" uid="uid://ftndj7r410he" path="res://Music/20210720_Death's Door OST - 05 - Lost Cemetery.mp3" id="3_a5yna"]
+[ext_resource type="AudioStream" uid="uid://ftndj7r410he" path="res://Music/20210720_Death_s Door OST - 05 - Lost Cemetery.mp3" id="3_a5yna"]
 [ext_resource type="PackedScene" uid="uid://bke034tyehh1s" path="res://Menu/players_hud_container.tscn" id="3_ckkqy"]
 
 [sub_resource type="SystemFont" id="SystemFont_3axuj"]
