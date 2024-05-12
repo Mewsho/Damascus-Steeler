@@ -1,7 +1,7 @@
 extends CharacterBody3D
-
+var difficulty = 2
 var player = null
-var enemy_life = 2
+var enemy_life = 2 * difficulty
 
 @onready var area_3d = $Skeleton_Mage/Area3D
 

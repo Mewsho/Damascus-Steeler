@@ -34,7 +34,7 @@ mesh = SubResource("BoxMesh_8to4l")
 surface_material_override/0 = SubResource("StandardMaterial3D_i1y8q")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, -0.0232536, 0.00111353)
+transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, 0.448074, 0.00111353)
 collide_with_areas = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
