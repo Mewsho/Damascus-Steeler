@@ -162,6 +162,8 @@ bind/40/pose = Transform3D(-2.84217e-14, 7.5498e-08, -1, -1, 3.78925e-15, 8.5265
 [sub_resource type="BoxShape3D" id="BoxShape3D_diq8c"]
 
 [node name="EnemyMage" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_unnoc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

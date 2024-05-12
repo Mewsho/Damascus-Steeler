@@ -9,6 +9,8 @@
 size = Vector3(1, 2.05951, 1)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_485if")
 
 [node name="Mage" parent="." instance=ExtResource("1_lx5eq")]
