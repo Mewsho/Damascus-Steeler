@@ -49,6 +49,7 @@ func _process(delta):
 	var tween = create_tween()
 	tween.set_parallel(true)
 	
+
 	## Dependiendo del personaje hovereado, se hace una pequeña animacion donde agranda el icono
 	match current_hover:
 		0:
@@ -71,6 +72,7 @@ func _process(delta):
 			tween.tween_property(knight_button, "scale", Vector2(1,1), 0.5)
 			tween.tween_property(barbarian_button, "scale", Vector2(1,1), 0.5)
 			tween.tween_property(ranger_button, "scale", Vector2(1.5,1.5), 0.5)
+
 	
 	## Si se apreta el boton, se emite la señal de presionado
 	if MultiplayerInput.is_action_just_pressed(device, "jump") or MultiplayerInput.is_action_just_pressed(device, "attack"):

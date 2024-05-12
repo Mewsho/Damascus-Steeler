@@ -39,6 +39,7 @@ func handle_player_join(player: int):
 	var player_node = PLAYER_CHARACTER.instantiate()
 	player_nodes[player] = player_node
 	var is_preselected = PlayerManager.get_player_data(player, "is_preselected") #booleano
+	player_node.character_lost_life.connect(on_character_lost_life)
 	
 	#Si esta en un menu, se cambia el hud correspondiente
 	if current_scene.is_in_group("Menus"):
@@ -51,6 +52,12 @@ func handle_player_join(player: int):
 		else:
 			player_character_selection(player,player_node)
 		
+func on_character_lost_life(player):
+	var player_node = player_nodes[player] 
+	player_node_container.remove_child(player_node)
+	#player_node.hide()
+	handle_gameplay_hud(player, false)
+	player_character_selection(player,player_node)
 
 ## Cambia el hud cuando se une o sale un jugador, eliminando o agregando el icono
 func change_player_menu(scene: Control, player: int , toggle : bool):
@@ -87,7 +94,17 @@ func spawn_player(player: int, player_node):
 	var player_class_name = PlayerManager.get_player_data(player, "class")
 	var player_class = PlayerVariables.get_player_classes(player_class_name).instantiate()
 	player_node.set_player_class(player_class_name)
-	var default_mesh = player_node.get_child(0) ## Obtiene el mesh default
+	
+	var default_mesh ## Obtiene el mesh default
+	if player_node.has_node("Mage"):
+		default_mesh = player_node.get_node("Mage")
+	if player_node.has_node("Knight"):
+		default_mesh = player_node.get_node("Knight")
+	if player_node.has_node("Barbarian"):
+		default_mesh = player_node.get_node("Barbarian")
+	if player_node.has_node("Ranger"):
+		default_mesh = player_node.get_node("Ranger")
+	
 	player_node.remove_child(default_mesh) ## Lo elimina
 	default_mesh.queue_free()
 	player_class.rotation.y = 70
@@ -125,7 +142,7 @@ func handle_gameplay_hud(player, toggle: bool):
 	else:
 		gameplay_hud.hide_player_hud(player)
 	
-## Le avisa al playermanager que se fue el jugador, provocando que se ejecute la funcion de arriba y otras cosas
+## Le avisa al playermanager que se fue el jugador, provocando que se ejecute la funcion delete player y otras cosas
 func on_player_leave(player: int):
 	PlayerManager.leave(player)
 	

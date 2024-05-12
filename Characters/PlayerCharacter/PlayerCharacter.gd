@@ -39,18 +39,21 @@ var pet_number = 0
 # PJs Variables
 var mana = 100 : set = _set_mana
 var lifes = 3 : set = _set_lifes
+var animation_player 
 
 signal leave
 signal mana_change(n_player, amount)
 signal lifes_change(n_player, amount)
 signal character_lost_life(n_player)
+signal character_game_over(n_player)
 
 # call this function when yspawning this player to set up the input object based on the device
 func init(player_num: int):
 	player = player_num
 	device = PlayerManager.get_player_device(player)
 	input = DeviceInput.new(device)
-	
+	animation_player = get_node(player_class).get_node("AnimationPlayer") as AnimationPlayer
+	animation_player.animation_finished.connect(on_animation_finished)
 
 func _ready():
 	connect
@@ -210,5 +213,11 @@ func _set_mana(_mana):
 func _set_lifes(n_lifes):
 	var prev_lifes = lifes
 	lifes = max(0,n_lifes)
+	animation_player.play("Death_A")
 	emit_signal("lifes_change",player, lifes)
-	emit_signal("character_lost_life", player)
+	#emit_signal("character_game_over",player)
+	#emit_signal("character_lost_life", player)
+
+func on_animation_finished(anim_name):
+	if anim_name == "Death_A":
+		emit_signal("character_lost_life", player)
