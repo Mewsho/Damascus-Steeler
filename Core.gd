@@ -38,14 +38,19 @@ func handle_player_join(player: int):
 	#PLAYER_CHARACTER.set_script("res://Characters/PlayerCharacter/PlayerCharacter.gd")
 	var player_node = PLAYER_CHARACTER.instantiate()
 	player_nodes[player] = player_node
+	var is_preselected = PlayerManager.get_player_data(player, "is_preselected") #booleano
 	
 	#Si esta en un menu, se cambia el hud correspondiente
 	if current_scene.is_in_group("Menus"):
 		change_player_menu(current_scene, player,true)
 	#Si esta en un nivel, genera al jugador
 	if current_scene.is_in_group("Levels"):
-		spawn_player(player,player_node)
-		handle_gameplay_hud(player, true)
+		if is_preselected: ## Revisa si selecciono o no la clase en character sellection
+			spawn_player(player,player_node)
+			handle_gameplay_hud(player, true)
+		else:
+			player_character_selection(player,player_node)
+		
 
 ## Cambia el hud cuando se une o sale un jugador, eliminando o agregando el icono
 func change_player_menu(scene: Control, player: int , toggle : bool):
@@ -54,7 +59,27 @@ func change_player_menu(scene: Control, player: int , toggle : bool):
 		player_hud.toggle_player_icon(player)
 	else:
 		player_hud.untoggle_player_icon(player)
+
+## Funcion llamada cuando el jugador va a elegir personaje dentro del juego
+## Busca al hud correspondiente, lo inicializa, muestra y conecta la señal con la funcion de seleccion
+func player_character_selection(player, player_node):
+	var character_selection_hud = gameplay_hud.find_child(str("CharacterSelectionContainer",player))
+	character_selection_hud.init(player)
+	character_selection_hud.set_process(true)
+	character_selection_hud.show()
+	character_selection_hud.character_selected.connect(on_character_selected)
+
+## Cuando se selecciona personaje, oculta y para el _process del container
+## Asigna la clase elegida, spawnea al jugador y muestra el hud
+func on_character_selected(player,p_class, character_container):
+	character_container.hide()
+	character_container.set_process(false)
+	PlayerManager.set_player_data(player, "class", p_class)
+	var player_node = player_nodes[player]
+	spawn_player(player, player_node)
+	handle_gameplay_hud(player,true)
 	
+
 ## Funcion que hace aparecer al jugador en el mundo, toma la clase que eligio o tiene asignada,
 ## obtiene el mesh correspondiente y lo genera en el mundo
 func spawn_player(player: int, player_node):
@@ -93,9 +118,10 @@ func handle_gameplay_hud(player, toggle: bool):
 		gameplay_hud.show_player_hud(player)
 		gameplay_hud.set_player_data_hud(player)
 		var player_node = player_nodes[player]
-		var player_hud_container = gameplay_hud.get_child(0)
-		var player_hud = player_hud_container.get_child(player)
+		var hud_container = gameplay_hud.get_child(0)
+		var player_hud = hud_container.find_child(str("PlayerHUD",player))
 		player_node.mana_change.connect(player_hud.change_mana)
+		player_node.lifes_change.connect(player_hud.change_lifes)
 	else:
 		gameplay_hud.hide_player_hud(player)
 	

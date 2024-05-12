@@ -15,16 +15,13 @@ var instancesp
 const SPECIAL = preload("res://Characters/Guns/special.tscn")
 const BULLET = preload("res://Characters/Guns/bullet.tscn")
 const PET = preload("res://Characters/PlayerCharacter/Pet.tscn")
-# Cantidad de mana 
-var mana = 100 : set = _set_mana
 # Regeneracion de mana por dificultad de juego
 var mana_regen_rate = 1 
 # variable por mientras de dificultad ( 0 extremo , 10 dificil, 25 normal, 50 facil,
 var difficulty_level = 50
 const DeviceInput = preload("res://addons/multiplayer_input/device_input.gd")
 
-signal leave
-signal mana_change(n_player, amount)
+
 
 @onready var pet_follow_point = $PetFollowPoint as Marker3D
 @onready var gun = $Gun
@@ -39,6 +36,14 @@ var input : DeviceInput
 var device 
 var player_class : String = "Mage"
 var pet_number = 0
+# PJs Variables
+var mana = 100 : set = _set_mana
+var lifes = 3 : set = _set_lifes
+
+signal leave
+signal mana_change(n_player, amount)
+signal lifes_change(n_player, amount)
+signal character_lost_life(n_player)
 
 # call this function when yspawning this player to set up the input object based on the device
 func init(player_num: int):
@@ -131,6 +136,11 @@ func _physics_process(delta):
 		gun.rotation.z = 0
 	# Existen formas mas eficintes lo se
 	
+	# Test
+	if input.is_action_just_pressed("test_action"):
+		self.lifes -= 1
+	
+	
 	if mana < 60:
 		mana += 0.1
 	
@@ -177,7 +187,8 @@ func barbarian_special():
 		instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
 		get_parent().add_child(instancesp)
 		mana = mana - 20
-
+		
+## Especial del ranger, instancia una mascota y le agrega un nombre unico
 func ranger_special():
 	var pet_instance = PET.instantiate()
 	pet_instance.global_position = pet_follow_point.global_position
@@ -188,7 +199,16 @@ func ranger_special():
 	pet_number+=1
 	mana = mana - 40
 
+
+## Funciones setter del mana y vidas, ambas emiten señales que son recibidas
+## por el core.gd, el que los conecta con elementos del hud
 func _set_mana(_mana):
 	var previus_mana = mana
-	mana = _mana
-	emit_signal("mana_change",player, mana)
+	mana = max(0,_mana)
+	emit_signal("mana_change", player, mana)
+
+func _set_lifes(n_lifes):
+	var prev_lifes = lifes
+	lifes = max(0,n_lifes)
+	emit_signal("lifes_change",player, lifes)
+	emit_signal("character_lost_life", player)

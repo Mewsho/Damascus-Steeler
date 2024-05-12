@@ -1,15 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm3inftubtnc1"]
+[gd_scene load_steps=13 format=3 uid="uid://dm3inftubtnc1"]
 
-[ext_resource type="Script" path="res://Menu/HUD/player_hud.gd" id="1_2urxf"]
+[ext_resource type="Script" path="res://Menu/HUD/Scripts/player_hud.gd" id="1_2umyh"]
 [ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_p7b8i"]
 [ext_resource type="Texture2D" uid="uid://w3vir2ygmso3" path="res://Menu/HUD/CharactersIcons/tile_0087.png" id="2_fa0n6"]
 [ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="3_e5hkq"]
 [ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_pcldv"]
+[ext_resource type="FontFile" uid="uid://d2h5c3d6e3b0c" path="res://Assets/Fonts/PeaberryBase.ttf" id="6_m0icc"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_opv61"]
-grow_begin = 30.0
-grow_end = 30.0
+grow_begin = 25.0
+grow_end = 25.0
 thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hx480"]
+color = Color(1, 1, 1, 1)
 vertical = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugos4"]
@@ -36,7 +41,7 @@ theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
-script = ExtResource("1_2urxf")
+script = ExtResource("1_2umyh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -78,9 +83,58 @@ layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="PlayerLabel" type="Label" parent="HBoxContainer/InfoContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/InfoContainer"]
 layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_m0icc")
+theme_override_font_sizes/font_size = 16
 text = "Jugador 1"
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_hx480")
+
+[node name="LifeIconContainer" type="MarginContainer" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MageIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+layout_mode = 2
+texture = ExtResource("1_p7b8i")
+expand_mode = 2
+
+[node name="BarbarianIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_fa0n6")
+expand_mode = 2
+
+[node name="KnightIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_e5hkq")
+expand_mode = 2
+
+[node name="RangerIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_pcldv")
+expand_mode = 2
+
+[node name="xLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_m0icc")
+text = "x"
+horizontal_alignment = 2
+
+[node name="LifeNumberLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_m0icc")
+text = "3"
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InfoContainer"]
 layout_mode = 2
@@ -111,8 +165,5 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
 wait_time = 0.6
 one_shot = true
-
-[node name="Control2" type="Control" parent="HBoxContainer/InfoContainer"]
-layout_mode = 2
 
 [connection signal="timeout" from="HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer" to="." method="_on_timer_timeout"]

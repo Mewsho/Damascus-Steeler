@@ -5,12 +5,12 @@ extends Node3D
 ## de los jugadores, entre otros 
 
 
-var current_selected_character_name : String
+
 ## Precarga el disco de seleccion 
 var selection_area = preload("res://Level/CharacterSelection/selection_area.tscn") as PackedScene
 ## Variables de los elementos de la escena
 @onready var characters = $Characters as Node
-@onready var character_label = $MarginContainer/VBoxContainer/CharacterLabel as Label
+@onready var player_hud_container = $MarginContainer/VBoxContainer/PlayerHudContainer
 @onready var selection = $MarginContainer/HBoxContainer/VBoxContainer/Selection as Button
 @onready var core = get_tree().get_root().get_node("Core") # INFO Core es el nodo central donde se ejecuta todo
 @onready var ranger = $Characters/Ranger
@@ -109,24 +109,33 @@ func move_node(node, new_parent): # node - the node that you want to move, new_p
 ## del jugador y se hace una animacion
 func select_character(player: int, character_hovered):
 	var character_name = str(characters.get_child(character_hovered).name)
-	character_selected(character_name)
+	character_selected(player, character_name)
 	PlayerManager.set_player_data(player, "class",character_name) # Guarda la informacion
+	var verdadero = true
+	PlayerManager.set_player_data(player, "is_preselected", verdadero) # Define que fue preelegido en esta escena
+	
 	var selected_character = characters.get_child(character_hovered) #Obtiene al pj para animarlo
 	selected_character.get_node("AnimationPlayer").play("Cheer")
 	await selected_character.get_node("AnimationPlayer").animation_finished # Espera a que termine para hacer lo siguiente
 	selected_character.get_node("AnimationPlayer").play("Idle")
 
 ## Funcion que cambia el texto de la parte superior
-## TASK Extender el hud y esto para una mayor cantidad de jugadores
-func character_selected(character_name):
-	current_selected_character_name = character_name
-	character_label.text = current_selected_character_name
+func character_selected(player, character_name):
+	var current_selected_character_name = character_name
+	var current_player = player
+	var target_container = player_hud_container.get_child(player).get_child(0) as VBoxContainer
+	target_container.show()
+	var player_label = target_container.get_child(0) as Label
+	var class_label = target_container.get_child(2) as Label
+	player_label.text = str("Jugador ", current_player+1)
+	class_label.text = current_selected_character_name
+	
 
 ## DEPRECATED ? Funcion que usabamos antes cuando se seleccionaba con el mouse y clickeando start,
 ## Sirve cuando se clickea el boton
 func _on_selection_pressed():
-	if current_selected_character_name:
-		PlayerVariables.set_player_character(current_selected_character_name)
+	#if current_selected_character_name:
+		#PlayerVariables.set_player_character(current_selected_character_name)
 	core.switch_scene("res://world.tscn")
 	
 		

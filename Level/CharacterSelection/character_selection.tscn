@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds4a1iq4nyqoi"]
+[gd_scene load_steps=10 format=3 uid="uid://ds4a1iq4nyqoi"]
 
 [ext_resource type="Script" path="res://Level/CharacterSelection/Scripts/character_selection.gd" id="1_cedm5"]
 [ext_resource type="PackedScene" uid="uid://d2j3rrddgud87" path="res://Level/CharacterSelection/barbarian.tscn" id="2_jsfq4"]
 [ext_resource type="PackedScene" uid="uid://bv4wsqn5unw68" path="res://Level/CharacterSelection/mage.tscn" id="3_y21k7"]
 [ext_resource type="PackedScene" uid="uid://c7h16cwge2g68" path="res://Level/CharacterSelection/knight.tscn" id="4_yqyeu"]
 [ext_resource type="PackedScene" uid="uid://c4b5quejh5oqb" path="res://Level/CharacterSelection/ranger.tscn" id="5_iujpc"]
+[ext_resource type="FontFile" uid="uid://d2h5c3d6e3b0c" path="res://Assets/Fonts/PeaberryBase.ttf" id="6_x4i17"]
 
 [sub_resource type="Environment" id="Environment_85nh2"]
 sdfgi_enabled = true
@@ -13,6 +14,9 @@ volumetric_fog_albedo = Color(0.54902, 0.560784, 0.6, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fpyfv"]
 size = Vector2(10, 10)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_m7q1d"]
+color = Color(1, 1, 1, 1)
 
 [node name="CharacterSelection" type="Node3D"]
 script = ExtResource("1_cedm5")
@@ -143,12 +147,137 @@ theme_override_constants/separation = 32
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CharacterLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 64
 text = "Elige a tu Campeón"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerHudContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Player0Container" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player0Container"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player0Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Jugador 1"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player0Container/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_m7q1d")
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player0Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Mago"
+horizontal_alignment = 1
+
+[node name="Player1Container" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player1Container"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player1Container/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Jugador 1"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player1Container/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_m7q1d")
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player1Container/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Mago"
+horizontal_alignment = 1
+
+[node name="Player2Container" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player2Container"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player2Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Jugador 1"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player2Container/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_m7q1d")
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player2Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Mago"
+horizontal_alignment = 1
+
+[node name="Player3Container" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player3Container"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player3Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Jugador 1"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player3Container/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_m7q1d")
+
+[node name="ClassLabel" type="Label" parent="MarginContainer/VBoxContainer/PlayerHudContainer/Player3Container/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_x4i17")
+theme_override_font_sizes/font_size = 16
+text = "Mago"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2

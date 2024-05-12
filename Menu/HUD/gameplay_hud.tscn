@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://crfsotemq1cp7"]
+[gd_scene load_steps=4 format=3 uid="uid://crfsotemq1cp7"]
 
 [ext_resource type="Script" path="res://Menu/HUD/Scripts/GameplayHUD.gd" id="1_jdi8r"]
 [ext_resource type="PackedScene" uid="uid://dm3inftubtnc1" path="res://Menu/HUD/player_hud.tscn" id="2_aoers"]
+[ext_resource type="PackedScene" uid="uid://dtsqun1706yk7" path="res://Menu/HUD/character_selection_container.tscn" id="3_vx3at"]
 
 [node name="GameplayHUD" type="Control"]
 layout_mode = 3
@@ -14,31 +15,89 @@ size_flags_horizontal = 0
 script = ExtResource("1_jdi8r")
 
 [node name="HudContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 71.0
+offset_bottom = 88.0
 grow_horizontal = 2
 size_flags_horizontal = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 36
+alignment = 1
 
-[node name="PlayerHUD0" parent="HudContainer" instance=ExtResource("2_aoers")]
+[node name="PlayerContainer0" type="MarginContainer" parent="HudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudContainer/PlayerContainer0"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHUD0" parent="HudContainer/PlayerContainer0/VBoxContainer" instance=ExtResource("2_aoers")]
 visible = false
 layout_mode = 2
 
-[node name="PlayerHUD1" parent="HudContainer" instance=ExtResource("2_aoers")]
+[node name="CharacterSelectionContainer0" parent="HudContainer/PlayerContainer0/VBoxContainer" instance=ExtResource("3_vx3at")]
+layout_mode = 2
+
+[node name="PlayerContainer1" type="MarginContainer" parent="HudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudContainer/PlayerContainer1"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHUD1" parent="HudContainer/PlayerContainer1/VBoxContainer" instance=ExtResource("2_aoers")]
 visible = false
 layout_mode = 2
 
-[node name="PlayerHUD2" parent="HudContainer" instance=ExtResource("2_aoers")]
+[node name="CharacterSelectionContainer1" parent="HudContainer/PlayerContainer1/VBoxContainer" instance=ExtResource("3_vx3at")]
+layout_mode = 2
+
+[node name="PlayerContainer2" type="MarginContainer" parent="HudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudContainer/PlayerContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHUD2" parent="HudContainer/PlayerContainer2/VBoxContainer" instance=ExtResource("2_aoers")]
 visible = false
 layout_mode = 2
 
-[node name="PlayerHUD3" parent="HudContainer" instance=ExtResource("2_aoers")]
+[node name="CharacterSelectionContainer2" parent="HudContainer/PlayerContainer2/VBoxContainer" instance=ExtResource("3_vx3at")]
+layout_mode = 2
+
+[node name="PlayerContainer3" type="MarginContainer" parent="HudContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HudContainer/PlayerContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerHUD3" parent="HudContainer/PlayerContainer3/VBoxContainer" instance=ExtResource("2_aoers")]
 visible = false
 layout_mode = 2
 
-[editable path="HudContainer/PlayerHUD0"]
-[editable path="HudContainer/PlayerHUD1"]
-[editable path="HudContainer/PlayerHUD2"]
-[editable path="HudContainer/PlayerHUD3"]
+[node name="CharacterSelectionContainer3" parent="HudContainer/PlayerContainer3/VBoxContainer" instance=ExtResource("3_vx3at")]
+layout_mode = 2
+
+[editable path="HudContainer/PlayerContainer0/VBoxContainer/PlayerHUD0"]
+[editable path="HudContainer/PlayerContainer1/VBoxContainer/PlayerHUD1"]
+[editable path="HudContainer/PlayerContainer2/VBoxContainer/PlayerHUD2"]
+[editable path="HudContainer/PlayerContainer3/VBoxContainer/PlayerHUD3"]
