@@ -126,7 +126,7 @@ func _physics_process(delta):
 	if input.is_action_just_released("move_down"):
 		gun.rotation.z = 0
 	if input.is_action_pressed("move_up"):
-		gun.rotation.z = 1.55
+		gun.rotation.z = 1.5
 	if input.is_action_just_released("move_up"):
 		gun.rotation.z = 0
 	if input.is_action_pressed("move_up") && input.is_action_pressed("move_right") :
