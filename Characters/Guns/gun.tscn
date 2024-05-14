@@ -27,6 +27,7 @@ _data = {
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(4.81798e-08, -1.10223, 0, -1.18707, -5.18882e-08, 0, 0, 0, 1.49184, 0.282384, 0.149744, -0.00603056)
+collision_mask = 5
 
 [node name="Pistola" parent="." instance=ExtResource("1_hcfdw")]
 transform = Transform3D(-0.0430681, 0, 0, 0, 0.046383, 0, 0, 0, 0.0582918, 0.0796101, -0.13804, -0.00639677)

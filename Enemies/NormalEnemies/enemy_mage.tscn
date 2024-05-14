@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pm6j65f0uwmu"]
+[gd_scene load_steps=8 format=3 uid="uid://pm6j65f0uwmu"]
 
 [ext_resource type="PackedScene" uid="uid://ca48sgj52heo5" path="res://Enemies/NormalEnemies/skeleton_mage.tscn" id="1_1aex4"]
 [ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_mage.gd" id="1_unnoc"]
@@ -159,8 +159,6 @@ bind/40/name = &"handIK.r"
 bind/40/bone = -1
 bind/40/pose = Transform3D(-2.84217e-14, 7.5498e-08, -1, -1, 3.78925e-15, 8.52651e-14, 2.14578e-21, 1, 7.5498e-08, 1.32019e-09, -0.713182, -1.10676)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_diq8c"]
-
 [node name="EnemyMage" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 3
@@ -251,13 +249,6 @@ skin = SubResource("Skin_b3eje")
 
 [node name="Area3D" parent="Skeleton_Mage" index="2"]
 transform = Transform3D(1.92501, -0.00023145, 0, 0.000201586, 2.21018, 0, 0, 0, 1.46433, 0, 1.10271, 0)
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.5, 0, 0, 0, 5.45611, 0, 0, 0, 5.11873, 0, 1, 0)
-shape = SubResource("BoxShape3D_diq8c")
+collision_layer = 5
 
 [editable path="Skeleton_Mage"]

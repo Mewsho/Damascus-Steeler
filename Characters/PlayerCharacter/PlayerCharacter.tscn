@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://Characters/PlayerCharacter/PlayerCharacter.gd" id="1_485if"]
 [ext_resource type="PackedScene" uid="uid://bv4wsqn5unw68" path="res://Level/CharacterSelection/mage.tscn" id="1_lx5eq"]
-[ext_resource type="PackedScene" uid="uid://cxvd1nk22r7e" path="res://Characters/PlayerCharacter/camera_controller.tscn" id="2_2r7ub"]
 [ext_resource type="PackedScene" uid="uid://c2hf4qkol6lyl" path="res://Characters/PlayerCharacter/gun.tscn" id="3_p321f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj2a1"]
 size = Vector3(1, 2.05951, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vf3r"]
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -20,12 +21,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(0.899022, 0, 0, 0, 1.28711, 0, 0, 0, 1.1, 0, 1.32047, 0)
 shape = SubResource("BoxShape3D_rj2a1")
 
-[node name="Camera_controller" parent="." instance=ExtResource("2_2r7ub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534622, 7.19159, 0.566811)
-
-[node name="Camera3D" parent="Camera_controller/Camera_target" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.990885, -0.134713, 0, 0.134713, 0.990885, 0.137051, -1.10393, 9.74168)
-
 [node name="Gun" parent="." instance=ExtResource("3_p321f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495131, 1.03348, 0.265625)
 
@@ -35,5 +30,17 @@ transform = Transform3D(-0.0430681, 0, 0, 0, 0.046383, 0, 0, 0, 0.0582918, -0.35
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.066
 
-[editable path="Camera_controller"]
+[node name="PlayerArea3D" type="Area3D" parent="." groups=["player"]]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea3D"]
+transform = Transform3D(1, 0, 0, 0, 2.16568, 0, 0, 0, 1, 0, 1.32112, 0)
+shape = SubResource("BoxShape3D_7vf3r")
+
+[node name="PetFollowPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70518, 1.10854, 0)
+
 [editable path="Gun"]

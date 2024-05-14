@@ -119,9 +119,14 @@ func _physics_process(delta):
 ## Funcion del ataque del jugador, haciendo la animación y el daño
 func pet_attack():
 	print("ataco")
+	print(enemy_target)
 	animation_player.play("Attack")
+	if enemy_target == null:
+		return
 	mesh_instance_3d.get_surface_override_material(0).albedo_color = Color(1,0,0)
 	await animation_player.animation_finished
+	if enemy_target == null or !enemy_target.is_in_group("enemy"):
+		return
 	enemy_target.hit(0.01)
 	await get_tree().create_timer(0.5).timeout
 

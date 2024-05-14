@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ifunr870058x"]
+
+[ext_resource type="Script" path="res://Level/CameraController/CameraController.gd" id="1_w3lq0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q8avl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a8pqo"]
+
+[node name="CameraController" type="Node3D"]
+script = ExtResource("1_w3lq0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996074, 0.0885292, 0, -0.0885292, 0.996074, 0, 5.15415, 19.1955)
+projection = 2
+size = 0.08
+
+[node name="OffsetMarker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12976, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OffsetMarker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+mesh = SubResource("CapsuleMesh_q8avl")
+
+[node name="TestVisual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+mesh = SubResource("BoxMesh_a8pqo")

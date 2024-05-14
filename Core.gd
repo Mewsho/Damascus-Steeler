@@ -40,7 +40,7 @@ func handle_player_join(player: int):
 	player_nodes[player] = player_node
 	var is_preselected = PlayerManager.get_player_data(player, "is_preselected") #booleano
 	player_node.character_lost_life.connect(on_character_lost_life)
-	
+	player_node.character_game_over.connect(on_character_game_over)
 	#Si esta en un menu, se cambia el hud correspondiente
 	if current_scene.is_in_group("Menus"):
 		change_player_menu(current_scene, player,true)
@@ -51,13 +51,20 @@ func handle_player_join(player: int):
 			handle_gameplay_hud(player, true)
 		else:
 			player_character_selection(player,player_node)
-		
+	
+	
 func on_character_lost_life(player):
 	var player_node = player_nodes[player] 
 	player_node_container.remove_child(player_node)
-	#player_node.hide()
 	handle_gameplay_hud(player, false)
 	player_character_selection(player,player_node)
+	## Cuando muera, llama a set player position para mantener cte la posicion, lo mismo abajo
+	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
+	camera_node.set_player_position(player, true)
+
+func on_character_game_over(player):
+	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
+	camera_node.set_player_position(player, true)
 
 ## Cambia el hud cuando se une o sale un jugador, eliminando o agregando el icono
 func change_player_menu(scene: Control, player: int , toggle : bool):
@@ -114,9 +121,15 @@ func spawn_player(player: int, player_node):
 	# let the player know which device controls it
 	var device = PlayerManager.get_player_device(player)
 	player_node.init(player) #Ejecuta la funcion de inicializacion del jugador
+	
+	handle_camera(player_nodes)
+	
+	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
+	var spawn_position_x = camera_node.get_node("OffsetMarker3D").global_position.x
+	
 	player_node_container.add_child(player_node) # Lo agrega a la escena
 	# Spawn
-	player_node.position = Vector3(randf_range(4, 6), randf_range(10, 14),1)
+	player_node.position = Vector3(spawn_position_x-2, randf_range(10, 14),1)
 
 ## Funcion para eliminar al jugador cuando salga, si esta en un menu, elimina el icono del hud tambien
 func delete_player(player: int):
@@ -128,6 +141,11 @@ func delete_player(player: int):
 	player_nodes[player].queue_free()
 	player_nodes.erase(player)
 
+
+## Maneja la camara, la inicializa con los nodos de los jugadores
+func handle_camera(player_nodes):
+	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
+	camera_node.init(player_nodes)
 
 ## Funcion para ocultar o mostrar el hud
 func handle_gameplay_hud(player, toggle: bool):
@@ -153,7 +171,7 @@ func switch_scene(scene_path: String,level=-1):
 	var scene_count: int = current_scenes.size() # Se obtiene la cantidad de hijos del scene container
 	
 	if (scene_count > 0): # Si hay escenas que eliminar
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		
 		for child in current_scenes: # Elimina las escenas
 			scene_node_container.remove_child(child)
