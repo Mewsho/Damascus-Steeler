@@ -5,7 +5,8 @@ extends Node
 ## en el futuro
 
 ## Carga el contenedor de escenas
-@onready var scene_node_container = $SceneNodeContainer as Node
+#@onready var scene_node_container = $SceneNodeContainer as Node
+@onready var scene_node_container = $SceneNodeContainer
 @onready var player_node_container = $PlayerNodeContainer as Node
 @onready var hud = $HUD
 @onready var gameplay_hud = $HUD/GameplayHUD
@@ -64,8 +65,12 @@ func on_character_lost_life(player):
 
 func on_character_game_over(player):
 	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
-	camera_node.set_player_position(player, true)
-
+	#camera_node.set_player_position(player, true)
+	var player_node = player_nodes[player];
+	player_node.hide()
+	camera_node.set_player_position(player,true)
+	camera_node.handle_game_over(player)
+	
 ## Cambia el hud cuando se une o sale un jugador, eliminando o agregando el icono
 func change_player_menu(scene: Control, player: int , toggle : bool):
 	var player_hud = scene.find_child("PlayerContainer") 
@@ -130,7 +135,8 @@ func spawn_player(player: int, player_node):
 	player_node_container.add_child(player_node) # Lo agrega a la escena
 	# Spawn
 	player_node.position = Vector3(spawn_position_x-2, randf_range(10, 14),1)
-
+	player_node.is_dead = false
+	player_node.mana = 100
 ## Funcion para eliminar al jugador cuando salga, si esta en un menu, elimina el icono del hud tambien
 func delete_player(player: int):
 	var current_scene = scene_node_container.get_child(0)

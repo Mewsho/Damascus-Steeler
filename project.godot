@@ -47,6 +47,7 @@ folder_colors={
 "res://Menu/": "green",
 "res://MishoCosas/": "purple",
 "res://Music/": "blue",
+"res://PCGTest/": "gray",
 "res://addons/": "orange",
 "res://autoloads/": "gray",
 "res://resources/": "gray"

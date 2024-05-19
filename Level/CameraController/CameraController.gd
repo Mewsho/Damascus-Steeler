@@ -74,7 +74,7 @@ func _physics_process(delta):
 	if combined_x_global_position > offset_marker_3d.global_position.x and is_player_in_left_border == false: ## Si el pj esta sobre el offset
 		var target_x = combined_x_global_position - offset_marker_3d.position.x
 		## Evita que cuando se distancien mucho los jugadores, la camara avance muy rapido
-		target_x = clamp(target_x, global_position.x,global_position.x+0.8)
+		target_x = clamp(target_x, global_position.x,global_position.x+0.9)
 		global_position.x = lerp(global_position.x,target_x, 0.1) ## Movimiento mas suave
 		
 	if prev_position.x > global_position.x: ## Evita que la camara vaya para atras
@@ -91,6 +91,7 @@ func set_player_position(player, is_dead):
 		player_nodes[player].global_position.x = offset_marker_3d.global_position.x
 		
 
-
+func handle_game_over(player):
+	player_nodes.erase(player)
 
 
