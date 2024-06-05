@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://58085bwsrxwg"]
+[gd_scene load_steps=12 format=3 uid="uid://58085bwsrxwg"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_8y340"]
 [ext_resource type="MeshLibrary" uid="uid://gr8axqt48eax" path="res://Level/GridMap/gridmap_tiles.tres" id="2_1e1fv"]
 [ext_resource type="Script" path="res://Level/GridMap/GridMap.gd" id="4_aotu3"]
-[ext_resource type="Script" path="res://autoloads/PCGcurrent.gd" id="5_rxltn"]
 [ext_resource type="PackedScene" uid="uid://ch5a43uyl6iql" path="res://Menu/pause_menu.tscn" id="6_0nipo"]
+[ext_resource type="PackedScene" uid="uid://ifunr870058x" path="res://Level/CameraController/CameraController.tscn" id="6_pgwxu"]
+[ext_resource type="PackedScene" uid="uid://c23ir1rn5loqj" path="res://Level/WorldAssets/Escenario.tscn" id="7_awetg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qjnb4"]
 
@@ -24,6 +25,8 @@ sky = SubResource("Sky_4vl8n")
 script = ExtResource("1_8y340")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(47.2613, 0, 0, 0, 0.286729, 0, 0, 0, 65.2978, -0.0234483, 0, 0)
@@ -47,7 +50,7 @@ cell_scale = 2.0
 collision_layer = 7
 collision_mask = 7
 data = {
-"cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436)
+"cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436, 4, 4, 5)
 }
 script = ExtResource("4_aotu3")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
@@ -59,5 +62,11 @@ visible = false
 [node name="PlayerPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35142, 9.31951, 0.89633)
 
-[node name="PCGCode" type="Node" parent="."]
-script = ExtResource("5_rxltn")
+[node name="CameraController" parent="." instance=ExtResource("6_pgwxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("7_awetg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.14666, -21)
+visible = false
+
+[editable path="CameraController"]

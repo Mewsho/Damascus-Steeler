@@ -10,6 +10,8 @@ extends MarginContainer
 @onready var character_selection_container = $"."
 @onready var characters_buttons = $CharactersButtons
 
+
+
 ## Variables que maneja
 var player = -1
 var device

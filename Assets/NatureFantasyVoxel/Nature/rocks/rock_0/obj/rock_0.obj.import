@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b47lkea0jdjsr"
+path="res://.godot/imported/rock_0.obj-02dfee34c754aa4ff5e0e363c292dc6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_0.obj-02dfee34c754aa4ff5e0e363c292dc6c.mesh"]
+
+source_file="res://Assets/NatureFantasyVoxel/Nature/rocks/rock_0/obj/rock_0.obj"
+dest_files=["res://.godot/imported/rock_0.obj-02dfee34c754aa4ff5e0e363c292dc6c.mesh", "res://.godot/imported/rock_0.obj-02dfee34c754aa4ff5e0e363c292dc6c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds4a1iq4nyqoi"]
+[gd_scene load_steps=56 format=3 uid="uid://ds4a1iq4nyqoi"]
 
 [ext_resource type="Script" path="res://Level/CharacterSelection/Scripts/character_selection.gd" id="1_cedm5"]
 [ext_resource type="PackedScene" uid="uid://d2j3rrddgud87" path="res://Level/CharacterSelection/barbarian.tscn" id="2_jsfq4"]
@@ -6,8 +6,61 @@
 [ext_resource type="PackedScene" uid="uid://c7h16cwge2g68" path="res://Level/CharacterSelection/knight.tscn" id="4_yqyeu"]
 [ext_resource type="PackedScene" uid="uid://c4b5quejh5oqb" path="res://Level/CharacterSelection/ranger.tscn" id="5_iujpc"]
 [ext_resource type="FontFile" uid="uid://d2h5c3d6e3b0c" path="res://Assets/Fonts/PeaberryBase.ttf" id="6_x4i17"]
+[ext_resource type="MeshLibrary" uid="uid://da64qf8ciolvs" path="res://Level/WorldAssets/DungeonMeshs.tres" id="6_ytiw7"]
+[ext_resource type="AudioStream" uid="uid://ca8xd07372t2v" path="res://Music/UI Audio/select_002.ogg" id="7_0qwpj"]
+[ext_resource type="PackedScene" uid="uid://bb8dvsbf7qwf3" path="res://Assets/KayKit Dungeon/Assets/gltf/barrel_large.gltf" id="8_q6lhi"]
+[ext_resource type="AudioStream" uid="uid://d0ceelrsylscw" path="res://Music/UI Audio/tick_001.ogg" id="8_qs3xr"]
+[ext_resource type="Theme" uid="uid://cd41u207uxt4u" path="res://Assets/Assets UI/FlatUIKenneyThemeGodot/kenneyUI-green.tres" id="8_wq23m"]
+[ext_resource type="PackedScene" uid="uid://tdt8l164jeeg" path="res://Assets/KayKit Dungeon/Assets/gltf/chest.gltf" id="9_4nrm8"]
+[ext_resource type="PackedScene" uid="uid://df0kl7k3gtegx" path="res://Assets/KayKit Dungeon/Assets/gltf/coin_stack_large.gltf" id="10_etb1t"]
+[ext_resource type="PackedScene" uid="uid://csg1n02ywypkk" path="res://Assets/KayKit Dungeon/Assets/gltf/crates_stacked.gltf" id="11_xca41"]
+[ext_resource type="PackedScene" uid="uid://0a3kvpcqy6it" path="res://Assets/KayKit Dungeon/Assets/gltf/keg_decorated.gltf" id="12_7e5fh"]
+[ext_resource type="PackedScene" uid="uid://c8thqriplmvaf" path="res://Assets/KayKit Dungeon/Assets/gltf/keg.gltf" id="13_x5m7l"]
+[ext_resource type="PackedScene" uid="uid://blhlrhqcnles2" path="res://Assets/KayKit Dungeon/Assets/gltf/key.gltf" id="14_rbcbq"]
+[ext_resource type="PackedScene" uid="uid://ba1l2mo275thr" path="res://Assets/KayKit Dungeon/Assets/gltf/keyring.gltf" id="15_slnvl"]
+[ext_resource type="PackedScene" uid="uid://ddwpbgodccg1e" path="res://Assets/KayKit Dungeon/Assets/gltf/keyring_hanging.gltf" id="16_hdvk6"]
+[ext_resource type="PackedScene" uid="uid://dsb4xe7wd7j6a" path="res://Assets/KayKit Dungeon/Assets/gltf/plate_food_A.gltf" id="17_7dtsp"]
+[ext_resource type="PackedScene" uid="uid://hwuj0oiesnqt" path="res://Assets/KayKit Dungeon/Assets/gltf/plate_small.gltf" id="18_u3dpu"]
+[ext_resource type="PackedScene" uid="uid://bopf0d6bw6buc" path="res://Assets/KayKit Dungeon/Assets/gltf/banner_blue.gltf" id="19_5srx3"]
+[ext_resource type="PackedScene" uid="uid://0hsanhl2yatj" path="res://Assets/KayKit Dungeon/Assets/gltf/banner_green.gltf" id="21_l7fj0"]
+[ext_resource type="PackedScene" uid="uid://cai0dneb73ecm" path="res://Assets/KayKit Dungeon/Assets/gltf/banner_patternB_blue.gltf" id="28_sah63"]
+[ext_resource type="PackedScene" uid="uid://b2lr2b0waiqvd" path="res://Assets/KayKit Dungeon/Assets/gltf/barrel_large_decorated.gltf" id="31_gjieg"]
+[ext_resource type="PackedScene" uid="uid://ctq0b3i427857" path="res://Assets/KayKit Dungeon/Assets/gltf/barrel_small.gltf" id="32_oelrd"]
+[ext_resource type="PackedScene" uid="uid://csng843od4nbb" path="res://Assets/KayKit Dungeon/Assets/gltf/barrel_small_stack.gltf" id="33_g7d07"]
+[ext_resource type="PackedScene" uid="uid://colwi0guiuobb" path="res://Assets/KayKit Dungeon/Assets/gltf/bottle_A_brown.gltf" id="35_rfcvn"]
+[ext_resource type="PackedScene" uid="uid://dtmoiakkxgged" path="res://Assets/KayKit Dungeon/Assets/gltf/bottle_A_labeled_green.gltf" id="36_nm77p"]
+[ext_resource type="PackedScene" uid="uid://b8soxob1gprr2" path="res://Assets/KayKit Dungeon/Assets/gltf/bottle_C_brown.gltf" id="37_aln34"]
+[ext_resource type="PackedScene" uid="uid://cq4ocv6ttcvwk" path="res://Assets/KayKit Dungeon/Assets/gltf/box_small.gltf" id="39_01773"]
+[ext_resource type="PackedScene" uid="uid://ckmycfrxc85tx" path="res://Assets/KayKit Dungeon/Assets/gltf/box_small_decorated.gltf" id="40_hlpeq"]
+[ext_resource type="PackedScene" uid="uid://vly4k2tmeqf0" path="res://Assets/KayKit Dungeon/Assets/gltf/box_stacked.gltf" id="41_jas5t"]
+[ext_resource type="PackedScene" uid="uid://dibie75w653i1" path="res://Assets/KayKit Dungeon/Assets/gltf/candle_lit.gltf" id="42_0kn80"]
+[ext_resource type="PackedScene" uid="uid://rw4kbpg3mlir" path="res://Assets/KayKit Dungeon/Assets/gltf/chair.gltf" id="43_6t3pi"]
+[ext_resource type="PackedScene" uid="uid://dufoaq21hl5ar" path="res://Assets/KayKit Dungeon/Assets/gltf/coin.gltf" id="45_54w8g"]
+[ext_resource type="PackedScene" uid="uid://kxb5u5xka252" path="res://Assets/KayKit Dungeon/Assets/gltf/coin_stack_medium.gltf" id="46_ytjnb"]
+[ext_resource type="PackedScene" uid="uid://ck3ymdg5k8x23" path="res://Assets/KayKit Dungeon/Assets/gltf/coin_stack_small.gltf" id="47_rxgvq"]
+[ext_resource type="PackedScene" uid="uid://s4kf3oqwned0" path="res://Assets/KayKit Dungeon/Assets/gltf/plate.gltf" id="48_ufb7n"]
+[ext_resource type="PackedScene" uid="uid://odejgkg3wxbi" path="res://Assets/KayKit Dungeon/Assets/gltf/plate_food_B.gltf" id="49_unfgr"]
+[ext_resource type="PackedScene" uid="uid://cced8owsdtlwb" path="res://Assets/KayKit Dungeon/Assets/gltf/plate_stack.gltf" id="50_iqq4q"]
+[ext_resource type="PackedScene" uid="uid://dodqkx2jbj3v" path="res://Assets/KayKit Dungeon/Assets/gltf/stool.gltf" id="52_ubnlt"]
+[ext_resource type="PackedScene" uid="uid://bee61if72lbki" path="res://Assets/KayKit Dungeon/Assets/gltf/table_long_decorated_A.gltf" id="55_wkrtd"]
+[ext_resource type="PackedScene" uid="uid://d078o5e85hhgw" path="res://Assets/KayKit Dungeon/Assets/gltf/table_long_decorated_C.gltf" id="56_fnh3x"]
+[ext_resource type="PackedScene" uid="uid://b4xmgcqwjko0e" path="res://Assets/KayKit Dungeon/Assets/gltf/table_medium_decorated_A.gltf" id="61_1wrtv"]
+[ext_resource type="PackedScene" uid="uid://dhmf0dpn5yjkv" path="res://Assets/KayKit Dungeon/Assets/gltf/table_small_decorated_B.gltf" id="62_aaoie"]
+[ext_resource type="PackedScene" uid="uid://cjopum5cjonkr" path="res://Assets/KayKit Dungeon/Assets/gltf/torch_lit.gltf" id="64_5qljm"]
+[ext_resource type="PackedScene" uid="uid://ki1dvaargm54" path="res://Assets/KayKit Dungeon/Assets/gltf/torch_mounted.gltf" id="65_5o6pw"]
+[ext_resource type="PackedScene" uid="uid://qowopknqotlu" path="res://Assets/KayKit Dungeon/Assets/gltf/trunk_large_B.gltf" id="67_kl503"]
+[ext_resource type="PackedScene" uid="uid://ylsae03icrem" path="res://Assets/KayKit Dungeon/Assets/gltf/trunk_medium_B.gltf" id="69_udt6t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1vm7e"]
+sky_top_color = Color(0.129412, 0.172549, 0.207843, 1)
+sky_horizon_color = Color(0.180392, 0.184314, 0.192157, 1)
+
+[sub_resource type="Sky" id="Sky_8o4qa"]
+sky_material = SubResource("ProceduralSkyMaterial_1vm7e")
 
 [sub_resource type="Environment" id="Environment_85nh2"]
+background_mode = 2
+sky = SubResource("Sky_8o4qa")
 sdfgi_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.54902, 0.560784, 0.6, 1)
@@ -24,110 +77,48 @@ script = ExtResource("1_cedm5")
 [node name="Characters" type="Node" parent="."]
 
 [node name="Mage" parent="Characters" instance=ExtResource("3_y21k7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47999, 0, 0)
-
-[node name="Skeleton3D" parent="Characters/Mage/Rig" index="0"]
-bones/0/rotation = Quaternion(0, 1.19209e-07, 0, 1)
-bones/2/rotation = Quaternion(-6.93889e-18, 7.10543e-15, 4.93038e-32, 1)
-bones/3/rotation = Quaternion(8.27181e-25, 3.72529e-09, 0, 1)
-bones/4/position = Vector3(0.212007, 0.134132, 8.40246e-08)
-bones/4/rotation = Quaternion(-0.559906, -0.0608804, -0.643974, 0.517779)
-bones/8/position = Vector3(8.34815e-10, 0.0961251, -0.0575001)
-bones/8/rotation = Quaternion(1.60975e-09, 1.60975e-09, -0.707107, 0.707107)
-bones/11/position = Vector3(-0.212007, 0.134132, 8.40246e-08)
-bones/11/rotation = Quaternion(-0.618244, 0.0807286, 0.618012, 0.478873)
-bones/15/position = Vector3(-8.34815e-10, 0.0961251, -0.0575001)
-bones/21/position = Vector3(0.170945, 0.113587, 1.39233e-08)
-bones/21/rotation = Quaternion(0.996186, 0.0479136, 0.0566427, -0.045939)
-bones/22/rotation = Quaternion(0.165014, 6.49414e-08, -1.11407e-07, 0.986291)
-bones/23/rotation = Quaternion(-0.533729, -0.260895, -1.72985e-05, 0.804405)
-bones/24/rotation = Quaternion(-3.04791e-08, 0.920355, -0.391084, 6.94848e-08)
-bones/25/position = Vector3(-0.170945, 0.113587, 1.39233e-08)
-bones/27/rotation = Quaternion(-0.559039, 0.114513, -0.00862764, 0.82115)
-bones/29/position = Vector3(0.170945, 0.29231, 0.575812)
-bones/30/position = Vector3(0.213918, 0.0259903, 0.173866)
-bones/30/rotation = Quaternion(-0.705092, 0.0533355, 0.0533355, 0.705092)
-bones/31/position = Vector3(1.94581e-08, 0.362833, -2.42861e-15)
-bones/32/position = Vector3(-1.11482e-08, 0.213436, -2.50942e-15)
-bones/33/position = Vector3(8.58988e-09, 0.16565, -5.09137e-09)
-bones/36/position = Vector3(-0.170945, 0.29231, 0.575812)
-bones/37/position = Vector3(-0.170945, 0.0259903, 0.245789)
-bones/38/position = Vector3(1.94581e-08, 0.362833, 2.42861e-15)
-bones/39/position = Vector3(3.75294e-09, 0.213436, 0)
-bones/40/position = Vector3(-6.31128e-09, 0.16565, 1.36608e-09)
-bones/41/rotation = Quaternion(1, 4.44086e-16, 1.94707e-07, 6.91739e-22)
-bones/43/position = Vector3(0.453507, 1.10676, -0.588859)
-bones/43/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
-bones/44/rotation = Quaternion(0.794627, -1.2666e-07, 0.607098, -5.96046e-08)
-bones/45/position = Vector3(-0.453507, 1.10676, -0.58886)
-bones/45/rotation = Quaternion(-0.707107, -7.27951e-08, -7.27951e-08, 0.707107)
-bones/46/rotation = Quaternion(-0.758253, -1.82539e-07, 0.651961, -1.11759e-08)
-
-[node name="Spellbook" parent="Characters/Mage/Rig/Skeleton3D" index="0"]
-transform = Transform3D(4.53e-07, 0.964832, 0.262864, -0.999999, 9.10786e-07, -4.44227e-07, -7.82014e-07, -0.262865, 0.964832, 0.577621, 0.636705, 0.237873)
-
-[node name="Spellbook_open" parent="Characters/Mage/Rig/Skeleton3D" index="1"]
-transform = Transform3D(4.53e-07, 0.964832, 0.262864, -0.999999, 9.10786e-07, -4.44227e-07, -7.82014e-07, -0.262865, 0.964832, 0.545985, 0.636705, 0.121754)
-
-[node name="1H_Wand" parent="Characters/Mage/Rig/Skeleton3D" index="2"]
-transform = Transform3D(2.88042e-07, -0.149894, 0.988701, 0.999999, -1.09988e-06, -7.7486e-07, 1.46941e-06, 0.988701, 0.149894, -0.49106, 0.64103, 0.106596)
-
-[node name="2H_Staff" parent="Characters/Mage/Rig/Skeleton3D" index="3"]
-transform = Transform3D(2.88042e-07, -0.149894, 0.988701, 0.999999, -1.09988e-06, -7.7486e-07, 1.46941e-06, 0.988701, 0.149894, -0.49106, 0.64103, 0.106596)
-
-[node name="Mage_Hat" parent="Characters/Mage/Rig/Skeleton3D" index="4"]
-transform = Transform3D(0.99972, -0.00612025, 0.0228411, 1.39343e-09, 0.965926, 0.258819, -0.0236468, -0.258747, 0.965656, -7.48423e-09, 1.7705, -1.02479e-07)
-
-[node name="Mage_Cape" parent="Characters/Mage/Rig/Skeleton3D" index="5"]
-transform = Transform3D(0.996275, -5.14962e-09, 0.0862354, 5.13044e-09, 1, 4.44078e-10, -0.0862354, 1.46374e-15, 0.996275, -1.2997e-08, 1.20227, -1.01951e-07)
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -3.47999, 0, 0)
 
 [node name="Knight" parent="Characters" instance=ExtResource("4_yqyeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0739, 2.38419e-07, -0.0347266)
-
-[node name="1H_Sword_Offhand" parent="Characters/Knight/Rig/Skeleton3D" index="0"]
-transform = Transform3D(-1.22489e-07, 0.262864, 0.964832, 0.999999, -4.44227e-07, 5.68229e-07, 6.91968e-07, 0.964832, -0.262865, 0.51224, 0.636705, -0.0021077)
-
-[node name="Badge_Shield" parent="Characters/Knight/Rig/Skeleton3D" index="1"]
-transform = Transform3D(-1.0007e-07, 0.262864, 0.964832, 0.999999, -2.97941e-06, 1.23569e-06, 3.31345e-06, 0.964832, -0.262864, 0.662643, 0.636705, -0.0430844)
-
-[node name="Rectangle_Shield" parent="Characters/Knight/Rig/Skeleton3D" index="2"]
-transform = Transform3D(-1.0007e-07, 0.262864, 0.964832, 0.999999, -2.97941e-06, 1.23569e-06, 3.31345e-06, 0.964832, -0.262864, 0.662643, 0.636705, -0.0430844)
-
-[node name="Round_Shield" parent="Characters/Knight/Rig/Skeleton3D" index="3"]
-transform = Transform3D(-1.0007e-07, 0.262864, 0.964832, 0.999999, -2.97941e-06, 1.23569e-06, 3.31345e-06, 0.964832, -0.262864, 0.662643, 0.636705, -0.0430844)
-
-[node name="Spike_Shield" parent="Characters/Knight/Rig/Skeleton3D" index="4"]
-transform = Transform3D(-1.0007e-07, 0.262864, 0.964832, 0.999999, -2.97941e-06, 1.23569e-06, 3.31345e-06, 0.964832, -0.262864, 0.662643, 0.636705, -0.0430844)
-
-[node name="1H_Sword" parent="Characters/Knight/Rig/Skeleton3D" index="5"]
-transform = Transform3D(2.88042e-07, -0.149894, 0.988701, 0.999999, -1.09988e-06, -7.7486e-07, 1.46941e-06, 0.988701, 0.149894, -0.496053, 0.64103, 0.139528)
-
-[node name="2H_Sword" parent="Characters/Knight/Rig/Skeleton3D" index="6"]
-transform = Transform3D(2.72302e-07, -0.149894, 0.988701, 0.999999, -1.11461e-06, -7.61174e-07, 1.48192e-06, 0.988701, 0.149894, -0.496053, 0.64103, 0.139528)
-
-[node name="Knight_Helmet" parent="Characters/Knight/Rig/Skeleton3D" index="7"]
-transform = Transform3D(0.99972, -1.40145e-09, 0.0236468, 1.39343e-09, 1, 3.55687e-10, -0.0236468, -3.22638e-10, 0.99972, 4.69869e-07, 1.20229, -1.19779e-07)
-
-[node name="Knight_Cape" parent="Characters/Knight/Rig/Skeleton3D" index="8"]
-transform = Transform3D(0.996275, -5.14962e-09, 0.0862354, 5.13044e-09, 1, 4.44078e-10, -0.0862354, 1.46374e-15, 0.996275, -1.63023e-08, 1.20229, -1.40136e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.074, 0, -1)
 
 [node name="Barbarian" parent="Characters" instance=ExtResource("2_jsfq4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2638, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.264, 0, -1)
 
 [node name="Ranger" parent="Characters" instance=ExtResource("5_iujpc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68239, 0, 0)
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 3.68239, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.991669, 0.128813, 0, -0.128813, 0.991669, 0, 2.60759, 7.14827)
+transform = Transform3D(1, 0, 0, 0, 0.97639, 0.216014, 0, -0.216014, 0.97639, 0, 3.80063, 8.47787)
+fov = 50.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_85nh2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("PlaneMesh_fpyfv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.897235, 0.441553, 0, -0.441553, 0.897235, 0, 2.30637, 5.25753)
+visible = false
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.964, -2)
+mesh_library = ExtResource("6_ytiw7")
+data = {
+"cells": PackedInt32Array(-65538, 0, 5, -65539, 0, 5, -65539, 1, 5, -65538, 1, 5, -65537, 1, 5, -131072, 1, 5, -131071, 1, 5, -131070, 1, 5, -131072, 0, 5, -131071, 0, 5, -131070, 0, 5, -131071, 65535, 5, -131072, 65535, 5, -65537, 65535, 5, -131069, 0, 5, -131069, 65535, 1048581, -131070, 65535, 5, -131070, 65534, 5, -131071, 65534, 5, -131072, 65534, 5, -131070, 65533, 5, -131069, 1, 5, -131069, 65534, 1048581, -131069, 65533, 5, -131071, 65533, 5, -131072, 65533, 5, -65537, 65533, 5, -65538, 65533, 5, -65539, 65533, 5, -65540, 65533, 5, -65537, 65534, 5, -65538, 65534, 5, -65539, 65534, 5, -65539, 65535, 5, -65538, 65535, 5, -65537, 0, 5, -65540, 65534, 5, -65540, 65535, 5, -65540, 0, 5, -65540, 1, 5, -131069, 65532, 5, -131070, 65532, 5, -131071, 65532, 5, -131072, 65532, 5, -65537, 65532, 5, -65539, 65532, 5, -65540, 65532, 5, -65538, 65532, 5, -65532, 65532, 57, -5, 65532, 1048633, -131068, 65532, 1048581, -131068, 65533, 1048581, -131068, 65534, 1048581, -131068, 65535, 1048581, -131068, 0, 1048581, -131068, 1, 1048581, -65541, 65532, 1048581, -65541, 65533, 1048581, -65541, 65534, 1048581, -65541, 65535, 1048581, -65541, 0, 1048581, -65541, 1, 1048581, -5, 2, 1048627, -65532, 65534, 1048627, -65532, 2, 1048627, -65532, 65533, 1441842, -3, 65532, 61, -1, 65532, 75, -65534, 65532, 74, -65536, 65532, 69, -5, 65534, 1441871, 131067, 65532, 1048633, 65540, 0, 1441865, 65539, 65532, 69, 65540, 65532, 69, 65541, 65532, 69, 65542, 65532, 69, 65542, 65531, 69, 65543, 65531, 69, 65540, 65534, 1048633, 5, 65533, 1048581, 5, 65532, 1048581, 5, 65534, 1048581, 5, 65535, 1048581, 5, 0, 1048581, 5, 1, 1048581, 196608, 65532, 1048581, 262143, 65532, 1048581, 262142, 65532, 1048581, 262142, 65531, 1048581, 262141, 65531, 1048581, 262140, 65531, 1048581, 262139, 65531, 1048581, 262139, 65532, 1048581, 262140, 65532, 1048581, 262141, 65532, 1048581, 196609, 65532, 1048581, 196610, 65532, 1048581, 196611, 65532, 1048581, 196612, 65532, 1048581, 262138, 65532, 1048581, 262139, 65533, 1048581, 262138, 65533, 1048581, 262139, 65534, 1048581, 262139, 65535, 1048581, 262139, 0, 1048581, 262139, 1, 1048581, 262139, 2, 1048581, 262140, 2, 1048581, 262140, 1, 1048581, 262140, 0, 1048581, 262141, 0, 1048581, 262141, 65535, 1048581, 262141, 65534, 1048581, 262141, 65533, 1048581, 262140, 65533, 1048581, 262140, 65534, 1048581, 262140, 65535, 1048581, 262142, 65533, 1048581, 262143, 65533, 1048581, 262143, 65534, 1048581, 262143, 65535, 1048581, 262143, 0, 1048581, 262143, 1, 1048581, 262143, 2, 1048581, 262143, 3, 1048581, 262142, 3, 1048581, 262142, 2, 1048581, 262141, 2, 1048581, 262141, 1, 1048581, 262142, 65534, 1048581, 196608, 65534, 1048581, 196608, 65535, 1048581, 196609, 65535, 1048581, 196609, 0, 1048581, 196609, 1, 1048581, 196608, 2, 1048581, 262142, 1, 1048581, 262142, 0, 1048581, 262142, 65535, 1048581, 196608, 65533, 1048581, 196609, 65534, 1048581, 196608, 0, 1048581, 196608, 1, 1048581, 196609, 65533, 1048581, 196610, 65533, 1048581, 196611, 65533, 1048581, 196611, 65534, 1048581, 196611, 65535, 1048581, 196610, 65535, 1048581, 196610, 0, 1048581, 196610, 1, 1048581, 196609, 2, 1048581, 196608, 65531, 1048581, 196609, 65531, 1048581, 196610, 65531, 1048581, 196611, 0, 1048581, 196610, 2, 1048581, 196610, 65534, 1048581, 196612, 65533, 1048581, 196612, 65534, 1048581, 196612, 65535, 1048581, 196611, 1, 1048581, 196610, 3, 1048581, 196609, 3, 1048581, 196608, 3, 1048581, 196611, 2, 1048581, 196612, 1, 1048581, 262139, 3, 1048581, 262138, 3, 1048581, 262140, 3, 1048581, 262141, 3, 1048581, 196611, 3, 1048581, 196612, 3, 1048581, 196612, 2, 1048581, 196613, 1, 1048581, 196613, 0, 1048581, 196614, 0, 1048581, 196614, 65535, 1048581, 196614, 65534, 1048581, 196614, 65533, 1048581, 196613, 65534, 1048581, 196613, 65535, 1048581, 196613, 65533, 1048581, 196613, 65532, 1048581, 196614, 65532, 1048581, 196614, 65531, 1048581, 196612, 0, 1048581, -65533, 0, 1048607, -65533, 65535, 1048607, -65533, 2, 1048607, -65534, 2, 1048607, -65535, 2, 1048607, -65536, 2, 1048607, -1, 2, 1048607, -1, 1, 1048607, -65536, 1, 1048607, -65535, 1, 1048607, -65535, 0, 1048607, -2, 1, 1048607, -3, 1, 1048607, -3, 0, 1048607, -2, 0, 1048607, -1, 0, 1048607, -4, 0, 1048607, -4, 1, 1048607, -65536, 65533, 1048607, -65535, 65535, 1048607, -65536, 65535, 1048607, -1, 65535, 1048607, -2, 65535, 1048607, -2, 65533, 1048607, -3, 65533, 1048607, -4, 65535, 1048607, -4, 65533, 1048607, -4, 2, 1048607, -3, 2, 1048607, -65489, 65344, 1048607, -65482, 65316, 1048607, -65473, 65279, 1048607, -65461, 65228, 1048607, -65442, 65152, 1048607, -65412, 65030, 1048607, -65410, 65031, 1048607, -65352, 64798, 1048607, -65198, 64180, 1048607, -65536, 0, 1048607, -3, 65535, 35, 131069, 65535, 34, -65534, 65535, 35, 65538, 65535, 34, 131070, 65532, 79, 131071, 65532, 69, 131068, 65532, 69, 65538, 65532, 54, 65536, 65532, 69, 131067, 65534, 1441853, 131067, 2, 1441860, -5, 0, 1441865, -65532, 0, 1441865, 65540, 2, 1441871, 131067, 0, 1441865)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="ButtonPressStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0qwpj")
+bus = &"UI"
+
+[node name="ChangeButtonStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_qs3xr")
+bus = &"UI"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -289,14 +280,199 @@ theme_override_constants/separation = 32
 alignment = 2
 
 [node name="Selection" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
+theme = ExtResource("8_wq23m")
 text = "Start"
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4493, 3.3795, 2.44677)
+light_color = Color(1, 0.878431, 0.768627, 1)
+light_energy = 7.361
+light_indirect_energy = 4.156
+light_volumetric_fog_energy = 1.9
+omni_range = 15.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01489, 2.74644, -8.10513)
+light_color = Color(1, 0.878431, 0.768627, 1)
+light_energy = 3.32
+light_indirect_energy = 1.57
+light_volumetric_fog_energy = 1.9
+omni_range = 9.855
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.36398, 3.3795, 2.53402)
+light_color = Color(1, 0.878431, 0.768627, 1)
+light_energy = 7.361
+light_indirect_energy = 4.156
+light_volumetric_fog_energy = 1.9
+omni_range = 15.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48783, 4.3956, 10.4315)
+light_color = Color(1, 0.878431, 0.768627, 1)
+light_energy = 7.361
+light_indirect_energy = 4.156
+light_volumetric_fog_energy = 1.9
+shadow_enabled = true
+omni_range = 20.0
+
+[node name="barrel_large2" parent="." instance=ExtResource("8_q6lhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95235, 0, -3.87203)
+
+[node name="chest2" parent="." instance=ExtResource("9_4nrm8")]
+transform = Transform3D(0.739149, 0, -0.673542, 0, 1, 0, 0.673542, 0, 0.739149, 3.17827, 4.76837e-07, -3.6999)
+
+[node name="coin_stack_large2" parent="." instance=ExtResource("10_etb1t")]
+transform = Transform3D(0.956986, 0, -0.290134, 0, 1, 0, 0.290134, 0, 0.956986, 3.22991, 0, -1.58495)
+
+[node name="crates_stacked2" parent="." instance=ExtResource("11_xca41")]
+transform = Transform3D(0.574448, 0, 0.818541, 0, 1, 0, -0.818541, 0, 0.574448, -6.46502, 0, -0.880544)
+
+[node name="keg_decorated2" parent="." instance=ExtResource("12_7e5fh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.56442, 0, 0.483733)
+
+[node name="key2" parent="." instance=ExtResource("14_rbcbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.94804, 0, 6.22299)
+
+[node name="keyring2" parent="." instance=ExtResource("15_slnvl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51747, 0, 1.01021)
+
+[node name="keyring_hanging2" parent="." instance=ExtResource("16_hdvk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.98851, 3.24736, 7.92953)
+
+[node name="plate_food_A2" parent="." instance=ExtResource("17_7dtsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.53623, 0, 4.02304)
+
+[node name="plate_small2" parent="." instance=ExtResource("18_u3dpu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84524, 0, 4.02253)
+
+[node name="banner_blue2" parent="." instance=ExtResource("19_5srx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58641, 0, 9.39876)
+
+[node name="banner_green2" parent="." instance=ExtResource("21_l7fj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52409, 0, 8.87734)
+
+[node name="banner_patternB_blue2" parent="." instance=ExtResource("28_sah63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03347, 0.273266, -8.69221)
+
+[node name="barrel_large_decorated2" parent="." instance=ExtResource("31_gjieg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93094, 0, 9.85053)
+
+[node name="barrel_small2" parent="." instance=ExtResource("32_oelrd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33415, 0, 12.1729)
+
+[node name="barrel_small_stack2" parent="." instance=ExtResource("33_g7d07")]
+transform = Transform3D(0.841464, 0, 0.540314, 0, 1, 0, -0.540314, 0, 0.841464, -6.70422, 9.53674e-07, 0.964414)
+
+[node name="bottle_A_brown2" parent="." instance=ExtResource("35_rfcvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79512, 0, 12.2001)
+
+[node name="bottle_A_labeled_green2" parent="." instance=ExtResource("36_nm77p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37665, 0, 13.1247)
+
+[node name="bottle_C_brown2" parent="." instance=ExtResource("37_aln34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44069, 0, 13.8925)
+
+[node name="box_small2" parent="." instance=ExtResource("39_01773")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.94205, 0, 14.9872)
+
+[node name="box_small_decorated2" parent="." instance=ExtResource("40_hlpeq")]
+transform = Transform3D(-0.070418, 0, -0.997518, 0, 1, 0, 0.997518, 0, -0.070418, 5.46719, 0.20768, -0.821535)
+
+[node name="box_stacked2" parent="." instance=ExtResource("41_jas5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00787, -9.53674e-07, -6.16088)
+
+[node name="candle_lit2" parent="." instance=ExtResource("42_0kn80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.224083, 0, 13.1971)
+
+[node name="chair2" parent="." instance=ExtResource("43_6t3pi")]
+transform = Transform3D(0.882784, 0, 0.46978, 0, 1, 0, -0.46978, 0, 0.882784, 0.346787, 9.53674e-07, -6.41452)
+
+[node name="chair3" parent="." instance=ExtResource("43_6t3pi")]
+transform = Transform3D(-0.178424, 0, 0.983954, 0, 1, 0, -0.983954, 0, -0.178424, -3.26464, 9.53674e-07, -7.62563)
+
+[node name="chair4" parent="." instance=ExtResource("43_6t3pi")]
+transform = Transform3D(0.356444, 0, 0.934317, 0, 1, 0, -0.934317, 0, 0.356444, -1.08096, 9.53674e-07, -7.7496)
+
+[node name="chair5" parent="." instance=ExtResource("43_6t3pi")]
+transform = Transform3D(-0.850288, 0, -0.526318, 0, 1, 0, 0.526318, 0, -0.850288, -3.01362, 1.43051e-06, -4.14539)
+
+[node name="coin2" parent="." instance=ExtResource("45_54w8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9633, 0, 9.44652)
+
+[node name="coin_stack_large3" parent="." instance=ExtResource("10_etb1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5381, -4.76837e-07, 9.25733)
+
+[node name="coin_stack_medium2" parent="." instance=ExtResource("46_ytjnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6886, 4.76837e-07, 6.89396)
+
+[node name="coin_stack_small2" parent="." instance=ExtResource("47_rxgvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4787, 0, 3.23977)
+
+[node name="keg3" parent="." instance=ExtResource("13_x5m7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6888, 0, 8.07979)
+
+[node name="keyring_hanging3" parent="." instance=ExtResource("16_hdvk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6153, -4.76837e-07, 4.70892)
+
+[node name="plate2" parent="." instance=ExtResource("48_ufb7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2241, 0, 4.63522)
+
+[node name="plate_food_A3" parent="." instance=ExtResource("17_7dtsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1549, 0, 3.52892)
+
+[node name="plate_food_B2" parent="." instance=ExtResource("49_unfgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8542, 0, 7.82356)
+
+[node name="plate_small3" parent="." instance=ExtResource("18_u3dpu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.418, 0, 7.59997)
+
+[node name="plate_stack2" parent="." instance=ExtResource("50_iqq4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6902, -4.76837e-07, 5.1865)
+
+[node name="stool2" parent="." instance=ExtResource("52_ubnlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38582, 0, 1.7145)
+
+[node name="table_long_decorated_A2" parent="." instance=ExtResource("55_wkrtd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.3697, 0, -5.90814)
+
+[node name="table_long_decorated_C2" parent="." instance=ExtResource("56_fnh3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5826, 0, 16.8839)
+
+[node name="table_medium_decorated_A2" parent="." instance=ExtResource("61_1wrtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4809, -9.53674e-07, 3.56666)
+
+[node name="table_small_decorated_B2" parent="." instance=ExtResource("62_aaoie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6763, 0, 5.67727)
+
+[node name="torch_lit2" parent="." instance=ExtResource("64_5qljm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98059, 0, 8.17148)
+
+[node name="torch_mounted3" parent="." instance=ExtResource("65_5o6pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0246, 2.22271, -8.70449)
+
+[node name="torch_mounted4" parent="." instance=ExtResource("65_5o6pw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.722, 2.22271, 1.72282)
+
+[node name="torch_mounted5" parent="." instance=ExtResource("65_5o6pw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.64662, 2.22271, 1.72282)
+
+[node name="torch_mounted6" parent="." instance=ExtResource("65_5o6pw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.64662, 2.22271, 1.72282)
+
+[node name="trunk_large_B2" parent="." instance=ExtResource("67_kl503")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.173, 0, 18.0501)
+
+[node name="trunk_medium_B2" parent="." instance=ExtResource("69_udt6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5128, 9.53674e-07, 21.0395)
+
+[connection signal="focus_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Selection" to="." method="_on_selection_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Selection" to="." method="_on_selection_focus_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Selection" to="." method="_on_selection_pressed"]
 
-[editable path="Characters/Mage"]
-[editable path="Characters/Knight"]
+[editable path="chest2"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgh17pur5csum"
+path="res://.godot/imported/click_002.ogg-f41e1700322b1ddd0b82f695acd4538b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Assets UI/kenney_interface-sounds/UI Audio/click_002.ogg"
+dest_files=["res://.godot/imported/click_002.ogg-f41e1700322b1ddd0b82f695acd4538b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

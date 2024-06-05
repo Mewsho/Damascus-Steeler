@@ -20,7 +20,9 @@ var mana_regen_rate = 1
 # variable por mientras de dificultad ( 0 extremo , 10 dificil, 25 normal, 50 facil,
 var difficulty_level = 50
 const DeviceInput = preload("res://addons/multiplayer_input/device_input.gd")
-
+var is_in_left_border : bool = false
+var is_in_right_border : bool = false
+var is_dead : bool = false
 
 
 @onready var pet_follow_point = $PetFollowPoint as Marker3D
@@ -65,13 +67,14 @@ func get_player_class()-> String:
 	return self.player_class
 	
 func _physics_process(delta):
-	# Make Cam follow this mf | La funcion lerp sirve para darle un poco de smoothing para que no se vea tan choppi |
-	camera_controller.position.x = lerp(camera_controller.position.x ,position.x ,0.1)	
 	# Get the input direction and handle the movement/deceleration.
 	var move_dir = 0
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	
+	
 	
 	if player_class == "Ranger":
 		var pet_counter
@@ -83,6 +86,12 @@ func _physics_process(delta):
 		move_dir -=1
 	if input.is_action_pressed("move_right"):
 		move_dir +=1
+		
+		
+	if is_dead:
+		move_dir = 0;
+
+		
 	if move_dir > 0:
 		scale.x = 1
 	if move_dir < 0:
@@ -99,6 +108,20 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	
+	
+	
+	if is_in_left_border == true:
+		#velocity.clamp(Vector3(0,0,0),Vector3(100,100,100))
+		if velocity.x < 0:
+			velocity.x = 0
+	if is_in_right_border == true:
+		if velocity.x > 0:
+			velocity.x = 0
+	
+	if is_dead:
+		velocity = Vector3(0,0,0)
 		
 	#animation_tree.set("parameters/conditions/idle", input_dir == Vector2.ZERO && is_on_floor())
 	#animation_tree.set("parameters/conditions/walk", input_dir != Vector2.ZERO && is_on_floor())
@@ -213,7 +236,11 @@ func _set_mana(_mana):
 func _set_lifes(n_lifes):
 	var prev_lifes = lifes
 	lifes = max(0,n_lifes)
-	animation_player.play("Death_A")
+	is_dead = true
+	if prev_lifes == 0:
+		animation_player.play("Death_B") ##Game over
+	else:
+		animation_player.play("Death_A") ## Muerte normal
 	emit_signal("lifes_change",player, lifes)
 	#emit_signal("character_game_over",player)
 	#emit_signal("character_lost_life", player)
@@ -221,3 +248,5 @@ func _set_lifes(n_lifes):
 func on_animation_finished(anim_name):
 	if anim_name == "Death_A":
 		emit_signal("character_lost_life", player)
+	if anim_name == "Death_B":
+		emit_signal("character_game_over",player)

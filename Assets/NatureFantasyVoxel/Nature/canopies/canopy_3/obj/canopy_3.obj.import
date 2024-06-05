@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mfn46a07ood4"
+path="res://.godot/imported/canopy_3.obj-b3512861384dbc47ad7065515fa44653.mesh"
+
+[deps]
+
+files=["res://.godot/imported/canopy_3.obj-b3512861384dbc47ad7065515fa44653.mesh"]
+
+source_file="res://Assets/NatureFantasyVoxel/Nature/canopies/canopy_3/obj/canopy_3.obj"
+dest_files=["res://.godot/imported/canopy_3.obj-b3512861384dbc47ad7065515fa44653.mesh", "res://.godot/imported/canopy_3.obj-b3512861384dbc47ad7065515fa44653.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

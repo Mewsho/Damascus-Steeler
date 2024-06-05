@@ -14,6 +14,7 @@ config/name="Damascus Proyecto Merged"
 run/main_scene="res://core.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+boot_splash/custom_image=""
 
 [autoload]
 
@@ -23,10 +24,13 @@ SaveManager="*res://autoloads/SaveManager.gd"
 PlayerVariables="*res://autoloads/PlayerVariables.gd"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 PlayerManager="*res://autoloads/PlayerManager.gd"
+PCGcurrent="*res://autoloads/PCGcurrent.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -47,6 +51,7 @@ folder_colors={
 "res://Menu/": "green",
 "res://MishoCosas/": "purple",
 "res://Music/": "blue",
+"res://PCGTest/": "gray",
 "res://addons/": "orange",
 "res://autoloads/": "gray",
 "res://resources/": "gray"

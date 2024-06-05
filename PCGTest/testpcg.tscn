@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0k70qyi4o4el"]
+
+[ext_resource type="Script" path="res://PCGTest/testpcg.gd" id="1_7jrfw"]
+[ext_resource type="Script" path="res://PCGTest/CharacterBody3D.gd" id="2_5epxj"]
+[ext_resource type="MeshLibrary" uid="uid://gr8axqt48eax" path="res://Level/GridMap/gridmap_tiles.tres" id="2_t71wk"]
+[ext_resource type="Script" path="res://Level/GridMap/GridMap.gd" id="3_3aebc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vohn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vrpuy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6laxp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ni635"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_daxki"]
+
+[sub_resource type="Sky" id="Sky_did1y"]
+sky_material = SubResource("ProceduralSkyMaterial_daxki")
+
+[sub_resource type="Environment" id="Environment_mquaf"]
+background_mode = 2
+sky = SubResource("Sky_did1y")
+
+[node name="TESTPCG" type="Node3D"]
+script = ExtResource("1_7jrfw")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_t71wk")
+cell_scale = 2.0
+script = ExtResource("3_3aebc")
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2.6, 0, 0, 0, 1, 0, 0, 0, 1.9, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_0vohn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_vrpuy")
+skeleton = NodePath("../..")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.38976, 1.58686)
+script = ExtResource("2_5epxj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_6laxp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ni635")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.969527, 0.244986, 0, -0.244986, 0.969527, 0, 1.2788, 15.1769)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15889, 2.5407)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mquaf")

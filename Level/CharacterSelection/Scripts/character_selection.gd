@@ -17,6 +17,11 @@ var selection_area = preload("res://Level/CharacterSelection/selection_area.tscn
 @onready var barbarian = $Characters/Barbarian
 @onready var mage = $Characters/Mage
 @onready var knight = $Characters/Knight
+@onready var button_press_stream = $ButtonPressStream
+@onready var change_button_stream = $ChangeButtonStream
+
+
+
 
 signal animation_finished
 ## Variables para manejar el movimiento de los anillos de seleccion
@@ -24,6 +29,8 @@ var cant_selection_rings = 1
 var character_hover = [0,0,0,0] #Estas listas determinan la posicion en que el jugador esta y la posicion del anillo
 var ring_pos = [0,0,0,0]
 #Todos comienzan en el default, el mago, indice 0
+
+var TEST_ARRAY
 
 func _ready() -> void:
 	# Conecta la señal de union de jugodor con la funcion que actualiza los anillos de seleccion
@@ -38,25 +45,37 @@ func update_selection_rings(n_player : int):
 	var selection_area_ins = selection_area.instantiate()
 	selection_area_ins.name = str("SelectionArea", n_player) #Le agrega el nombre unico
 	var selection_ring = selection_area_ins.get_node("SelectionRing") #Obtiene el anillo en si
+	var selection_particles = selection_ring.get_node("SelectionParticles3D") as GPUParticles3D
+	
+	var player_color_array : Array = [Color(1,0,0),Color(0,0,1),Color(255,255,0),Color(0,1,0)]
 	match n_player: #Cambia los atributos del anillo dependiendo del jugador
 		0:
-			selection_ring.get_surface_override_material(0).albedo_color = Color(1,0,0)
+			#player_color = Color(1,0,0)
 			selection_ring.scale.x = 1
 			selection_ring.scale.z = 1
+			
 		1:
-			selection_ring.get_surface_override_material(0).albedo_color = Color(0,0,1)
+			#player_color =  Color(0,0,1)
 			selection_ring.scale.x = 1.1
 			selection_ring.scale.z = 1.1
 		2:
-			selection_ring.get_surface_override_material(0).albedo_color = Color(255,255,0)
+			#player_color =  Color(255,255,0)
 			selection_ring.scale.x = 1.2
 			selection_ring.scale.z = 1.2
 		3:
-			selection_ring.get_surface_override_material(0).albedo_color = Color(0,1,0)
+			#player_color =  Color(0,1,0)
 			selection_ring.scale.x = 1.3
 			selection_ring.scale.z = 1.3
+	
+	#selection_particles.process_material.set_color(Color(0,0,0)) # Es necesario resetaer los colores, porque funciona multiplicativamente el color del process material
+	var player_color = player_color_array[n_player]
+	
+	selection_particles.process_material.set_color(player_color) # Color de las particulas
+	selection_particles.draw_pass_1.surface_get_material(0).emission = player_color #Color del brillo
+	print(player_color)
+	
 	characters.get_child(0).add_child(selection_area_ins) #Agrega el anillo al modelo
-
+	print("test")
 
 ## Cada frame revisa si alguien esta apretando cosas
 func _process(delta):
@@ -67,12 +86,14 @@ func handle_inputs():
 	for player in range(PlayerManager.get_player_count()): #Revisa cada jugador
 		var device = PlayerManager.get_player_device(player)
 		if  MultiplayerInput.is_action_just_pressed(device, "move_left"): # Si apreta izquierda
+			change_button_stream.play()
 			if character_hover[player] == 0: #Revisa si es el primero
 				character_hover[player] = 3 # Si lo es lleva al ultimo
 			else:
 				character_hover[player] -=1 #Si no retrocede normalmente
 			gamepad_character_hover(player,character_hover[player])
 		if MultiplayerInput.is_action_just_pressed(device, "move_right"): #Si apreta derecha
+			change_button_stream.play()
 			if character_hover[player] == 3: # Revisa si es el ultimo
 				character_hover[player] = 0 # Si lo es lleva al primero
 			else:
@@ -136,7 +157,19 @@ func character_selected(player, character_name):
 func _on_selection_pressed():
 	#if current_selected_character_name:
 		#PlayerVariables.set_player_character(current_selected_character_name)
+	button_press_stream.play()
+	await button_press_stream.finished
 	core.switch_scene("res://world.tscn")
 	
+	
+
 		
 	
+
+
+func _on_selection_focus_entered():
+	change_button_stream.play()
+
+
+func _on_selection_focus_exited():
+	change_button_stream.play()

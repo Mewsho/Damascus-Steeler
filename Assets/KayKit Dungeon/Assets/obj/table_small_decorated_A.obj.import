@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://beapltg81qb6o"
+path="res://.godot/imported/table_small_decorated_A.obj-a64900ff55285ade1b0e6562b6e587fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table_small_decorated_A.obj-a64900ff55285ade1b0e6562b6e587fb.mesh"]
+
+source_file="res://Assets/KayKit Dungeon/Assets/obj/table_small_decorated_A.obj"
+dest_files=["res://.godot/imported/table_small_decorated_A.obj-a64900ff55285ade1b0e6562b6e587fb.mesh", "res://.godot/imported/table_small_decorated_A.obj-a64900ff55285ade1b0e6562b6e587fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

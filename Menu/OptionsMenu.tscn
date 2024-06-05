@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://xqmbygw0vs75"]
+[gd_scene load_steps=6 format=3 uid="uid://xqmbygw0vs75"]
 
 [ext_resource type="Script" path="res://Menu/Scripts/OptionsMenu.gd" id="1_0h4rp"]
 [ext_resource type="PackedScene" uid="uid://bueqppcwiky5d" path="res://Menu/TabContainer.tscn" id="2_q1bar"]
 [ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="3_k2nox"]
+[ext_resource type="Theme" uid="uid://cd41u207uxt4u" path="res://Assets/Assets UI/FlatUIKenneyThemeGodot/kenneyUI-green.tres" id="3_sqm2s"]
 
 [sub_resource type="SystemFont" id="SystemFont_6fwia"]
 font_names = PackedStringArray("Consolas")
@@ -56,9 +57,11 @@ focus_neighbor_bottom = NodePath("../../../ExitButton")
 focus_next = NodePath("MarginContainer/ScrollContainer/VBoxContainer/HotkeyRebindButton/HBoxContainer/Button")
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 8
 focus_neighbor_bottom = NodePath("../TabContainer")
+theme = ExtResource("3_sqm2s")
 text = "Exit"
 
 [node name="ButtonPressStream" type="AudioStreamPlayer" parent="."]

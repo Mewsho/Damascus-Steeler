@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ck77p6x3wtqod"
+path="res://.godot/imported/wall_arched.obj-9a3e5e091b8c060d1ebae29cce9e5559.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_arched.obj-9a3e5e091b8c060d1ebae29cce9e5559.mesh"]
+
+source_file="res://Assets/KayKit Dungeon/Assets/obj/wall_arched.obj"
+dest_files=["res://.godot/imported/wall_arched.obj-9a3e5e091b8c060d1ebae29cce9e5559.mesh", "res://.godot/imported/wall_arched.obj-9a3e5e091b8c060d1ebae29cce9e5559.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -25,5 +25,6 @@ transform = Transform3D(0.996275, -5.14962e-09, 0.0862354, 5.13044e-09, 1, 4.440
 
 [node name="Area3D" parent="Skeleton_Rogue" index="2"]
 transform = Transform3D(1.40753, 0, 0, 0, 2.31748, 0, 0, 0, 1.12692, 0.0417541, 1.16521, 0.00395727)
+collision_layer = 5
 
 [editable path="Skeleton_Rogue"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfvuey6ix5edg"
+path="res://.godot/imported/bed_floor.obj-46b76faf60e0b5337c164c11e9a86a75.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bed_floor.obj-46b76faf60e0b5337c164c11e9a86a75.mesh"]
+
+source_file="res://Assets/KayKit Dungeon/Assets/obj/bed_floor.obj"
+dest_files=["res://.godot/imported/bed_floor.obj-46b76faf60e0b5337c164c11e9a86a75.mesh", "res://.godot/imported/bed_floor.obj-46b76faf60e0b5337c164c11e9a86a75.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

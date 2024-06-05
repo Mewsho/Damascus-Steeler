@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djjdaeh32uac3"
+path="res://.godot/imported/trunk_5.obj-d7f346701e89f22163e5886e4b4abe6e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trunk_5.obj-d7f346701e89f22163e5886e4b4abe6e.mesh"]
+
+source_file="res://Assets/NatureFantasyVoxel/Nature/trunks/trunk_5/obj/trunk_5.obj"
+dest_files=["res://.godot/imported/trunk_5.obj-d7f346701e89f22163e5886e4b4abe6e.mesh", "res://.godot/imported/trunk_5.obj-d7f346701e89f22163e5886e4b4abe6e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

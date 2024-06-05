@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ceofxooqrv7by"
+path="res://.godot/imported/flower_white_tulip.obj-96eadbd3eccf849cb157d1e3d3f4af48.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flower_white_tulip.obj-96eadbd3eccf849cb157d1e3d3f4af48.mesh"]
+
+source_file="res://Assets/NatureFantasyVoxel/Nature/flower_white_tulip/obj/flower_white_tulip.obj"
+dest_files=["res://.godot/imported/flower_white_tulip.obj-96eadbd3eccf849cb157d1e3d3f4af48.mesh", "res://.godot/imported/flower_white_tulip.obj-96eadbd3eccf849cb157d1e3d3f4af48.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

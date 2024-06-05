@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4gs332htags6"]
+
+[ext_resource type="Shader" path="res://auto_scroller.gdshader" id="1_a2s6c"]
+[ext_resource type="Texture2D" uid="uid://d2caf00fqtlsl" path="res://Assets/Backgrounds/Mountain/sky.png" id="2_l8sc3"]
+[ext_resource type="Texture2D" uid="uid://b4ygnhh0jdega" path="res://Assets/Backgrounds/Mountain/far-clouds.png" id="3_mx4q3"]
+[ext_resource type="Texture2D" uid="uid://bci270mevr6mk" path="res://Assets/Backgrounds/Mountain/near-clouds.png" id="4_3a2te"]
+[ext_resource type="Texture2D" uid="uid://bt0g6tj0or012" path="res://Assets/Backgrounds/Mountain/far-mountains.png" id="5_tt8oh"]
+[ext_resource type="Texture2D" uid="uid://b777jqfljwm5y" path="res://Assets/Backgrounds/Mountain/mountains.png" id="6_6yqs2"]
+[ext_resource type="Texture2D" uid="uid://dob708vkb3qyo" path="res://Assets/Backgrounds/Mountain/trees.png" id="7_pt38c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbk84"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(-0.004, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uumhn"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp5fv"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(2, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43rvf"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(5, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l50ho"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(6, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4syjq"]
+shader = ExtResource("1_a2s6c")
+shader_parameter/direction = Vector2(10, 0)
+shader_parameter/speed_scale = 0.02
+
+[node name="BGMenu" type="Node2D"]
+texture_filter = 1
+
+[node name="SkyBGStatic" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_gbk84")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("2_l8sc3")
+stretch_mode = 1
+
+[node name="FarClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_uumhn")
+custom_minimum_size = Vector2(320, 240)
+offset_right = 128.0
+offset_bottom = 240.0
+texture = ExtResource("3_mx4q3")
+stretch_mode = 1
+
+[node name="CloseClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qp5fv")
+custom_minimum_size = Vector2(320, 240)
+offset_right = 144.0
+offset_bottom = 240.0
+texture = ExtResource("4_3a2te")
+stretch_mode = 1
+
+[node name="FarMountain" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_43rvf")
+custom_minimum_size = Vector2(320, 240)
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("5_tt8oh")
+stretch_mode = 1
+
+[node name="CloseMountain" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_l50ho")
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("6_6yqs2")
+stretch_mode = 1
+
+[node name="Trees" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4syjq")
+custom_minimum_size = Vector2(320, 240)
+offset_right = 240.0
+offset_bottom = 240.0
+texture = ExtResource("7_pt38c")
+stretch_mode = 1

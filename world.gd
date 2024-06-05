@@ -7,14 +7,14 @@ extends Node3D
 @onready var pause_menu = $PauseMenu as PauseMenu
 @onready var player_position = $PlayerPosition as Marker3D
 @onready var core = get_tree().get_root().get_node("Core") as Node
-@onready var pcg_code = $PCGCode as PCGCode
 var paused : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var ini = Time.get_ticks_msec()
-	pcg_code.PCG_General() ## Invoca a la generacion procedural
-	var chunks = pcg_code.get_chunk_elegidos() ## Guarda los chunks elegidos
-	pcg_code.chunks_creation(chunks,grid_map) ## Los dibuja en el mundo
+	#PCGcurrent.PCG_General() ## Invoca a la generacion procedural
+	#var chunks = PCGcurrent.get_chunk_eleg(idos() ## Guarda los chunks elegidos
+	var chunks = core._get_chunks_elegidos()
+	PCGcurrent.chunks_creation(chunks,grid_map) ## Los dibuja en el mundo
 	var fin = Time.get_ticks_msec()
 	print("Tiempo ejecucion pst pcg chunk creation:", fin-ini)
 	

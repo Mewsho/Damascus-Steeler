@@ -18,9 +18,6 @@ var player_data: Dictionary = {}
 
 const MAX_PLAYERS = 4 ## Cantidad maxima de jugadores
 
-func _process(delta):
-	pass
-
 
 ## Funcion del plugin original, le asigna un numero al jugador, y agrega la informacion del
 ## dispositivo y clase default, luego emite la señal de que se unio un jugador

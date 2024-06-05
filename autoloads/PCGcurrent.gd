@@ -6,12 +6,13 @@ extends Node
 
 ## Especificamente, el algoritmo crea objetos chunks y gccolumns que evalua y combina por multiples generaciones,
 ## para generar una poblacion donde se elije el mejor para crear en el mundo
-## TASK WARNING DANGER HAY QUE AGREGAR LIBERACION DE MEMORIA RAM, EN TAMAÑOS GRANDES SE MANTIENEN EN RAM LOS CHUNKS ANTERIORES
+
 # Se precargan las escenas de los enemigos que se usaran para poner enemigos
 const ENEMY_ROGUE = preload("res://Enemies/NormalEnemies/enemy_rogue.tscn")
 const ENEMY_MAGE = preload("res://Enemies/NormalEnemies/enemy_mage.tscn")
 const ENEMY_MINION = preload("res://Enemies/NormalEnemies/enemy_minion.tscn")
 const ENEMY_WARRIOR = preload("res://Enemies/NormalEnemies/enemy_warrior.tscn")
+const MANA = preload("res://Level/GridMap/mana.tscn")
 ## Constantes usadas anteriormente
 #const tamanoPoblacion = 50
 #const rateElitism = 0.05
@@ -23,7 +24,7 @@ const ENEMY_WARRIOR = preload("res://Enemies/NormalEnemies/enemy_warrior.tscn")
 #const maxGen = 75
 ## Region de datos y valores iniciales, algunos son export para facilitar el cambio
 #region Datos
-@export var tamanoPoblacion : int = 25
+@export var tamanoPoblacion : int = 35
 @export var rateElitism : float = 0.05
 var tamanoElite = int(max(1,round(tamanoPoblacion*rateElitism)))
 var tamanoDescendencia : int = tamanoPoblacion-tamanoElite
@@ -41,35 +42,38 @@ var chunkCargado = 0 #Contador de chunk cargado, para que cada uno vaya despues 
 var altura_anterior = 2 #Altura del final de un chunk
 var n_chunks_to_generate = 5 #Chunks a generar
 var Chunks_Elegidos : Array = []
-var thread : Thread #NOTE Usados anteriormente en un intento de concurrencia
-var mutex : Mutex
+
 
 signal PCG_generation_finished
 #endregion
 
 ## Region de los objetos personalizados Chunk y GeneColumn
 #region Objetos para generación
-class Chunk extends Node: #Cada chunk representa un pedazo de escenario a generar, multiples compiten entre ellos
+class Chunk : #Cada chunk representa un pedazo de escenario a generar, multiples compiten entre ellos
 	var leftP = 0 # Variables de trazabilidad de cada chunk
 	var rightP = 0
 	var id = 0 
 	var gen = 0
 	var gcs = [] #Columnas que lo componen
+	var altura_anterior = 0
+	var is_punished_prev_chunk : bool = false
 	var fitness = 0 #Puntaje
 	#Funciones para facilitar la lectura del codigo
 	func get_altura_inicial() -> int:
 		return gcs[0].alturaTile
 	func get_altura_final() -> int:
 		return gcs[len(gcs)-1].alturaTile
-
-class GeneColumn extends Node: #Cada genecolumn representa un columna en el mundo
+		
+class GeneColumn: #Cada genecolumn representa un columna en el mundo
 	var id = 0 
 	var alturaTile = 0 #Altura de la columna
 	var hasEnemy = false
 	var enemyLevel = "low" 
 	var enemyNumber = 0
 	var posX = 0
+	var hasMana = false
 #endregion
+
 
 
 
@@ -84,29 +88,60 @@ func get_chunk_elegidos():
 
 ## Funcion de utilidad para mostrar la info de un chunk
 func mostrar_datos(c : Chunk):
-	print("id:", c.id, " leftP: ", c.leftP," rightP: ", c.rightP, " fit: ", c.fitness, " gen: ", c.gen)
+	print("id:", c.id, " leftP: ", c.leftP," rightP: ", c.rightP, " fit: ", c.fitness, " gen: ", c.gen, " H anterior: ", c.altura_anterior, " castigado por prev?: ", c.is_punished_prev_chunk)
 	for i in range(0,GCporChunk):
 		print("fila: " ,i, " h: ", c.gcs[i].alturaTile, " enemy: ", c.gcs[i].hasEnemy)
 	print()
 
+
 func PCG_General(): 
 	#seed(1941)
-	var chunk_elegido
+	
 	var poblacion = []
 	Chunks_Elegidos = []
 	while (chunkCargado < n_chunks_to_generate):
 		poblacion = []
 		poblacion = iniPoblacion()
+		var fitness_pob = 0
+		fitnessFx(poblacion)
+		for chunk in range(tamanoPoblacion):
+			fitness_pob += poblacion[chunk].fitness
+		print("Initial fitness of pob: ", fitness_pob)
 		poblacion = generacion_procedural(poblacion)
-		chunk_elegido = poblacion[tamanoPoblacion-1]
-		altura_anterior = chunk_elegido.get_altura_final()
-		Chunks_Elegidos.append(chunk_elegido)
-		#chunkElegido.gcs[0].alturaTile = alturaAnterior #DEPRECATED Asegurando que se conecten
-		print("Current Fitness: ", chunk_elegido.fitness)
-		print("Altura inicial elegido: ", chunk_elegido.get_altura_inicial())
-		print("Altura Anterior:", altura_anterior)
-		print("Chunk cargado = ", chunkCargado)
-		chunkCargado +=1
+		var chunk_elegido = poblacion[tamanoPoblacion-1]
+		if chunk_elegido.fitness > 1000:
+			chunk_elegido.altura_anterior = altura_anterior
+			altura_anterior = chunk_elegido.get_altura_final()
+			Chunks_Elegidos.append(chunk_elegido)
+			print("Current Fitness: ", chunk_elegido.fitness)
+			print("Altura inicial elegido: ", chunk_elegido.get_altura_inicial())
+			print("Altura Anterior:", altura_anterior)
+			print("Chunk cargado = ", chunkCargado)
+			chunkCargado +=1
+		else:
+			print()
+			print("Failed Poblation, fitness: ", chunk_elegido.fitness)
+			print()
+		
+	#for i in range(tamanoPoblacion):
+		#for j in range(GCporChunk):
+			#var altura = poblacion[i].gcs[j].alturaTile
+			#if poblacion[i].gcs[j].hasEnemy and !poblacion[i].gcs[j].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
+				#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				#grid_map.set_cell_item(Vector3i(3+j, altura+1,-i-2),enemy_id)
+			#if poblacion[i].gcs[j].hasMana and !poblacion[i].gcs[j].hasEnemy:
+				#var mana_id = 5
+				#grid_map.set_cell_item(Vector3i(3+j, altura+1,-i-2),mana_id)
+			#if poblacion[i].gcs[j].hasMana and poblacion[i].gcs[j].hasEnemy:
+				#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				#var mana_id = 5
+				#grid_map.set_cell_item(Vector3i(3+j, altura+2,-i-2),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
+				#grid_map.set_cell_item(Vector3i(3+j, altura+1,-i-2),mana_id)
+			#
+			#while altura != 0:
+				#grid_map.set_cell_item(Vector3i(3+j,altura,-i-2),0)
+				#altura -= 1
+
 	emit_signal("PCG_generation_finished")
 
 ## Creacion de los bloques en el escenario y posicionamiento de los enemigos
@@ -118,14 +153,15 @@ func chunks_creation(chunks_selected ,grid : GridMap):
 	var altura_inicial = chunks_selected[0].get_altura_inicial()
 	for i in range(-5,4):
 		var altura = altura_inicial
-		while altura != 0:
+		while altura != -1:
 			grid.set_cell_item(Vector3i(i,altura,0),0)
 			altura-=1
-	for i in range(0,GCporChunk*chunkCargado):
+	for i in range(0,GCporChunk*chunkCargado*2):
 		grid.set_cell_item(Vector3i(i,0,0),0)
 	
 	#Genera las celdas procedurales, pasando por cada chunk elegido
 	for chunk in range(len(chunks_selected)):
+		print(mostrar_datos(chunks_selected[chunk]))
 		cellCreation(chunks_selected[chunk], chunk, grid)
 	
 	#Obtiene los bloques que representan a los enemigos y los reemplaza con las escenas precargadas
@@ -133,23 +169,66 @@ func chunks_creation(chunks_selected ,grid : GridMap):
 	var enemy2 = grid.get_used_cells_by_id(2)
 	var enemy3 = grid.get_used_cells_by_id(3)
 	var enemy4 = grid.get_used_cells_by_id(4)
+	var mana = grid.get_used_cells_by_id(5)
 	grid.basicTileReplace(enemy1, ENEMY_MAGE)
 	grid.basicTileReplace(enemy2, ENEMY_MINION)
 	grid.basicTileReplace(enemy3, ENEMY_ROGUE)
 	grid.basicTileReplace(enemy4, ENEMY_WARRIOR)
+	grid.basicTileReplace(mana,MANA)
 
 ##Funcion que crea cada elemento del chunk que recibe
 func cellCreation(c : Chunk, cNumber: int, grid : GridMap):
-	for i in range(0,GCporChunk):
-		var altura = c.gcs[i].alturaTile #Obtiene la altura de la columna en cuestion
-		if c.gcs[i].hasEnemy: #Si tiene enemigo lo pone encima del bloque de altura maxima
-			var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),enemy_id)
-		while altura != 0: #Pone bloques de la altura maxima hacia abajo
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),altura,0),0)
-			altura -= 1
-		if i == GCporChunk-1: #TEST Genera un bloque a la derecha para ver cuando termina un chunk 
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),3,1),0)
+	## 2 columnas reales por columna generada
+	var i = 0
+	var column = 0
+	while i < GCporChunk*2:
+		for j in range(0,2):
+			var altura = c.gcs[column].alturaTile #Obtiene la altura de la columna en cuestion
+			if c.gcs[column].hasEnemy and !c.gcs[column].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
+				var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),enemy_id)
+			if c.gcs[column].hasMana and !c.gcs[column].hasEnemy:
+				var mana_id = 5
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),mana_id)
+			if c.gcs[column].hasMana and c.gcs[column].hasEnemy:
+				var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				var mana_id = 5
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),mana_id)
+			while altura != 0: #Pone bloques de la altura maxima hacia abajo
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2),altura,0),0)
+				altura -= 1
+		i +=2
+		column = i/2
+	## Versiones anteriores, solo una columna del mundo por columna
+		#if i == GCporChunk-1: #TEST Genera un bloque a la derecha para ver cuando termina un chunk 
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),3,1),0)
+			
+	#var j = 0
+	#for i in range(0,GCporChunk):
+		#var altura = c.gcs[i].alturaTile #Obtiene la altura de la columna en cuestion
+		#if c.gcs[i].hasEnemy and !c.gcs[i].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
+			#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+			#grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk), altura+1,0),enemy_id)
+		#if c.gcs[i].hasMana and !c.gcs[i].hasEnemy:
+			#var mana_id = 5
+			#grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk), altura+1,0),mana_id)
+		#if c.gcs[i].hasMana and c.gcs[i].hasEnemy:
+			#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+			#var mana_id = 5
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),mana_id)
+		#while altura != 0: #Pone bloques de la altura maxima hacia abajo
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),altura,0),0)
+			#altura -= 1
+			#
+			#
+			#
+			#
+			#
+			
+			
+			
 #endregion
 
 ## Funcion principal de la generacion, llama al resto de funciones importantes,
@@ -162,6 +241,7 @@ func generacion_procedural(poblacion : Array):
 	#for i in range(tamanoPoblacion): #INFO Usado para obtener la informacion de la poblacion inicial
 		#datos(poblacion[i])
 	while (iGen < maxGen):
+		fitnessFx(poblacion)
 		elt = seleccionMejores(poblacion)
 		desc = seleccionParientesCrossover(poblacion)
 		poblacion = union(desc, elt)
@@ -185,8 +265,6 @@ func iniPoblacion():
 			chunks[chunk].gcs.append(GeneColumn.new())
 			chunks[chunk].gcs[columna].id = columna
 			chunks[chunk].gcs[columna].posX = columna
-			#if (j == 0): #DEPRECATED
-				#chunks[i].gcs[j].alturaTile = alturaIni
 			var h = randi_range(0,FilasporGC-alturaRestar) #Altura
 			chunks[chunk].gcs[columna].alturaTile = h
 			if (randi_range(0,1) == 1): #Si tiene enemigo
@@ -201,7 +279,8 @@ func iniPoblacion():
 				else:
 					chunks[chunk].gcs[columna].enemyLevel = "heavy"
 					chunks[chunk].gcs[columna].enemyNumber = 1
-			#TASK Inicialicacion de powerup y otros elementos, aun no los implementamos
+			if (randi_range(0,3) == 3):
+					chunks[chunk].gcs[columna].hasMana = true
 	var Poblacion = chunks
 	return Poblacion
 
@@ -216,8 +295,6 @@ func sortChunks(a, b):# La funcion para poder usar sort custom
 ## ademas aprovecha de evaluar toda la poblacion y ordenarla en base al fitness
 func seleccionMejores(p : Array):
 	var elite = []
-	for i in range(0,tamanoPoblacion): #Evalua a cada chunk de la poblacion
-		fitnessFx(p)
 	p.sort_custom(sortChunks) #Ordenando los chunks de la poblacion
 	#for i in range(tamanoPoblacion): #INFO Para la optencion de informacion de la elite
 		#print("pos: ",i)
@@ -302,7 +379,7 @@ func crossover(chunkL : Chunk, chunkR : Chunk): #2
 	if (p1==0):
 		p1 = 1
 	p2 = randi_range(pmedio+1,GCporChunk-1)
-	r_cross = randi_range(0,3)
+	r_cross = randi_range(0,2)
 	#print("p1: ",p1, " p2: ", p2,"\n")
 	if (r_cross == 0): # Estandar
 		for i in range(0,p1):
@@ -325,19 +402,18 @@ func crossover(chunkL : Chunk, chunkR : Chunk): #2
 			cross.gcs[i] = chunkR.gcs[i]
 		for i in range(p2,GCporChunk-1):
 			cross.gcs[i] = chunkL.gcs[GCporChunk-2-i]
-	else: #Estandar pero shuffle #TEST Podemos intentar eliminarlo, y testear si mejora o empeora
-		for i in range(0,p1):
-			cross.gcs[i] = chunkL.gcs[i]
-		for i in range(p1,p2):
-			cross.gcs[i] = chunkR.gcs[i]
-		for i in range(p2,GCporChunk):
-			cross.gcs[i] = chunkL.gcs[i]
-		cross.gcs.shuffle()
+	#else: #Estandar pero shuffle #TEST Podemos intentar eliminarlo, y testear si mejora o empeora
+		#for i in range(0,p1):
+			#cross.gcs[i] = chunkL.gcs[i]
+		#for i in range(p1,p2):
+			#cross.gcs[i] = chunkR.gcs[i]
+		#for i in range(p2,GCporChunk):
+			#cross.gcs[i] = chunkL.gcs[i]
+		#cross.gcs.shuffle()
 	cross.id = chunkL.id + chunkR.id + 100
 	cross.leftP = chunkL.id
 	cross.rightP = chunkR.id
 	cross.gen = iGen
-	base.queue_free() 
 	#print("Cross")
 	#datos(cross)
 	return cross #Retorna el hijo
@@ -458,9 +534,13 @@ func fitnessFx(p : Array):
 				if (altura > alturaSalto):
 					castigoInacc -= 3000
 			else: #TEST Intento de castigar que no se conecten un chunk con otro
-				var altura = altura_anterior - p[i].gcs[j].alturaTile
+				#print("Altura anterior: ",altura_anterior)
+				#print("Altura tile: ", p[i].gcs[j].alturaTile)
+				var altura = p[i].gcs[j].alturaTile - altura_anterior
+				#print("Diferencia: ", altura)
 				if altura > alturaSalto:
-					castigoInacc -= 3000
+					p[i].is_punished_prev_chunk = true
+					castigoInacc -= 4000
 		
 		# Evaluacion de los enemigos
 		if(enemyCount > enemyChunk * 1.1):

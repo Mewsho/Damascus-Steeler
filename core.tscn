@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://6oi1se3uv30c"]
+[gd_scene load_steps=6 format=3 uid="uid://6oi1se3uv30c"]
 
 [ext_resource type="Script" path="res://Core.gd" id="1_qruwx"]
+[ext_resource type="Shader" path="res://scene_transition.gdshader" id="2_fmnqx"]
 [ext_resource type="PackedScene" uid="uid://bn2civsgcxpq3" path="res://Menu/MainMenu.tscn" id="2_uec3o"]
 [ext_resource type="PackedScene" uid="uid://crfsotemq1cp7" path="res://Menu/HUD/gameplay_hud.tscn" id="3_ce0ij"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vn25"]
+resource_local_to_scene = true
+shader = ExtResource("2_fmnqx")
+shader_parameter/progress = 0.0
+shader_parameter/multiplier = 3.0
+shader_parameter/angle = 0.0
+shader_parameter/anchor = Vector2(0.5, 0.5)
+shader_parameter/anchorOffset = 1.0
+shader_parameter/diamondPixelSize = 30.0
 
 [node name="Core" type="Node"]
 script = ExtResource("1_qruwx")
@@ -24,5 +35,24 @@ layout_mode = 1
 
 [node name="PlayerNodeContainer" type="Node" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+light_mask = 7
+visibility_layer = 7
+z_index = 2
+material = SubResource("ShaderMaterial_5vn25")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SceneTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]
+
 [editable path="SceneNodeContainer/MainMenu"]
-[editable path="SceneNodeContainer/MainMenu/MarginContainer/PlayerContainer"]
+[editable path="SceneNodeContainer/MainMenu/BackgroundViewportContainer/SubViewport/Node2D"]
+[editable path="SceneNodeContainer/MainMenu/PlayerContainer"]

@@ -36,6 +36,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_f6car")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(-1.45806e-07, 9.0042e-08, 124.514, -2.91614e-07, 2.16834, -5.17055e-06, -3.33565, -1.89563e-07, -5.4427e-06, 0.00111349, 0.925313, 0.00146494)
+collision_mask = 5
 collide_with_areas = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
