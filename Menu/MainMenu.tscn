@@ -1,14 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn2civsgcxpq3"]
+[gd_scene load_steps=12 format=3 uid="uid://bn2civsgcxpq3"]
 
 [ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_4fi5l"]
 [ext_resource type="PackedScene" uid="uid://xqmbygw0vs75" path="res://Menu/OptionsMenu.tscn" id="2_1pl5r"]
+[ext_resource type="PackedScene" uid="uid://d4gs332htags6" path="res://Menu/StartMenu/BackgroundMenu.tscn" id="2_h0vi8"]
 [ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="2_lqmsg"]
 [ext_resource type="AudioStream" uid="uid://ftndj7r410he" path="res://Music/20210720_Death_s Door OST - 05 - Lost Cemetery.mp3" id="3_a5yna"]
 [ext_resource type="PackedScene" uid="uid://bke034tyehh1s" path="res://Menu/players_hud_container.tscn" id="3_ckkqy"]
-
-[sub_resource type="SystemFont" id="SystemFont_3axuj"]
-font_names = PackedStringArray("Bookman Old Style")
-subpixel_positioning = 0
+[ext_resource type="PackedScene" uid="uid://c74jbbiw3v35f" path="res://Menu/StartMenu/main_menu_cliff.tscn" id="3_d7rpf"]
+[ext_resource type="AudioStream" uid="uid://ca8xd07372t2v" path="res://Music/UI Audio/select_002.ogg" id="4_nmcb5"]
+[ext_resource type="FontFile" uid="uid://smo7lppwsmt4" path="res://Assets/Fonts/PeaberryDoublespace.ttf" id="5_5cwxd"]
+[ext_resource type="AudioStream" uid="uid://d0ceelrsylscw" path="res://Music/UI Audio/tick_001.ogg" id="6_4s8n6"]
+[ext_resource type="Theme" uid="uid://cd41u207uxt4u" path="res://Assets/Assets UI/FlatUIKenneyThemeGodot/kenneyUI-green.tres" id="6_6f3x8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,22 +22,75 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_4fi5l")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BackgroundViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(320, 240)
+layout_mode = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="BackgroundViewportContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 3
+size = Vector2i(320, 240)
+size_2d_override = Vector2i(320, 240)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Node2D" parent="BackgroundViewportContainer/SubViewport" instance=ExtResource("2_h0vi8")]
+
+[node name="FarClouds" parent="BackgroundViewportContainer/SubViewport/Node2D" index="1"]
+offset_right = 320.0
+
+[node name="CloseClouds" parent="BackgroundViewportContainer/SubViewport/Node2D" index="2"]
+offset_right = 320.0
+
+[node name="FarMountain" parent="BackgroundViewportContainer/SubViewport/Node2D" index="3"]
+offset_right = 320.0
+
+[node name="Trees" parent="BackgroundViewportContainer/SubViewport/Node2D" index="5"]
+offset_right = 320.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+offset_top = -467.0
+offset_right = 696.0
+grow_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 3
+size = Vector2i(696, 467)
+render_target_update_mode = 4
+
+[node name="MainMenuCliff" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_d7rpf")]
 
 [node name="ButtonPressStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nmcb5")
+bus = &"UI"
+
+[node name="BackButtonPressStream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lqmsg")
 bus = &"UI"
+
+[node name="ChangeButtonStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4s8n6")
+bus = &"UI"
+
+[node name="PlayerContainer" parent="." instance=ExtResource("3_ckkqy")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 1268.0
+offset_bottom = 708.0
+alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -53,7 +108,8 @@ theme_override_constants/margin_bottom = 12
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-alignment = 1
+theme_override_constants/separation = 64
+alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 process_mode = 3
@@ -71,9 +127,10 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(160, 64)
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme = ExtResource("6_6f3x8")
 theme_override_font_sizes/font_size = 24
 text = "Start
 "
@@ -82,9 +139,14 @@ text = "Start
 layout_mode = 2
 mouse_filter = 2
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("6_6f3x8")
 theme_override_font_sizes/font_size = 24
 text = "Options
 "
@@ -93,12 +155,29 @@ text = "Options
 layout_mode = 2
 mouse_filter = 2
 
+[node name="Separator6" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
 [node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 32)
+custom_minimum_size = Vector2(120, 64)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
+theme = ExtResource("6_6f3x8")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -109,21 +188,32 @@ theme_override_constants/separation = 60
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 12
 theme_override_constants/shadow_offset_y = 12
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = SubResource("SystemFont_3axuj")
+theme_override_fonts/font = ExtResource("5_5cwxd")
 theme_override_font_sizes/font_size = 64
-text = "DAMASCUS FANTASY XXL"
+text = "DAMASCUS 
+FANTASY XXL"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="PlayerContainer" parent="MarginContainer" instance=ExtResource("3_ckkqy")]
-layout_mode = 2
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_1pl5r")]
 visible = false
@@ -135,8 +225,12 @@ volume_db = -14.857
 autoplay = true
 bus = &"Music"
 
+[connection signal="focus_exited" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_focus_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_exited" from="MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_focus_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="focus_exited" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_focus_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 
-[editable path="MarginContainer/PlayerContainer"]
+[editable path="BackgroundViewportContainer/SubViewport/Node2D"]
+[editable path="PlayerContainer"]

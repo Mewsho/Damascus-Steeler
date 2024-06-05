@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bsbw8io2w8clh"
+path="res://.godot/imported/pluck_002.ogg-939c8fa4fb14f6b76cc4e38e61fd1271.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Assets UI/kenney_interface-sounds/UI Audio/pluck_002.ogg"
+dest_files=["res://.godot/imported/pluck_002.ogg-939c8fa4fb14f6b76cc4e38e61fd1271.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

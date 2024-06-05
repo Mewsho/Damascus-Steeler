@@ -4,17 +4,28 @@ extends MarginContainer
 ## Script del hud del jugador qu muestra el icono de clase, el mana y la cantidad de vidas
 
 ## Variabless de la escena
-@onready var mana_bar = $HBoxContainer/InfoContainer/MarginContainer/ManaBar
-@onready var mana_delay_bar = $HBoxContainer/InfoContainer/MarginContainer/ManaBar/ManaDelayBar
-@onready var timer = $HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer
-@onready var player_label = $HBoxContainer/InfoContainer/HBoxContainer/PlayerLabel
-@onready var mage_icon = $HBoxContainer/IconContainer/MageIcon
-@onready var barbarian_icon = $HBoxContainer/IconContainer/BarbarianIcon
-@onready var knight_icon = $HBoxContainer/IconContainer/KnightIcon
-@onready var ranger_icon = $HBoxContainer/IconContainer/RangerIcon
-@onready var icon_container = $HBoxContainer/IconContainer
-@onready var life_icon_container = $HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer
-@onready var life_number_label = $HBoxContainer/InfoContainer/HBoxContainer/LifeNumberLabel
+@onready var mana_bar = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar
+
+@onready var mana_delay_bar = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar/ManaDelayBar
+
+@onready var timer = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer
+
+@onready var player_label = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/PlayerLabel
+
+@onready var mage_icon = $NinePatchRect/MarginContainer/HBoxContainer/IconContainer/MageIcon
+
+@onready var barbarian_icon = $NinePatchRect/MarginContainer/HBoxContainer/IconContainer/BarbarianIcon
+
+@onready var knight_icon = $NinePatchRect/MarginContainer/HBoxContainer/IconContainer/KnightIcon
+
+@onready var ranger_icon = $NinePatchRect/MarginContainer/HBoxContainer/IconContainer/RangerIcon
+
+@onready var icon_container = $NinePatchRect/MarginContainer/HBoxContainer/IconContainer
+
+@onready var life_icon_container = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer
+
+@onready var life_number_label = $NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeNumberLabel
+
 
 
 

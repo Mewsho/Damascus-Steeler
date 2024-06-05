@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm3inftubtnc1"]
+[gd_scene load_steps=14 format=3 uid="uid://dm3inftubtnc1"]
 
 [ext_resource type="Script" path="res://Menu/HUD/Scripts/player_hud.gd" id="1_2umyh"]
 [ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_p7b8i"]
+[ext_resource type="Texture2D" uid="uid://wegj6iko3j2u" path="res://Assets/Assets UI/kenney_fantasy-ui-borders/Vector/fantasy-ui-borders.svg" id="2_5c1l3"]
 [ext_resource type="Texture2D" uid="uid://w3vir2ygmso3" path="res://Menu/HUD/CharactersIcons/tile_0087.png" id="2_fa0n6"]
 [ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="3_e5hkq"]
 [ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_pcldv"]
 [ext_resource type="FontFile" uid="uid://d2h5c3d6e3b0c" path="res://Assets/Fonts/PeaberryBase.ttf" id="6_m0icc"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_opv61"]
-grow_begin = 25.0
-grow_end = 25.0
-thickness = 5
+color = Color(1, 1, 1, 1)
+grow_begin = 20.0
+grow_end = 20.0
+thickness = 3
 vertical = true
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_hx480"]
@@ -35,7 +37,7 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(0, 0.439216, 0.541176, 1)
 
 [node name="PlayerHUD" type="MarginContainer"]
-offset_right = 304.0
+offset_right = 258.0
 offset_bottom = 77.0
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 6
@@ -43,103 +45,126 @@ theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 script = ExtResource("1_2umyh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(0, 0, 0.0509804, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(246, 65)
+layout_mode = 2
+texture = ExtResource("2_5c1l3")
+region_rect = Rect2(102, 40, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="IconContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="IconContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 
-[node name="MageIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+[node name="MageIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/IconContainer"]
 layout_mode = 2
 texture = ExtResource("1_p7b8i")
 expand_mode = 2
 
-[node name="BarbarianIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+[node name="BarbarianIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/IconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_fa0n6")
 expand_mode = 2
 
-[node name="KnightIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+[node name="KnightIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/IconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_e5hkq")
 expand_mode = 2
 
-[node name="RangerIcon" type="TextureRect" parent="HBoxContainer/IconContainer"]
+[node name="RangerIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/IconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_pcldv")
 expand_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="NinePatchRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = -12
 theme_override_styles/separator = SubResource("StyleBoxLine_opv61")
 
-[node name="InfoContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="InfoContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/InfoContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="PlayerLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+[node name="PlayerLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_m0icc")
 theme_override_font_sizes/font_size = 16
 text = "Jugador 1"
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_hx480")
 
-[node name="LifeIconContainer" type="MarginContainer" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+[node name="LifeIconContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="MageIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+[node name="MageIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
 layout_mode = 2
 texture = ExtResource("1_p7b8i")
 expand_mode = 2
 
-[node name="BarbarianIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+[node name="BarbarianIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_fa0n6")
 expand_mode = 2
 
-[node name="KnightIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+[node name="KnightIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_e5hkq")
 expand_mode = 2
 
-[node name="RangerIcon" type="TextureRect" parent="HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
+[node name="RangerIcon" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer/LifeIconContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_pcldv")
 expand_mode = 2
 
-[node name="xLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+[node name="xLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_m0icc")
 text = "x"
 horizontal_alignment = 2
 
-[node name="LifeNumberLabel" type="Label" parent="HBoxContainer/InfoContainer/HBoxContainer"]
+[node name="LifeNumberLabel" type="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_m0icc")
 text = "3"
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InfoContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer"]
 layout_mode = 2
 
-[node name="ManaBar" type="ProgressBar" parent="HBoxContainer/InfoContainer/MarginContainer"]
+[node name="ManaBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer"]
 z_index = 1
 custom_minimum_size = Vector2(150, 12)
 layout_mode = 2
@@ -148,7 +173,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_sx75o")
 value = 60.0
 show_percentage = false
 
-[node name="ManaDelayBar" type="ProgressBar" parent="HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+[node name="ManaDelayBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
 z_index = -1
 custom_minimum_size = Vector2(150, 12)
 layout_mode = 1
@@ -162,8 +187,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5aflu")
 value = 80.0
 show_percentage = false
 
-[node name="Timer" type="Timer" parent="HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+[node name="Timer" type="Timer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
 wait_time = 0.6
 one_shot = true
 
-[connection signal="timeout" from="HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer" to="." method="_on_timer_timeout"]

@@ -5,17 +5,24 @@ extends Node
 ## en el futuro
 
 ## Carga el contenedor de escenas
-#@onready var scene_node_container = $SceneNodeContainer as Node
 @onready var scene_node_container = $SceneNodeContainer
 @onready var player_node_container = $PlayerNodeContainer as Node
 @onready var hud = $HUD
 @onready var gameplay_hud = $HUD/GameplayHUD
+@onready var color_rect = $ColorRect
+@onready var scene_timer = $SceneTimer
 
+var scene_wait_time = 1
+var new_scene_change
 ## Nodos de cada jugador
 var player_nodes = {}
 
 ## Personaje default
 const PLAYER_CHARACTER = preload("res://Characters/PlayerCharacter/PlayerCharacter.tscn")
+
+## Test del pcg con thread
+var pcgThread : Thread
+var chunksElegidos
 
 func _ready():
 	## Se conectan las señales de unir y salirse a las funciones correspondientes
@@ -25,6 +32,21 @@ func _ready():
 	MultiplayerInput.reset()
 	PlayerManager.join(-1) ## INFO Tenemos que se una automaticamente el teclado
 
+	## Inicia el thread y ejecuta la preparacion
+	pcgThread = Thread.new()
+	pcgThread.start(_pcg_preparation)
+	
+	scene_timer.wait_time = scene_wait_time
+	
+	## Hace el pcg general
+func _pcg_preparation():
+	PCGcurrent.PCG_General()
+	chunksElegidos = PCGcurrent.get_chunk_elegidos()
+	
+	## Espera a que termine el thread y retorna lo que obtiene
+func _get_chunks_elegidos():
+	pcgThread.wait_to_finish()
+	return chunksElegidos
 
 func _process(_delta):
 	## Constantemente revisa si alguien se quiere unir o salir
@@ -171,11 +193,28 @@ func on_player_leave(player: int):
 	PlayerManager.leave(player)
 	
 ## Funcion de cambio de escena, es la funcion que llaman el resto de escenas para cambiar la escena actual
-func switch_scene(scene_path: String,level=-1):
-	var ini = Time.get_ticks_msec()
+func switch_scene(scene_path: String):
+
+	new_scene_change = scene_path
+
+	scene_transition_animation(0.0,1.0)
+	scene_timer.start()
+	
+
+func scene_transition_animation(ini : float, end: float):
+	var tween = create_tween()
+	tween.tween_method(set_shader_value, ini, end, scene_wait_time)
+
+func set_shader_value(value : float):
+	var shader = color_rect.material as ShaderMaterial
+	shader.set_shader_parameter("progress",value)
+
+
+
+func _on_scene_timer_timeout():
 	var current_scenes = scene_node_container.get_children()
 	var scene_count: int = current_scenes.size() # Se obtiene la cantidad de hijos del scene container
-	
+	get_tree().paused = true
 	if (scene_count > 0): # Si hay escenas que eliminar
 		await get_tree().create_timer(1).timeout
 		
@@ -184,7 +223,7 @@ func switch_scene(scene_path: String,level=-1):
 			child.queue_free()
 		
 		# Agrega la nueva escena
-		var new_scene = load(scene_path).instantiate() 
+		var new_scene = load(new_scene_change).instantiate() 
 		scene_node_container.add_child(new_scene)
 		
 		if new_scene.is_in_group("Levels"):
@@ -197,8 +236,6 @@ func switch_scene(scene_path: String,level=-1):
 	#Invoca a handle_player_join si hay que agregar jugadores o algo similar
 	for player in range(PlayerManager.get_player_count()):
 		handle_player_join(player)
-	
-	 
-	
-	var fin = Time.get_ticks_msec()
-	print("Tiempo cambio de scena: ", fin-ini, "milisegundos")
+
+	scene_transition_animation(1.0,0.0)
+	get_tree().paused = false

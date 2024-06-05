@@ -6,7 +6,7 @@ extends Node
 
 ## Especificamente, el algoritmo crea objetos chunks y gccolumns que evalua y combina por multiples generaciones,
 ## para generar una poblacion donde se elije el mejor para crear en el mundo
-## TASK WARNING DANGER HAY QUE AGREGAR LIBERACION DE MEMORIA RAM, EN TAMAÑOS GRANDES SE MANTIENEN EN RAM LOS CHUNKS ANTERIORES
+
 # Se precargan las escenas de los enemigos que se usaran para poner enemigos
 const ENEMY_ROGUE = preload("res://Enemies/NormalEnemies/enemy_rogue.tscn")
 const ENEMY_MAGE = preload("res://Enemies/NormalEnemies/enemy_mage.tscn")
@@ -74,7 +74,6 @@ class GeneColumn: #Cada genecolumn representa un columna en el mundo
 	var hasMana = false
 #endregion
 
-@onready var grid_map = $"../GridMap"
 
 
 
@@ -179,25 +178,57 @@ func chunks_creation(chunks_selected ,grid : GridMap):
 
 ##Funcion que crea cada elemento del chunk que recibe
 func cellCreation(c : Chunk, cNumber: int, grid : GridMap):
-	
-	for i in range(0,GCporChunk):
-		var altura = c.gcs[i].alturaTile #Obtiene la altura de la columna en cuestion
-		if c.gcs[i].hasEnemy and !c.gcs[i].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
-			var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),enemy_id)
-		if c.gcs[i].hasMana and !c.gcs[i].hasEnemy:
-			var mana_id = 5
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),mana_id)
-		if c.gcs[i].hasMana and c.gcs[i].hasEnemy:
-			var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
-			var mana_id = 5
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),mana_id)
-		while altura != 0: #Pone bloques de la altura maxima hacia abajo
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),altura,0),0)
-			altura -= 1
-		if i == GCporChunk-1: #TEST Genera un bloque a la derecha para ver cuando termina un chunk 
-			grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),3,1),0)
+	## 2 columnas reales por columna generada
+	var i = 0
+	var column = 0
+	while i < GCporChunk*2:
+		for j in range(0,2):
+			var altura = c.gcs[column].alturaTile #Obtiene la altura de la columna en cuestion
+			if c.gcs[column].hasEnemy and !c.gcs[column].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
+				var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),enemy_id)
+			if c.gcs[column].hasMana and !c.gcs[column].hasEnemy:
+				var mana_id = 5
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),mana_id)
+			if c.gcs[column].hasMana and c.gcs[column].hasEnemy:
+				var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+				var mana_id = 5
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),mana_id)
+			while altura != 0: #Pone bloques de la altura maxima hacia abajo
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2),altura,0),0)
+				altura -= 1
+		i +=2
+		column = i/2
+	## Versiones anteriores, solo una columna del mundo por columna
+		#if i == GCporChunk-1: #TEST Genera un bloque a la derecha para ver cuando termina un chunk 
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),3,1),0)
+			
+	#var j = 0
+	#for i in range(0,GCporChunk):
+		#var altura = c.gcs[i].alturaTile #Obtiene la altura de la columna en cuestion
+		#if c.gcs[i].hasEnemy and !c.gcs[i].hasMana: #Si tiene enemigo lo pone encima del bloque de altura maxima
+			#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+			#grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk), altura+1,0),enemy_id)
+		#if c.gcs[i].hasMana and !c.gcs[i].hasEnemy:
+			#var mana_id = 5
+			#grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk), altura+1,0),mana_id)
+		#if c.gcs[i].hasMana and c.gcs[i].hasEnemy:
+			#var enemy_id = randi_range(1,4) #Elige enemigo aleatorio
+			#var mana_id = 5
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk), altura+1,0),mana_id)
+		#while altura != 0: #Pone bloques de la altura maxima hacia abajo
+			#grid.set_cell_item(Vector3i(3+i+(cNumber*GCporChunk),altura,0),0)
+			#altura -= 1
+			#
+			#
+			#
+			#
+			#
+			
+			
+			
 #endregion
 
 ## Funcion principal de la generacion, llama al resto de funciones importantes,

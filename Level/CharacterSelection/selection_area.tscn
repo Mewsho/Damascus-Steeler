@@ -1,15 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://c50md27irn0pm"]
+[gd_scene load_steps=10 format=3 uid="uid://c50md27irn0pm"]
 
 [ext_resource type="Script" path="res://Level/CharacterSelection/Scripts/SelectionArea.gd" id="1_xxi0v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rclj1"]
 
-[sub_resource type="TorusMesh" id="TorusMesh_p0evf"]
-inner_radius = 0.9
+[sub_resource type="Curve" id="Curve_q6llf"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.253623, -1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.768116, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjjh8"]
+[sub_resource type="CurveTexture" id="CurveTexture_f688p"]
+curve = SubResource("Curve_q6llf")
+
+[sub_resource type="Curve" id="Curve_4hui3"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.253623, 1), 0.0, 0.0, 0, 0, Vector2(0.5, -1), 0.0, 0.0, 0, 0, Vector2(0.746377, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_qgyqy"]
+curve = SubResource("Curve_4hui3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_40ets"]
 resource_local_to_scene = true
-albedo_color = Color(1, 0, 1, 1)
+lifetime_randomness = 0.27
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.2
+emission_ring_radius = 0.9
+emission_ring_inner_radius = 1.0
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 3.0
+linear_accel_curve = SubResource("CurveTexture_f688p")
+radial_accel_max = 2.0
+radial_accel_curve = SubResource("CurveTexture_qgyqy")
+tangential_accel_max = 1.0
+color = Color(0, 0, 0, 1)
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6lec"]
+resource_local_to_scene = true
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 15.0
+emission_on_uv2 = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_foi58"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_h6lec")
+size = Vector3(0.04, 0.04, 0.04)
 
 [node name="SelectionArea" type="Area3D"]
 script = ExtResource("1_xxi0v")
@@ -19,8 +61,19 @@ transform = Transform3D(1.36208, 0, 0, 0, 1.31755, 0, 0, 0, 1.7436, 0, 1.20929, 
 shape = SubResource("CapsuleShape3D_rclj1")
 
 [node name="SelectionRing" type="MeshInstance3D" parent="."]
-mesh = SubResource("TorusMesh_p0evf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_mjjh8")
+
+[node name="SelectionParticles3D" type="GPUParticles3D" parent="SelectionRing"]
+amount = 256
+lifetime = 0.5
+explosiveness = 0.24
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_40ets")
+draw_pass_1 = SubResource("BoxMesh_foi58")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="SelectionRing"]
+strength = 3.0
+radius = 0.8
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

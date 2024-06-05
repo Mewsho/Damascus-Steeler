@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bueqppcwiky5d"]
+[gd_scene load_steps=12 format=3 uid="uid://bueqppcwiky5d"]
 
 [ext_resource type="PackedScene" uid="uid://c81kt8x0ao3kr" path="res://Menu/hotkey_rebind_button.tscn" id="1_an152"]
 [ext_resource type="Script" path="res://Menu/Scripts/TabContainer.gd" id="1_ty0v1"]
 [ext_resource type="PackedScene" uid="uid://ca1q5jse2vju1" path="res://Menu/window_mode_button.tscn" id="2_o8mee"]
+[ext_resource type="Theme" uid="uid://cd41u207uxt4u" path="res://Assets/Assets UI/FlatUIKenneyThemeGodot/kenneyUI-green.tres" id="2_pae5k"]
 [ext_resource type="PackedScene" uid="uid://c0tfcjtyfybpl" path="res://Menu/resolution_mode_button.tscn" id="3_hrwjp"]
 [ext_resource type="PackedScene" uid="uid://uy1ttd86quih" path="res://Menu/audio_slider_settings.tscn" id="4_22t1q"]
 [ext_resource type="PackedScene" uid="uid://dtgwyb8388ejr" path="res://Menu/subtitle_toggle_button.tscn" id="4_eombq"]
@@ -34,6 +35,7 @@ offset_right = -100.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_pae5k")
 tab_alignment = 1
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
@@ -41,6 +43,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../Accesiblity")
 focus_neighbor_right = NodePath("../Graphics")
 focus_neighbor_bottom = NodePath("MarginContainer/ScrollContainer/VBoxContainer/HotkeyRebindButton/HBoxContainer/Button")
+theme = ExtResource("2_pae5k")
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
 layout_mode = 1
