@@ -1,54 +1,155 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtsqun1706yk7"]
+[gd_scene load_steps=7 format=3 uid="uid://dtsqun1706yk7"]
 
 [ext_resource type="Script" path="res://Menu/HUD/Scripts/character_selection_container.gd" id="1_coix5"]
 [ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_iqfjr"]
 [ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="2_s5s8k"]
 [ext_resource type="Texture2D" uid="uid://w3vir2ygmso3" path="res://Menu/HUD/CharactersIcons/tile_0087.png" id="3_c80b5"]
 [ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_lnpx2"]
+[ext_resource type="Texture2D" uid="uid://wegj6iko3j2u" path="res://Assets/Assets UI/kenney_fantasy-ui-borders/Vector/fantasy-ui-borders.svg" id="5_1bo48"]
 
 [node name="CharacterSelectionContainer" type="MarginContainer"]
 visible = false
+texture_filter = 1
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
 script = ExtResource("1_coix5")
 
 [node name="CharactersButtons" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 1
 
-[node name="MageButton" type="Button" parent="CharactersButtons"]
-custom_minimum_size = Vector2(32, 32)
+[node name="MageRect" type="NinePatchRect" parent="CharactersButtons"]
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-focus_neighbor_left = NodePath("../RangerButton")
+texture = ExtResource("5_1bo48")
+region_rect = Rect2(102, 424, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MageButton" type="Button" parent="CharactersButtons/MageRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath("../../RangerRect/RangerButton")
 icon = ExtResource("1_iqfjr")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="KnightButton" type="Button" parent="CharactersButtons"]
-custom_minimum_size = Vector2(32, 32)
+[node name="KnightRect" type="NinePatchRect" parent="CharactersButtons"]
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+texture = ExtResource("5_1bo48")
+region_rect = Rect2(102, 424, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="KnightButton" type="Button" parent="CharactersButtons/KnightRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
 icon = ExtResource("2_s5s8k")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="BarbarianButton" type="Button" parent="CharactersButtons"]
-custom_minimum_size = Vector2(32, 32)
+[node name="BarbarianRect" type="NinePatchRect" parent="CharactersButtons"]
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+texture = ExtResource("5_1bo48")
+region_rect = Rect2(102, 424, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="BarbarianButton" type="Button" parent="CharactersButtons/BarbarianRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
 icon = ExtResource("3_c80b5")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="RangerButton" type="Button" parent="CharactersButtons"]
-custom_minimum_size = Vector2(32, 32)
+[node name="RangerRect" type="NinePatchRect" parent="CharactersButtons"]
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+show_behind_parent = true
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-focus_neighbor_right = NodePath("../MageButton")
+texture = ExtResource("5_1bo48")
+region_rect = Rect2(102, 424, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="RangerButton" type="Button" parent="CharactersButtons/RangerRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_right = NodePath("../../MageRect/MageButton")
 icon = ExtResource("4_lnpx2")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="CharactersButtons/MageButton" to="." method="_on_mage_button_pressed"]
-[connection signal="pressed" from="CharactersButtons/KnightButton" to="." method="_on_knight_button_pressed"]
-[connection signal="pressed" from="CharactersButtons/BarbarianButton" to="." method="_on_barbarian_button_pressed"]
-[connection signal="pressed" from="CharactersButtons/RangerButton" to="." method="_on_ranger_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/MageRect/MageButton" to="." method="_on_mage_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/KnightRect/KnightButton" to="." method="_on_knight_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/BarbarianRect/BarbarianButton" to="." method="_on_barbarian_button_pressed"]
+[connection signal="pressed" from="CharactersButtons/RangerRect/RangerButton" to="." method="_on_ranger_button_pressed"]

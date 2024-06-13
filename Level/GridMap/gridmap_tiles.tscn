@@ -1,4 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bthgukcw8677a"]
+[gd_scene load_steps=14 format=3 uid="uid://bthgukcw8677a"]
+
+[ext_resource type="PackedScene" uid="uid://j7o4klqusxvb" path="res://floor_foundation_allsides_2.tscn" id="1_ml6xb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jntkl"]
 
@@ -40,7 +42,6 @@ material = SubResource("StandardMaterial3D_gotll")
 [node name="Cubo" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_jntkl")
 
 [node name="Node" type="StaticBody3D" parent="MeshInstance3D"]
@@ -51,21 +52,19 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_1jwer")
 
 [node name="EnemyPlaceholder0" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.44669)
 mesh = SubResource("BoxMesh_cddsf")
 
 [node name="EnemyPlaceholder1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.0968)
 mesh = SubResource("BoxMesh_l8urp")
 
 [node name="EnemyPlaceholder2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.70069)
 mesh = SubResource("BoxMesh_ivje1")
 
 [node name="EnemyPlaceholder3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.30886)
 mesh = SubResource("BoxMesh_5w3kr")
 
 [node name="ManaPlaceholder0" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.01116)
 mesh = SubResource("BoxMesh_t8ydq")
+
+[node name="floor_foundation_allsides2" parent="." instance=ExtResource("1_ml6xb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

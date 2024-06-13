@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm3inftubtnc1"]
+[gd_scene load_steps=18 format=3 uid="uid://dm3inftubtnc1"]
 
 [ext_resource type="Script" path="res://Menu/HUD/Scripts/player_hud.gd" id="1_2umyh"]
 [ext_resource type="Texture2D" uid="uid://cdc1mnfwxhuul" path="res://Menu/HUD/CharactersIcons/tile_0084.png" id="1_p7b8i"]
@@ -7,13 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://dnqd0g1vntfhh" path="res://Menu/HUD/CharactersIcons/tile_0097.png" id="3_e5hkq"]
 [ext_resource type="Texture2D" uid="uid://c5flabsvurhbd" path="res://Menu/HUD/CharactersIcons/tile_0099.png" id="4_pcldv"]
 [ext_resource type="FontFile" uid="uid://d2h5c3d6e3b0c" path="res://Assets/Fonts/PeaberryBase.ttf" id="6_m0icc"]
+[ext_resource type="Texture2D" uid="uid://cp8teq6bp0coj" path="res://Assets/Assets UI/kenney_fantasy-ui-borders/Vertical/divider-002.png" id="7_cxsdo"]
+[ext_resource type="Texture2D" uid="uid://bc5yybwmdkv8e" path="res://Assets/Assets UI/Other/OverBar.png" id="8_767cx"]
+[ext_resource type="Texture2D" uid="uid://bi06mt42djxma" path="res://Assets/Assets UI/Other/ProgressBar.png" id="9_m82hv"]
+[ext_resource type="Texture2D" uid="uid://b0iihacydyl42" path="res://Assets/Assets UI/Other/UnderBar.png" id="10_tu3ue"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_opv61"]
-color = Color(1, 1, 1, 1)
-grow_begin = 20.0
-grow_end = 20.0
-thickness = 3
-vertical = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glrxv"]
+texture = ExtResource("7_cxsdo")
+texture_margin_top = 2.0
+texture_margin_bottom = 2.0
+expand_margin_top = 23.0
+expand_margin_bottom = 24.0
+region_rect = Rect2(43, 0, 10, 96)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_hx480"]
 color = Color(1, 1, 1, 1)
@@ -46,9 +51,9 @@ theme_override_constants/margin_bottom = 6
 script = ExtResource("1_2umyh")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-self_modulate = Color(0, 0, 0.0509804, 1)
+self_modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(246, 65)
+custom_minimum_size = Vector2(260, 75)
 layout_mode = 2
 texture = ExtResource("2_5c1l3")
 region_rect = Rect2(102, 40, 48, 48)
@@ -58,13 +63,16 @@ patch_margin_right = 12
 patch_margin_bottom = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
@@ -98,13 +106,16 @@ texture = ExtResource("4_pcldv")
 expand_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="NinePatchRect/MarginContainer/HBoxContainer"]
+self_modulate = Color(0.843137, 0.843137, 0.843137, 1)
+texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = -12
-theme_override_styles/separator = SubResource("StyleBoxLine_opv61")
+theme_override_styles/separator = SubResource("StyleBoxTexture_glrxv")
 
 [node name="InfoContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 6
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer"]
@@ -120,6 +131,7 @@ text = "Jugador 1"
 vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/HBoxContainer"]
+self_modulate = Color(0.843137, 0.843137, 0.843137, 1)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_hx480")
 
@@ -162,9 +174,11 @@ text = "3"
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer"]
+custom_minimum_size = Vector2(0, 21)
 layout_mode = 2
 
-[node name="ManaBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer"]
+[node name="ManaBarPrev" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer"]
+visible = false
 z_index = 1
 custom_minimum_size = Vector2(150, 12)
 layout_mode = 2
@@ -173,7 +187,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_sx75o")
 value = 60.0
 show_percentage = false
 
-[node name="ManaDelayBar" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+[node name="ManaDelayBarPrev" type="ProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBarPrev"]
+visible = false
 z_index = -1
 custom_minimum_size = Vector2(150, 12)
 layout_mode = 1
@@ -187,8 +202,35 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5aflu")
 value = 80.0
 show_percentage = false
 
+[node name="Timer" type="Timer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBarPrev"]
+wait_time = 0.6
+one_shot = true
+
+[node name="ManaBar" type="TextureProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_over = ExtResource("8_767cx")
+texture_progress = ExtResource("9_m82hv")
+
+[node name="ManaDelayBar" type="TextureProgressBar" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
+self_modulate = Color(0.368627, 0.368627, 0.368627, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_tu3ue")
+texture_progress = ExtResource("9_m82hv")
+
 [node name="Timer" type="Timer" parent="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar"]
 wait_time = 0.6
 one_shot = true
 
+[connection signal="timeout" from="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBarPrev/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="NinePatchRect/MarginContainer/HBoxContainer/InfoContainer/MarginContainer/ManaBar/Timer" to="." method="_on_timer_timeout"]

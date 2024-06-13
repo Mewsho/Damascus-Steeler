@@ -29,8 +29,9 @@ var is_dead : bool = false
 @onready var gun = $Gun
 @onready var gun_ray_cast_3d = $Gun/RayCast3D as RayCast3D
 @onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
-@onready var camera_controller = $Camera_controller
 @onready var player_node_container = get_parent()
+
+@onready var test_caida = $TestCaida as Area3D
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var caida = $Caida
 
@@ -195,6 +196,7 @@ func _physics_process(delta):
 	if mana < 60:
 		mana += 0.1
 	
+
 	
 func handle_special(p_class : String):
 	if mana < 20:
@@ -210,6 +212,7 @@ func handle_special(p_class : String):
 		"Ranger":
 			ranger_special()
 
+	
 		
 		
 func mage_special():
@@ -282,3 +285,13 @@ func on_animation_finished(anim_name):
 
 
 		
+
+
+
+func _on_test_caida_area_entered(area):
+	if velocity.y < 0:
+		## TODO Aplicar el blend en vez que solo un play
+		animation_player.play("Jump_Land")
+
+
+

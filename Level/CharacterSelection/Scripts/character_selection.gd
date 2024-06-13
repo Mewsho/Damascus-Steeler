@@ -158,6 +158,7 @@ func _on_selection_pressed():
 	#if current_selected_character_name:
 		#PlayerVariables.set_player_character(current_selected_character_name)
 	button_press_stream.play()
+	selection.disabled = true
 	await button_press_stream.finished
 	core.switch_scene("res://world.tscn")
 	
