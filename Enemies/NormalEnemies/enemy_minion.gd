@@ -30,7 +30,7 @@ func _ready():
 	tipo_enemigo = get_child(1)
 	
 	animation_player = tipo_enemigo.get_node("AnimationPlayer")
-	area_3d = tipo_enemigo.get_node("Area3D")
+	area_3d = get_node("Area3D")
 	
 	
 	
