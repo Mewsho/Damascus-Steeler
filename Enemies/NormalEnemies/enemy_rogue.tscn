@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://codr6s3ctkcyg"]
 
-[ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_rogue.gd" id="1_5bcac"]
+[ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_minion.gd" id="1_mtwu1"]
 [ext_resource type="PackedScene" uid="uid://c02xl2oj1fe7p" path="res://Enemies/NormalEnemies/skeleton_rogue.tscn" id="2_u81qk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8w4"]
@@ -9,7 +9,7 @@ size = Vector3(1.00403, 1.64307, 1)
 [node name="EnemyRogue" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_5bcac")
+script = ExtResource("1_mtwu1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.395, 0, 0, 0, 1.395, 0, 0, 0, 1.03473, 0.00280975, 1.15143, 0)

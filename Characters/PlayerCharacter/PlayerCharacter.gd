@@ -31,6 +31,9 @@ var is_dead : bool = false
 @onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
 @onready var camera_controller = $Camera_controller
 @onready var player_node_container = get_parent()
+@onready var collision_shape_3d = $CollisionShape3D
+@onready var caida = $Caida
+
 
 
 var player: int
@@ -67,14 +70,13 @@ func get_player_class()-> String:
 	return self.player_class
 	
 func _physics_process(delta):
+	
+
 	# Get the input direction and handle the movement/deceleration.
 	var move_dir = 0
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
-	
-	
 	
 	if player_class == "Ranger":
 		var pet_counter
@@ -84,21 +86,44 @@ func _physics_process(delta):
 	
 	if input.is_action_pressed("move_left"):
 		move_dir -=1
+		if is_on_floor():	
+			animation_player.set_default_blend_time(0.2)
+			animation_player.play("Running_A")
+	
 	if input.is_action_pressed("move_right"):
 		move_dir +=1
-		
+		if is_on_floor():
+			animation_player.set_default_blend_time(0.2)
+			animation_player.play("Running_A")
 		
 	if is_dead:
 		move_dir = 0;
 
-		
+	
 	if move_dir > 0:
-		scale.x = 1
+		rotation.y = 0
 	if move_dir < 0:
-		scale.x = -1
+		rotation.y = -110
 		
+	if move_dir == 0 && is_on_floor():
+		animation_player.play("Idle")
+
 	if input.is_action_just_pressed("jump") and is_on_floor():
+		animation_player.set_default_blend_time(0.2)
+		animation_player.play("Jump_Start")
+		animation_player.set_speed_scale(1.8)
 		velocity.y = JUMP_VELOCITY - gravity*0.05
+	if velocity.y < 0 && !is_on_floor():
+		animation_player.set_default_blend_time(0.1)
+		animation_player.play("Jump_Idle")
+		animation_player.set_speed_scale(1.8)
+
+	
+	#if animacion_caida_colision_suelo.is_colliding() && !is_on_floor():
+		#print("peo")
+		#animation_player.play("Jump_Land")
+		
+		
 	# Disminuir la velocidad del PJ si se encuentra en el aire
 	if direction:
 		if not is_on_floor():
@@ -250,3 +275,10 @@ func on_animation_finished(anim_name):
 		emit_signal("character_lost_life", player)
 	if anim_name == "Death_B":
 		emit_signal("character_game_over",player)
+	if anim_name == "Running_A":
+		animation_player.play("Idle")
+	if anim_name == "Jump_Idle":
+		animation_player.play("Jump_Land")
+
+
+		
