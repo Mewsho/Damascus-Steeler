@@ -4,6 +4,8 @@ extends Node3D
 
 ## Cargar los elementos a usar
 @onready var grid_map = $GridMap as GridMap
+@onready var grid_map_aux = $GridMapAux
+
 @onready var pause_menu = $PauseMenu as PauseMenu
 @onready var player_position = $PlayerPosition as Marker3D
 @onready var core = get_tree().get_root().get_node("Core") as Node
@@ -14,7 +16,7 @@ func _ready():
 	#PCGcurrent.PCG_General() ## Invoca a la generacion procedural
 	#var chunks = PCGcurrent.get_chunk_eleg(idos() ## Guarda los chunks elegidos
 	var chunks = core._get_chunks_elegidos()
-	PCGcurrent.chunks_creation(chunks,grid_map) ## Los dibuja en el mundo
+	PCGcurrent.chunks_creation(chunks,grid_map, grid_map_aux) ## Los dibuja en el mundo
 	var fin = Time.get_ticks_msec()
 	print("Tiempo ejecucion pst pcg chunk creation:", fin-ini)
 	

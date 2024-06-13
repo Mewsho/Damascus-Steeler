@@ -4,18 +4,19 @@ extends Control
 ## Asigna algunos atributos a sus hijos y los oculta o muestra
 
 ## Variables de la escena
-@onready var player_hud_0 = $HudContainer/PlayerContainer0/VBoxContainer/PlayerHUD0 as PlayerHud
-@onready var player_hud_1 = $HudContainer/PlayerContainer1/VBoxContainer/PlayerHUD1 as PlayerHud
-@onready var player_hud_2 = $HudContainer/PlayerContainer2/VBoxContainer/PlayerHUD2 as PlayerHud
-@onready var player_hud_3 = $HudContainer/PlayerContainer3/VBoxContainer/PlayerHUD3 as PlayerHud
-@onready var player_container_0 = $HudContainer/PlayerContainer0
-@onready var player_container_1 = $HudContainer/PlayerContainer1
-@onready var player_container_2 = $HudContainer/PlayerContainer2
-@onready var player_container_3 = $HudContainer/PlayerContainer3
-@onready var character_selection_container_0 = $HudContainer/PlayerContainer0/VBoxContainer/CharacterSelectionContainer0
-@onready var character_selection_container_1 = $HudContainer/PlayerContainer1/VBoxContainer/CharacterSelectionContainer1
-@onready var character_selection_container_2 = $HudContainer/PlayerContainer2/VBoxContainer/CharacterSelectionContainer2
-@onready var character_selection_container_3 = $HudContainer/PlayerContainer3/VBoxContainer/CharacterSelectionContainer3
+@onready var player_hud_0 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer0/VBoxContainer/PlayerHUD0 as PlayerHud
+@onready var player_hud_1 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer1/VBoxContainer/PlayerHUD1 as PlayerHud
+@onready var player_hud_2 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer2/VBoxContainer/PlayerHUD2 as PlayerHud
+@onready var player_hud_3 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer3/VBoxContainer/PlayerHUD3 as PlayerHud
+@onready var player_container_0 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer0
+@onready var player_container_1 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer1
+@onready var player_container_2 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer2
+@onready var player_container_3 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer3
+@onready var character_selection_container_0 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer0/VBoxContainer/CharacterSelectionContainer0
+@onready var character_selection_container_1 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer1/VBoxContainer/CharacterSelectionContainer1
+@onready var character_selection_container_2 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer2/VBoxContainer/CharacterSelectionContainer2
+@onready var character_selection_container_3 = $VBoxContainer/MarginContainer/HudContainer/PlayerContainer3/VBoxContainer/CharacterSelectionContainer3
+@onready var nine_patch_rect = $VBoxContainer/MarginContainer/NinePatchRect
 
 @onready var player_node_container = $"../../PlayerNodeContainer"
 
@@ -39,6 +40,7 @@ func set_player_data_hud(player: int):
 
 ## Muestra el player hud
 func show_player_hud(player : int):
+	nine_patch_rect.show()
 	match player:
 		0:
 			player_hud_0.show()

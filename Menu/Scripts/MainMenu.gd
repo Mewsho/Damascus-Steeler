@@ -37,6 +37,7 @@ func on_screen_resized():
 ## Funcion cuando se presiona start, se carga el metodo de cambio de escena del core y se hace un sonido
 func on_start_pressed():
 	button_press_stream.play()
+	start_button.disabled = true
 	await button_press_stream.finished
 	core.switch_scene("res://Level/CharacterSelection/character_selection.tscn")
 	

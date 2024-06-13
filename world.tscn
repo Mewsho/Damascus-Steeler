@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://58085bwsrxwg"]
+[gd_scene load_steps=14 format=3 uid="uid://58085bwsrxwg"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_8y340"]
-[ext_resource type="MeshLibrary" uid="uid://gr8axqt48eax" path="res://Level/GridMap/gridmap_tiles.tres" id="2_1e1fv"]
+[ext_resource type="MeshLibrary" uid="uid://dyhxdq21pow23" path="res://Level/GridMap/gridmap_tiles.tres" id="2_1e1fv"]
 [ext_resource type="Script" path="res://Level/GridMap/GridMap.gd" id="4_aotu3"]
+[ext_resource type="MeshLibrary" uid="uid://dxdgs7o6sfywd" path="res://Level/GridMap/aux_gridmap_tiles.tres" id="4_e77ka"]
+[ext_resource type="Script" path="res://GridMapAux.gd" id="5_4w7gk"]
 [ext_resource type="PackedScene" uid="uid://ch5a43uyl6iql" path="res://Menu/pause_menu.tscn" id="6_0nipo"]
 [ext_resource type="PackedScene" uid="uid://ifunr870058x" path="res://Level/CameraController/CameraController.tscn" id="6_pgwxu"]
 [ext_resource type="PackedScene" uid="uid://c23ir1rn5loqj" path="res://Level/WorldAssets/Escenario.tscn" id="7_awetg"]
@@ -46,14 +48,18 @@ shadow_enabled = true
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20714, 0)
 mesh_library = ExtResource("2_1e1fv")
-cell_scale = 2.0
-collision_layer = 7
-collision_mask = 7
+collision_layer = 15
+collision_mask = 15
 data = {
-"cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436, 4, 4, 5)
+"cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436, 4, 4, 5, 65532, 7, 131072)
 }
 script = ExtResource("4_aotu3")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMapAux" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.207, 0)
+mesh_library = ExtResource("4_e77ka")
+script = ExtResource("5_4w7gk")
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_0nipo")]
 process_mode = 2

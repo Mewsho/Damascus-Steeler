@@ -13,6 +13,8 @@ const ENEMY_MAGE = preload("res://Enemies/NormalEnemies/enemy_mage.tscn")
 const ENEMY_MINION = preload("res://Enemies/NormalEnemies/enemy_minion.tscn")
 const ENEMY_WARRIOR = preload("res://Enemies/NormalEnemies/enemy_warrior.tscn")
 const MANA = preload("res://Level/GridMap/mana.tscn")
+const LAND_AREA_REPLACE = preload("res://Level/GridMap/land_area_replace.tscn")
+#const FLOOR = preload("res://floor_foundation_allsides_2.tscn")
 ## Constantes usadas anteriormente
 #const tamanoPoblacion = 50
 #const rateElitism = 0.05
@@ -141,43 +143,53 @@ func PCG_General():
 			#while altura != 0:
 				#grid_map.set_cell_item(Vector3i(3+j,altura,-i-2),0)
 				#altura -= 1
-
-	emit_signal("PCG_generation_finished")
+	call_deferred("emit_signal","PCG_generation_finished")
+	#emit_signal("PCG_generation_finished")
 
 ## Creacion de los bloques en el escenario y posicionamiento de los enemigos
 #region Funcion chunks_creation y cellCreation
 ## Funcion encargada de tomar los chunks elegidos y llevarlos al mundo,
 ## recibe una lista de los chunks elegidos y un gridmap donde generar los bloques
-func chunks_creation(chunks_selected ,grid : GridMap):
+func chunks_creation(chunks_selected ,grid : GridMap, aux_grid : GridMap):
 	#Genera un plataforma previa a la generación en si
 	var altura_inicial = chunks_selected[0].get_altura_inicial()
+	var altura_negativa = -5
+	# Mini platadorma antes del pcg 
 	for i in range(-5,4):
 		var altura = altura_inicial
-		while altura != -1:
-			grid.set_cell_item(Vector3i(i,altura,0),0)
+		aux_grid.set_cell_item(Vector3i(i,altura+1,0),0)
+		while altura != altura_negativa:
+			grid.set_cell_item(Vector3i(i,altura,0),6)
 			altura-=1
+	# Recta de bloques para dar el piso y despues le agrega bloques hacia abajo para cubrir la pantalla
 	for i in range(0,GCporChunk*chunkCargado*2):
-		grid.set_cell_item(Vector3i(i,0,0),0)
+		for y in range(altura_negativa,0+1):
+			grid.set_cell_item(Vector3i(i,y,0),6)
+	
 	
 	#Genera las celdas procedurales, pasando por cada chunk elegido
 	for chunk in range(len(chunks_selected)):
 		print(mostrar_datos(chunks_selected[chunk]))
-		cellCreation(chunks_selected[chunk], chunk, grid)
+		cellCreation(chunks_selected[chunk], chunk, grid, aux_grid)
 	
 	#Obtiene los bloques que representan a los enemigos y los reemplaza con las escenas precargadas
+	#var floor = grid.get_used_cells_by_item(0)
 	var enemy1 = grid.get_used_cells_by_id(1)
 	var enemy2 = grid.get_used_cells_by_id(2)
 	var enemy3 = grid.get_used_cells_by_id(3)
 	var enemy4 = grid.get_used_cells_by_id(4)
 	var mana = grid.get_used_cells_by_id(5)
+	var area = aux_grid.get_used_cells_by_item(0)
 	grid.basicTileReplace(enemy1, ENEMY_MAGE)
 	grid.basicTileReplace(enemy2, ENEMY_MINION)
 	grid.basicTileReplace(enemy3, ENEMY_ROGUE)
 	grid.basicTileReplace(enemy4, ENEMY_WARRIOR)
 	grid.basicTileReplace(mana,MANA)
+	aux_grid.basicTileReplace(area,LAND_AREA_REPLACE)
+	#grid.basicTileReplace(floor,FLOOR)
 
 ##Funcion que crea cada elemento del chunk que recibe
-func cellCreation(c : Chunk, cNumber: int, grid : GridMap):
+func cellCreation(c : Chunk, cNumber: int, grid : GridMap, aux_grid : GridMap):
 	## 2 columnas reales por columna generada
 	var i = 0
 	var column = 0
@@ -195,8 +207,9 @@ func cellCreation(c : Chunk, cNumber: int, grid : GridMap):
 				var mana_id = 5
 				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+2,0),enemy_id) #Spawnea el enemigo 1 mas arriba, ya que deberia tener gravedad
 				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2), altura+1,0),mana_id)
+			aux_grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2),altura+1,0),0)
 			while altura != 0: #Pone bloques de la altura maxima hacia abajo
-				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2),altura,0),0)
+				grid.set_cell_item(Vector3i(3+i+j+(cNumber*GCporChunk*2),altura,0),6)
 				altura -= 1
 		i +=2
 		column = i/2

@@ -3,14 +3,21 @@ extends MarginContainer
 ## Script del contenedor de iconos con los que se selecciona personaje dentro del gameplay
 
 ## Variables de la escena
-@onready var mage_button = $CharactersButtons/MageButton as Button
-@onready var knight_button = $CharactersButtons/KnightButton as Button
-@onready var barbarian_button = $CharactersButtons/BarbarianButton as Button
-@onready var ranger_button = $CharactersButtons/RangerButton as Button
+@onready var mage_button = $CharactersButtons/MageRect/MageButton as Button
+@onready var knight_button = $CharactersButtons/KnightRect/KnightButton as Button
+@onready var barbarian_button = $CharactersButtons/BarbarianRect/BarbarianButton as Button
+@onready var ranger_button = $CharactersButtons/RangerRect/RangerButton as Button
 @onready var character_selection_container = $"."
 @onready var characters_buttons = $CharactersButtons
+@onready var mage_rect = $CharactersButtons/MageRect as NinePatchRect
+@onready var knight_rect = $CharactersButtons/KnightRect as NinePatchRect
+@onready var barbarian_rect = $CharactersButtons/BarbarianRect as NinePatchRect
+@onready var ranger_rect = $CharactersButtons/RangerRect as NinePatchRect
 
-
+var default_region_rect : Rect2
+var hovered_region_rect : Rect2 = Rect2(476, 486, 48, 48)
+var tween_scale : Vector2 = Vector2(1.3,1.3)
+var tween_default : Vector2 = Vector2(1,1)
 
 ## Variables que maneja
 var player = -1
@@ -27,10 +34,9 @@ func init(n_player):
 
 ## Para evitar que tome inputs cuando no debe
 func _ready():
+	default_region_rect = mage_rect.get_region_rect()
+	
 	set_process(false)
-
-
-
 
 
 func _process(delta):
@@ -51,29 +57,38 @@ func _process(delta):
 	var tween = create_tween()
 	tween.set_parallel(true)
 	
+	mage_rect.set_region_rect(default_region_rect)
+	knight_rect.set_region_rect(default_region_rect)
+	barbarian_rect.set_region_rect(default_region_rect)
+	ranger_rect.set_region_rect(default_region_rect)
+	
 
 	## Dependiendo del personaje hovereado, se hace una pequeña animacion donde agranda el icono
 	match current_hover:
 		0:
-			tween.tween_property(mage_button, "scale", Vector2(1.5,1.5), 0.5)
-			tween.tween_property(knight_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(barbarian_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(ranger_button, "scale", Vector2(1,1), 0.5)
+			mage_rect.set_region_rect(hovered_region_rect)
+			tween.tween_property(mage_rect, "scale", tween_scale, 0.5)
+			tween.tween_property(knight_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(barbarian_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(ranger_rect, "scale", Vector2(1,1), 0.5)
 		1:
-			tween.tween_property(mage_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(knight_button, "scale", Vector2(1.5,1.5), 0.5)
-			tween.tween_property(barbarian_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(ranger_button, "scale", Vector2(1,1), 0.5)
+			knight_rect.set_region_rect(hovered_region_rect)
+			tween.tween_property(mage_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(knight_rect, "scale", tween_scale, 0.5)
+			tween.tween_property(barbarian_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(ranger_rect, "scale", Vector2(1,1), 0.5)
 		2:
-			tween.tween_property(mage_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(knight_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(barbarian_button, "scale", Vector2(1.5,1.5), 0.5)
-			tween.tween_property(ranger_button, "scale", Vector2(1,1), 0.5)
+			barbarian_rect.set_region_rect(hovered_region_rect)
+			tween.tween_property(mage_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(knight_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(barbarian_rect, "scale", tween_scale, 0.5)
+			tween.tween_property(ranger_rect, "scale", Vector2(1,1), 0.5)
 		3:
-			tween.tween_property(mage_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(knight_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(barbarian_button, "scale", Vector2(1,1), 0.5)
-			tween.tween_property(ranger_button, "scale", Vector2(1.5,1.5), 0.5)
+			ranger_rect.set_region_rect(hovered_region_rect)
+			tween.tween_property(mage_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(knight_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(barbarian_rect, "scale", Vector2(1,1), 0.5)
+			tween.tween_property(ranger_rect, "scale", tween_scale, 0.5)
 
 	
 	## Si se apreta el boton, se emite la señal de presionado

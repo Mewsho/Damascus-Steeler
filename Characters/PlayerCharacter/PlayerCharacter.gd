@@ -29,10 +29,9 @@ var is_dead : bool = false
 @onready var gun = $Gun
 @onready var gun_ray_cast_3d = $Gun/RayCast3D as RayCast3D
 @onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
-@onready var camera_controller = $Camera_controller
 @onready var player_node_container = get_parent()
-@onready var collision_shape_3d = $CollisionShape3D
-@onready var caida = $Caida
+
+
 
 
 
@@ -44,7 +43,8 @@ var pet_number = 0
 # PJs Variables
 var mana = 100 : set = _set_mana
 var lifes = 3 : set = _set_lifes
-var animation_player 
+var animation_player : AnimationPlayer
+var is_landing : bool
 
 signal leave
 signal mana_change(n_player, amount)
@@ -71,59 +71,74 @@ func get_player_class()-> String:
 	
 func _physics_process(delta):
 	
-
 	# Get the input direction and handle the movement/deceleration.
 	var move_dir = 0
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if player_class == "Ranger":
-		var pet_counter
+	if !is_dead:
+		handle_movement(move_dir)
 	
+	camera_checks()
+	
+	if is_dead:
+		velocity = Vector3(0,0,0)
+
+	move_and_slide()
+	handle_gun_actions()
+
+	# Test
+	if input.is_action_just_pressed("test_action"):
+		self.lifes -= 1
+
+	if mana < 60:
+		mana += 0.1
+	
+func handle_movement(move_dir):
 	var input_dir = input.get_vector("move_left", "move_right", "move_down","move_up")
 	var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if input.is_action_pressed("move_left"):
 		move_dir -=1
-		if is_on_floor():	
+		if is_on_floor():
+			is_landing = false
 			animation_player.set_default_blend_time(0.2)
 			animation_player.play("Running_A")
 	
 	if input.is_action_pressed("move_right"):
 		move_dir +=1
 		if is_on_floor():
+			is_landing = false
 			animation_player.set_default_blend_time(0.2)
 			animation_player.play("Running_A")
+			
 		
 	if is_dead:
 		move_dir = 0;
 
-	
 	if move_dir > 0:
 		rotation.y = 0
 	if move_dir < 0:
 		rotation.y = -110
 		
 	if move_dir == 0 && is_on_floor():
-		animation_player.play("Idle")
+		if is_landing:
+			animation_player.animation_set_next("Jump_Land","Idle")
+		else:
+			animation_player.play("Idle")
 
 	if input.is_action_just_pressed("jump") and is_on_floor():
 		animation_player.set_default_blend_time(0.2)
 		animation_player.play("Jump_Start")
 		animation_player.set_speed_scale(1.8)
 		velocity.y = JUMP_VELOCITY - gravity*0.05
-	if velocity.y < 0 && !is_on_floor():
+		
+	if velocity.y < 0 && !is_on_floor() && !is_landing:
 		animation_player.set_default_blend_time(0.1)
 		animation_player.play("Jump_Idle")
 		animation_player.set_speed_scale(1.8)
 
-	
-	#if animacion_caida_colision_suelo.is_colliding() && !is_on_floor():
-		#print("peo")
-		#animation_player.play("Jump_Land")
-		
-		
 	# Disminuir la velocidad del PJ si se encuentra en el aire
 	if direction:
 		if not is_on_floor():
@@ -133,10 +148,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	
-	
-	
+
+func camera_checks():
 	if is_in_left_border == true:
 		#velocity.clamp(Vector3(0,0,0),Vector3(100,100,100))
 		if velocity.x < 0:
@@ -144,17 +157,8 @@ func _physics_process(delta):
 	if is_in_right_border == true:
 		if velocity.x > 0:
 			velocity.x = 0
-	
-	if is_dead:
-		velocity = Vector3(0,0,0)
-		
-	#animation_tree.set("parameters/conditions/idle", input_dir == Vector2.ZERO && is_on_floor())
-	#animation_tree.set("parameters/conditions/walk", input_dir != Vector2.ZERO && is_on_floor())
-	#animation_tree.set("parameters/conditions/jump", !is_on_floor())
-	#animation_tree.set("parameters/conditions/landing", is_on_floor())
 
-# No quitar no se que mierda hace pero sin esto no se mueve 
-	move_and_slide()	
+func handle_gun_actions():
 	# Disparos Insanos
 	if input.is_action_just_pressed("attack"):
 	# Solucion al problema del spam continuo de disparos
@@ -185,17 +189,7 @@ func _physics_process(delta):
 		gun.rotation.z = 0.5
 	if input.is_action_just_released("move_up") && input.is_action_pressed("move_left") :
 		gun.rotation.z = 0
-	# Existen formas mas eficintes lo se
-	
-	# Test
-	if input.is_action_just_pressed("test_action"):
-		self.lifes -= 1
-	
-	
-	if mana < 60:
-		mana += 0.1
-	
-	
+
 func handle_special(p_class : String):
 	if mana < 20:
 		return
@@ -210,7 +204,6 @@ func handle_special(p_class : String):
 		"Ranger":
 			ranger_special()
 
-		
 		
 func mage_special():
 	if !gun_animation_player.is_playing():
@@ -262,6 +255,8 @@ func _set_lifes(n_lifes):
 	var prev_lifes = lifes
 	lifes = max(0,n_lifes)
 	is_dead = true
+	#animation_player.set_speed_scale(5) #Comedia
+	animation_player.set_speed_scale(1)
 	if prev_lifes == 0:
 		animation_player.play("Death_B") ##Game over
 	else:
@@ -277,8 +272,22 @@ func on_animation_finished(anim_name):
 		emit_signal("character_game_over",player)
 	if anim_name == "Running_A":
 		animation_player.play("Idle")
-	if anim_name == "Jump_Idle":
+	if anim_name == "Idle":
+		is_landing = false
+	if anim_name == "Jump_Land":
+		is_landing = false
+	if anim_name == "Jump_Start":
+		is_landing = false
+
+
+
+func _on_test_caida_area_entered(area):
+	if velocity.y < 0:
+		print("test")
+		is_landing = true
+		## TODO Aplicar el blend en vez que solo un play
 		animation_player.play("Jump_Land")
+		#animation_player.set_speed_scale(0.2)
 
 
-		
+

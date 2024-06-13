@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsx1wrfs0tli"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_etrlm"]
+
+[node name="AuxGridTiles" type="Node3D"]
+
+[node name="LandAreaPlaceholder" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_etrlm")

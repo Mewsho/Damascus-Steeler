@@ -51,6 +51,7 @@ offset_right = 320.0
 offset_right = 320.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

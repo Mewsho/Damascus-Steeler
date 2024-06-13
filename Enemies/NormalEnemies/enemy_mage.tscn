@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pm6j65f0uwmu"]
+[gd_scene load_steps=5 format=3 uid="uid://cidgbh1uf5521"]
 
 [ext_resource type="PackedScene" uid="uid://ca48sgj52heo5" path="res://Enemies/NormalEnemies/skeleton_mage.tscn" id="1_1aex4"]
 [ext_resource type="Script" path="res://Enemies/NormalEnemies/enemy_minion.gd" id="1_sas8t"]
@@ -17,6 +17,9 @@ transform = Transform3D(1.46, 0, 0, 0, 1.17749, 0, 0, 0, 0.931205, 0.000980225, 
 shape = SubResource("BoxShape3D_dwamr")
 
 [node name="Skeleton_Mage" parent="." instance=ExtResource("1_1aex4")]
+
+[node name="Skeleton_Mage_Hat" parent="Skeleton_Mage/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.996112, -0.0879898, 0.00429241, 0.0878569, 0.988672, -0.121694, 0.00646406, 0.121598, 0.992558, -0.0474648, 1.71113, 0.131778)
 
 [node name="Area3D" parent="." instance=ExtResource("3_e75im")]
 transform = Transform3D(1.30526, 0, 0, 0, 2.36435, 0, 0, 0, 1.10805, 0, 1.15315, 0)

@@ -149,7 +149,7 @@ func spawn_player(player: int, player_node):
 	var device = PlayerManager.get_player_device(player)
 	player_node.init(player) #Ejecuta la funcion de inicializacion del jugador
 	
-	handle_camera(player_nodes)
+	handle_camera()
 	
 	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
 	var spawn_position_x = camera_node.get_node("OffsetMarker3D").global_position.x
@@ -171,7 +171,7 @@ func delete_player(player: int):
 
 
 ## Maneja la camara, la inicializa con los nodos de los jugadores
-func handle_camera(player_nodes):
+func handle_camera():
 	var camera_node = scene_node_container.get_child(0).get_node("CameraController")
 	camera_node.init(player_nodes)
 
