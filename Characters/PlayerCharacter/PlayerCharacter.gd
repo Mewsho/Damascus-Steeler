@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const SPEED = 6.2
+const SPEED = 6.1
 # Altura de Salto del PJ
-const JUMP_VELOCITY = 12.5
+const JUMP_VELOCITY = 12.6
 # Gravedad del socio
 var gravity = 26.2
 var y_velo = 0
@@ -148,7 +148,7 @@ func handle_movement(move_dir):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		
 func camera_checks():
 	if is_in_left_border == true:
 		#velocity.clamp(Vector3(0,0,0),Vector3(100,100,100))
@@ -283,7 +283,6 @@ func on_animation_finished(anim_name):
 
 func _on_test_caida_area_entered(area):
 	if velocity.y < 0:
-		print("test")
 		is_landing = true
 		## TODO Aplicar el blend en vez que solo un play
 		animation_player.play("Jump_Land")
