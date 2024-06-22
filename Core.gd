@@ -159,6 +159,7 @@ func spawn_player(player: int, player_node):
 	player_node.position = Vector3(spawn_position_x-2, randf_range(10, 14),1)
 	player_node.is_dead = false
 	player_node.mana = 100
+	player_node.iniciartimer()
 ## Funcion para eliminar al jugador cuando salga, si esta en un menu, elimina el icono del hud tambien
 func delete_player(player: int):
 	var current_scene = scene_node_container.get_child(0)
