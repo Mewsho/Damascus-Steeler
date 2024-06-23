@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bthgukcw8677a"]
+[gd_scene load_steps=17 format=3 uid="uid://bthgukcw8677a"]
 
 [ext_resource type="PackedScene" uid="uid://j7o4klqusxvb" path="res://floor_foundation_allsides_2.tscn" id="1_ml6xb"]
 
@@ -39,6 +39,20 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_t8ydq"]
 material = SubResource("StandardMaterial3D_gotll")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7hky"]
+resource_local_to_scene = true
+albedo_color = Color(0.407843, 0.407843, 0.407843, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_xt5b1"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_l7hky")
+left_to_right = 1.0
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a6jev"]
+margin = 0.5
+points = PackedVector3Array(1, -1, 1, -1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, 1, 1)
+
 [node name="Cubo" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -68,3 +82,11 @@ mesh = SubResource("BoxMesh_t8ydq")
 
 [node name="floor_foundation_allsides2" parent="." instance=ExtResource("1_ml6xb")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_xt5b1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_a6jev")

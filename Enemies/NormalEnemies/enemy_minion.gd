@@ -31,11 +31,7 @@ func _ready():
 	
 	animation_player = tipo_enemigo.get_node("AnimationPlayer")
 	area_3d = get_node("Area3D")
-	
-	
-	
-	
-	
+
 	area_3d.body_part_hit.connect(_on_area_3d_body_part_hit)
 	
 	

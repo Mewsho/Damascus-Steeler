@@ -15,8 +15,16 @@ var instancesp
 const SPECIAL = preload("res://Characters/Guns/special.tscn")
 const BULLET = preload("res://Characters/Guns/bullet.tscn")
 const PET = preload("res://Characters/PlayerCharacter/Pet.tscn")
+const SPECIAL_MAGE = preload("res://Characters/Guns/Specials/special_mage.tscn")
+const MAGE_BULLET = preload("res://Characters/Guns/Bullets/mage_bullet.tscn")
+const SPECIAL_KNIGHT = preload("res://Characters/Guns/Specials/special_knight.tscn")
+const KNIGHT_BULLET = preload("res://Characters/Guns/Bullets/knight_bullet.tscn")
+const SPECIAL_BARBARIAN = preload("res://Characters/Guns/Specials/special_barbarian.tscn")
+const BARBARIAN_BULLET = preload("res://Characters/Guns/Bullets/barbarian_bullet.tscn")
+const RANGER_BULLET = preload("res://Characters/Guns/Bullets/ranger_bullet.tscn")
+
 # Regeneracion de mana por dificultad de juego
-var mana_regen_rate = 1 
+var mana_regen_rate = 0.5
 # variable por mientras de dificultad ( 0 extremo , 10 dificil, 25 normal, 50 facil,
 var difficulty_level = 50
 const DeviceInput = preload("res://addons/multiplayer_input/device_input.gd")
@@ -32,9 +40,6 @@ var is_dead : bool = false
 @onready var player_node_container = get_parent()
 
 
-
-
-
 var player: int
 var input : DeviceInput
 var device 
@@ -45,6 +50,8 @@ var mana = 100 : set = _set_mana
 var lifes = 3 : set = _set_lifes
 var animation_player : AnimationPlayer
 var is_landing : bool
+var is_facing_front: bool = true
+var is_moving_forward : bool = false
 
 signal leave
 signal mana_change(n_player, amount)
@@ -55,13 +62,14 @@ signal character_game_over(n_player)
 # call this function when yspawning this player to set up the input object based on the device
 func init(player_num: int):
 	player = player_num
+	pet_number = 0
 	device = PlayerManager.get_player_device(player)
 	input = DeviceInput.new(device)
 	animation_player = get_node(player_class).get_node("AnimationPlayer") as AnimationPlayer
 	animation_player.animation_finished.connect(on_animation_finished)
 
 func _ready():
-	connect
+	pass
 	
 func set_player_class(name : String):
 	self.player_class = name
@@ -70,6 +78,8 @@ func get_player_class()-> String:
 	return self.player_class
 	
 func _physics_process(delta):
+	
+	
 	
 	# Get the input direction and handle the movement/deceleration.
 	var move_dir = 0
@@ -93,13 +103,14 @@ func _physics_process(delta):
 		self.lifes -= 1
 
 	if mana < 60:
-		mana += 0.1
+		mana += 0.1 * mana_regen_rate
 	
 func handle_movement(move_dir):
 	var input_dir = input.get_vector("move_left", "move_right", "move_down","move_up")
 	var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if input.is_action_pressed("move_left"):
+		is_moving_forward = true
 		move_dir -=1
 		if is_on_floor():
 			is_landing = false
@@ -107,6 +118,7 @@ func handle_movement(move_dir):
 			animation_player.play("Running_A")
 	
 	if input.is_action_pressed("move_right"):
+		is_moving_forward = true
 		move_dir +=1
 		if is_on_floor():
 			is_landing = false
@@ -119,14 +131,17 @@ func handle_movement(move_dir):
 
 	if move_dir > 0:
 		rotation.y = 0
+		is_facing_front = true
 	if move_dir < 0:
 		rotation.y = -110
+		is_facing_front = false
 		
 	if move_dir == 0 && is_on_floor():
 		if is_landing:
 			animation_player.animation_set_next("Jump_Land","Idle")
 		else:
 			animation_player.play("Idle")
+		is_moving_forward = false
 
 	if input.is_action_just_pressed("jump") and is_on_floor():
 		animation_player.set_default_blend_time(0.2)
@@ -165,6 +180,15 @@ func handle_gun_actions():
 		if !gun_animation_player.is_playing():
 			gun_animation_player.play("Shoot")
 			instance = BULLET.instantiate()
+			match player_class:
+				"Mage":
+					instance = MAGE_BULLET.instantiate()
+				"Knight":
+					instance = KNIGHT_BULLET.instantiate()
+				"Barbarian":
+					instance = BARBARIAN_BULLET.instantiate()
+				"Ranger":
+					instance = RANGER_BULLET.instantiate()
 			instance.position = gun_ray_cast_3d.global_position
 			instance.transform.basis = gun_ray_cast_3d.global_transform.basis
 			get_parent().add_child(instance)
@@ -191,7 +215,7 @@ func handle_gun_actions():
 		gun.rotation.z = 0
 
 func handle_special(p_class : String):
-	if mana < 20:
+	if mana < 39:
 		return
 	var class_special = p_class
 	match class_special:
@@ -208,40 +232,86 @@ func handle_special(p_class : String):
 func mage_special():
 	if !gun_animation_player.is_playing():
 			gun_animation_player.play("Shoot")
-			instancesp = SPECIAL.instantiate()
+			instancesp = SPECIAL_MAGE.instantiate()
 			instancesp.position = gun_ray_cast_3d.global_position
 			instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+			if is_facing_front: 
+				if gun.rotation.z == -1.5: #Apuntando abajo mirando al frente
+					instancesp.linear_velocity.y = -15
+				elif is_equal_approx(gun.rotation.z, 1.55): #Apuntando arriba
+					instancesp.linear_velocity.y = 15
+					instancesp.angular_velocity.z = deg_to_rad(-30)
+				elif gun.rotation.z == 0.5: # Diagonal arriba
+					print("Diagonal")
+					instancesp.linear_velocity.x = sqrt(15**2/2)
+					instancesp.linear_velocity.y = sqrt(15**2/2)/2
+					instancesp.angular_velocity.z = deg_to_rad(-15)
+				else:
+					instancesp.linear_velocity.x = 15
+					instancesp.angular_velocity.z = deg_to_rad(-10)
+			else:
+				if gun.rotation.z == -1.5: #Apuntando abajo mirando atras
+					instancesp.linear_velocity.y = -15
+				elif is_equal_approx(gun.rotation.z, 1.55): #Apuntando arriba
+					instancesp.linear_velocity.y = 15
+					instancesp.angular_velocity.z = deg_to_rad(30)
+				elif gun.rotation.z == 0.5: # Diagonal arriba
+					print("Diagonal")
+					instancesp.linear_velocity.x = -sqrt(15**2/2)
+					instancesp.linear_velocity.y = sqrt(15**2/2)/2
+					instancesp.angular_velocity.z = deg_to_rad(15)
+				else:
+					instancesp.linear_velocity.x = -15
+					instancesp.angular_velocity.z = deg_to_rad(10)
+			print(gun.rotation.z)
 			get_parent().add_child(instancesp)
-			mana = mana - 20
+			mana = mana - 40
 
 func knight_special():
 	if !gun_animation_player.is_playing():
 		gun_animation_player.play("Shoot")
-		instancesp = SPECIAL.instantiate()
-		instancesp.position = gun_ray_cast_3d.global_position
-		instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+		instancesp = SPECIAL_KNIGHT.instantiate()
+		if is_facing_front:
+			instancesp.position = global_position + Vector3(8,0,0)
+			if is_moving_forward:
+				instancesp.position += Vector3(5,0,0)
+		else:
+			instancesp.position = global_position - Vector3(8,0,0)
+			#if is_moving_forward:
+				#instancesp.position -= Vector3(5,0,0)
 		get_parent().add_child(instancesp)
-		mana -= 20
+		mana -= 40
 
 func barbarian_special():
 	if !gun_animation_player.is_playing():
 		gun_animation_player.play("Shoot")
-		instancesp = SPECIAL.instantiate()
-		instancesp.position = gun_ray_cast_3d.global_position
-		instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
+		instancesp = SPECIAL_BARBARIAN.instantiate()
+		
+		instancesp.position = global_position
+		
+		if !is_facing_front:
+			instancesp.is_forward = false
+			instancesp.position.x -= 2
+		else:
+			instancesp.position.x += 2
+		#instancesp.transform.basis = gun_ray_cast_3d.global_transform.basis
 		get_parent().add_child(instancesp)
-		mana = mana - 20
+		mana = mana - 50
 		
 ## Especial del ranger, instancia una mascota y le agrega un nombre unico
 func ranger_special():
+	if mana <  59:
+		return
 	var pet_instance = PET.instantiate()
 	pet_instance.global_position = pet_follow_point.global_position
 	pet_instance.player_id = player
 	pet_instance.name = str("Pet",pet_number)
 	#pet_instance.pet_offset = pet_number
 	get_parent().add_child(pet_instance) 
+	pet_instance.pet_offset = pet_number
 	pet_number+=1
-	mana = mana - 40
+	
+	mana = mana - 60
 
 
 ## Funciones setter del mana y vidas, ambas emiten señales que son recibidas
@@ -283,9 +353,8 @@ func on_animation_finished(anim_name):
 
 func _on_test_caida_area_entered(area):
 	if velocity.y < 0:
-		print("test")
 		is_landing = true
-		## TODO Aplicar el blend en vez que solo un play
+		## TODO Tal vez aplicar el blend en vez que solo un play
 		animation_player.play("Jump_Land")
 		#animation_player.set_speed_scale(0.2)
 

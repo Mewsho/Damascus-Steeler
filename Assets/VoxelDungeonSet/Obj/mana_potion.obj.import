@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://df7idh0g7b1a5"
+path="res://.godot/imported/mana_potion.obj-b98d63167354d1c971e37c2f8cdd3170.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mana_potion.obj-b98d63167354d1c971e37c2f8cdd3170.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/mana_potion.obj"
+dest_files=["res://.godot/imported/mana_potion.obj-b98d63167354d1c971e37c2f8cdd3170.mesh", "res://.godot/imported/mana_potion.obj-b98d63167354d1c971e37c2f8cdd3170.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -22,6 +22,6 @@ shape = SubResource("BoxShape3D_dwamr")
 transform = Transform3D(0.996112, -0.0879898, 0.00429241, 0.0878569, 0.988672, -0.121694, 0.00646406, 0.121598, 0.992558, -0.0474648, 1.71113, 0.131778)
 
 [node name="Area3D" parent="." instance=ExtResource("3_e75im")]
-transform = Transform3D(1.30526, 0, 0, 0, 2.36435, 0, 0, 0, 1.10805, 0, 1.15315, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15315, 0)
 
 [editable path="Skeleton_Mage"]

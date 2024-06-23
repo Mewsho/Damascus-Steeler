@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cg4sae3ttp6y3"
+path="res://.godot/imported/lantern.obj-d579ee31f830f30198ccf614c4516ade.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lantern.obj-d579ee31f830f30198ccf614c4516ade.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/lantern.obj"
+dest_files=["res://.godot/imported/lantern.obj-d579ee31f830f30198ccf614c4516ade.mesh", "res://.godot/imported/lantern.obj-d579ee31f830f30198ccf614c4516ade.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

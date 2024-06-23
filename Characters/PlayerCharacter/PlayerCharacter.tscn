@@ -8,8 +8,10 @@
 size = Vector3(1, 2.05951, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vf3r"]
+size = Vector3(1, 2.166, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0alk"]
+size = Vector3(1.5, 1, 2.5)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
@@ -26,6 +28,9 @@ shape = SubResource("BoxShape3D_rj2a1")
 [node name="Gun" parent="." instance=ExtResource("3_p321f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495131, 1.03348, 0.265625)
 
+[node name="Pistola" parent="Gun" index="1"]
+transform = Transform3D(-0.0430681, 0, 0, 0, 0.046383, 0, 0, 0, 0.0582918, -0.359053, -0.13804, -0.00639677)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.066
 
@@ -33,17 +38,16 @@ wait_time = 0.066
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea3D"]
-transform = Transform3D(1, 0, 0, 0, 2.16568, 0, 0, 0, 1, 0, 1.32112, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32112, 0)
 shape = SubResource("BoxShape3D_7vf3r")
 
 [node name="AreaCaida" type="Area3D" parent="."]
-transform = Transform3D(1.738, 0, 0, 0, 1.05, 0, 0, 0, 1, 0, -0.171307, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.171307, 0)
 collision_layer = 0
 collision_mask = 31
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCaida"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_p0alk")
 
 [node name="PetFollowPoint" type="Marker3D" parent="."]

@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://dithering.gdshader" id="3_ll5e7"]
 [ext_resource type="Texture2D" uid="uid://l50dmdxykuq5" path="res://Assets/Dither/palette_eeve.png" id="4_cph0p"]
 [ext_resource type="Texture2D" uid="uid://cq25voennu456" path="res://Assets/Dither/bayer16tile2.png" id="5_wuobd"]
+[ext_resource type="Texture2D" uid="uid://dq3wlp5ajqw5e" path="res://Assets/gothicvania church files/gothicvania church files/ENVIRONMENT/test2.png" id="6_r5ij4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_u6rvx"]
 
@@ -19,16 +20,14 @@ shader_parameter/u_color_tex = ExtResource("4_cph0p")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q8avl"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_nb886"]
-
 [node name="CameraController" type="Node3D"]
 script = ExtResource("1_w3lq0")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984807, 0, 5, 22)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 8, 22)
 projection = 1
 fov = 30.0
-size = 20.0
+size = 22.0
 near = 0.004
 script = ExtResource("2_4vfik")
 
@@ -44,8 +43,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12976, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OffsetMarker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_q8avl")
 
 [node name="TestVisual" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
-mesh = SubResource("BoxMesh_nb886")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -9, 5, -20.6694)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_r5ij4")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.9649, 5, -20.6694)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_r5ij4")

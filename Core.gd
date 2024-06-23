@@ -9,7 +9,7 @@ extends Node
 @onready var player_node_container = $PlayerNodeContainer as Node
 @onready var hud = $HUD
 @onready var gameplay_hud = $HUD/GameplayHUD
-@onready var color_rect = $ColorRect
+@onready var transicion_color_rect = $TransicionColorRect
 @onready var scene_timer = $SceneTimer
 
 var scene_wait_time = 1
@@ -202,11 +202,12 @@ func switch_scene(scene_path: String):
 	
 
 func scene_transition_animation(ini : float, end: float):
-	var tween = create_tween()
+	var tween = transicion_color_rect.create_tween()
+	
 	tween.tween_method(set_shader_value, ini, end, scene_wait_time)
 
 func set_shader_value(value : float):
-	var shader = color_rect.material as ShaderMaterial
+	var shader = transicion_color_rect.material as ShaderMaterial
 	shader.set_shader_parameter("progress",value)
 
 

@@ -1,0 +1,414 @@
+[gd_scene load_steps=51 format=3 uid="uid://dix55dml56eks"]
+
+[ext_resource type="Script" path="res://Characters/Guns/Specials/special_knight.gd" id="1_5m6fj"]
+[ext_resource type="Texture2D" uid="uid://c1rk3r0iu5xch" path="res://Assets/VFX/Holy VFX 01-02/Holy VFX 02/Holy VFX 02.png" id="1_85fl1"]
+[ext_resource type="Texture2D" uid="uid://dgqefe8psjqeu" path="res://Assets/VFX/Super Pixel Effects Mini Pack 1/spritesheet/fx2_impact_shock_large_brown/spritesheet.png" id="2_15q6c"]
+[ext_resource type="Texture2D" uid="uid://7ehdqyrcs0aa" path="res://Assets/VFX/Gothicvania Magic Pack 9 files/Magic Pack 9 files/spritesheets/Lightning.png" id="3_srgbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipf0g"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evhh5"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeemi"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdnwn"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db0to"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewkm7"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6ogp"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es8cj"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74t5v"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lqv0"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqwxr"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd205"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n12fx"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw42b"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuj63"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(672, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0vua"]
+atlas = ExtResource("1_85fl1")
+region = Rect2(720, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_deyvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipf0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evhh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeemi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdnwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db0to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewkm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6ogp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es8cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74t5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lqv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqwxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd205")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n12fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw42b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuj63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0vua")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn523"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(0, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lluy"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(140, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc1fs"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(280, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq4ey"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(420, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40vvh"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(560, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je4xa"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(700, 0, 140, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8r56"]
+atlas = ExtResource("2_15q6c")
+region = Rect2(840, 0, 140, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tvwk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn523")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lluy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc1fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq4ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40vvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je4xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8r56")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 14.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfqwg"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm7hy"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_764ky"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8lf2"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evvo3"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ahp5"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86sy1"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77dro"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lk6v"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(512, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4bhy"]
+atlas = ExtResource("3_srgbe")
+region = Rect2(576, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fumh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfqwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm7hy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_764ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8lf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evvo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ahp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86sy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77dro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lk6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4bhy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6gqi"]
+size = Vector3(4, 10, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qb6o6"]
+size = Vector3(2, 0.5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjtt2"]
+albedo_color = Color(1, 1, 0.278431, 1)
+emission_enabled = true
+emission = Color(0.933333, 1, 0.341176, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hpswc"]
+material = SubResource("StandardMaterial3D_pjtt2")
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_evo6v"]
+lifetime_randomness = 0.4
+emission_shape_offset = Vector3(0, 0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 0.5
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.1
+linear_accel_max = 1.0
+color = Color(1, 0.960784, 0.219608, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cmgs"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.984314, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wl03s"]
+material = SubResource("StandardMaterial3D_3cmgs")
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5wyb"]
+lifetime_randomness = 0.35
+spread = 180.0
+radial_velocity_min = 0.1
+radial_velocity_max = 10.0
+gravity = Vector3(0, -4, 0)
+linear_accel_min = 0.1
+linear_accel_max = 2.0
+radial_accel_min = 0.1
+radial_accel_max = 8.0
+color = Color(0.721569, 0.647059, 0.109804, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlhsl"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.909804, 0.380392, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xy42"]
+material = SubResource("StandardMaterial3D_dlhsl")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="SpecialKnight" type="Node3D"]
+script = ExtResource("1_5m6fj")
+
+[node name="LightPillarSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 8, 0, 0, 0, 2, 0, 9.668, 4)
+visible = false
+pixel_size = 0.05
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_deyvk")
+
+[node name="GroundSplatSprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+visible = false
+pixel_size = 0.05
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_5tvwk")
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+visible = false
+pixel_size = 0.05
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fumh4")
+frame_progress = 0.451984
+
+[node name="HitArea3d" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+collision_layer = 0
+collision_mask = 5
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea3d"]
+shape = SubResource("BoxShape3D_m6gqi")
+
+[node name="DeleteTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="FloorCheck" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+collision_layer = 0
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 30.0
+gravity_scale = 10.0
+
+[node name="FloorCheckArea3D" type="Area3D" parent="FloorCheck"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorCheck/FloorCheckArea3D"]
+shape = SubResource("BoxShape3D_qb6o6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FloorCheck"]
+mesh = SubResource("BoxMesh_hpswc")
+
+[node name="TrailParticles3D" type="GPUParticles3D" parent="FloorCheck/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169589, 0, 0.0417843)
+amount = 64
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_evo6v")
+draw_pass_1 = SubResource("BoxMesh_wl03s")
+
+[node name="HitParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+randomness = 0.4
+process_material = SubResource("ParticleProcessMaterial_s5wyb")
+draw_pass_1 = SubResource("BoxMesh_0xy42")
+
+[connection signal="area_entered" from="HitArea3d" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
+[connection signal="area_entered" from="FloorCheck/FloorCheckArea3D" to="." method="_on_floor_check_area_3d_area_entered"]

@@ -1,0 +1,185 @@
+[gd_scene load_steps=36 format=3 uid="uid://if0ptx5iskqs"]
+
+[ext_resource type="Script" path="res://Characters/Guns/Bullets/mage_bullet.gd" id="1_2i2xr"]
+[ext_resource type="Texture2D" uid="uid://d3tyvr3n4hgnv" path="res://Assets/VFX/Effects Pack 12/3/1.png" id="2_4cvn6"]
+[ext_resource type="Texture2D" uid="uid://xyavf8nnrc57" path="res://Assets/VFX/Effects Pack 12/3/2.png" id="3_364ev"]
+[ext_resource type="Texture2D" uid="uid://6t6kf76lmcwc" path="res://Assets/VFX/Effects Pack 12/3/3.png" id="4_qbbs7"]
+[ext_resource type="Texture2D" uid="uid://bwj4h3u76cfm0" path="res://Assets/VFX/Effects Pack 12/3/4.png" id="5_sd6e0"]
+[ext_resource type="Texture2D" uid="uid://b0k4t8vk2k68b" path="res://Assets/VFX/Effects Pack 12/3/5.png" id="6_dwcck"]
+[ext_resource type="Texture2D" uid="uid://dwkliumgthpmw" path="res://Assets/VFX/Effects Pack 12/3/6.png" id="7_cqnqf"]
+[ext_resource type="Texture2D" uid="uid://4k44ljet2h86" path="res://Assets/VFX/Effects Pack 12/3/7.png" id="8_k3780"]
+[ext_resource type="Texture2D" uid="uid://cjef6fciynvsh" path="res://Assets/VFX/Effects Pack 12/3/8.png" id="9_yfvig"]
+[ext_resource type="Texture2D" uid="uid://d0nw1htqfc2dc" path="res://Assets/VFX/Effects Pack 12/3/9.png" id="10_a03ww"]
+[ext_resource type="Texture2D" uid="uid://dvtptqwkjckgx" path="res://Assets/VFX/Effects Pack 12/3/10.png" id="11_55t81"]
+[ext_resource type="Texture2D" uid="uid://c58ayqht2nl45" path="res://Assets/VFX/Effects Pack 12/3/11.png" id="12_uo35f"]
+[ext_resource type="Texture2D" uid="uid://r11hjg1llxji" path="res://Assets/VFX/Effects Pack 12/3/12.png" id="13_si8g1"]
+[ext_resource type="Texture2D" uid="uid://ddwc3ixlyrcf" path="res://Assets/VFX/Effects Pack 12/3/13.png" id="14_paqk7"]
+[ext_resource type="Texture2D" uid="uid://d0sddgyh8sct" path="res://Assets/VFX/Effects Pack 12/3/14.png" id="15_0w6ss"]
+[ext_resource type="Texture2D" uid="uid://4yv7oa4dkcn0" path="res://Assets/VFX/Effects Pack 12/3/15.png" id="16_mih25"]
+[ext_resource type="Texture2D" uid="uid://u6xd4ad40bit" path="res://Assets/VFX/Effects Pack 12/3/16.png" id="17_4hvo1"]
+[ext_resource type="Texture2D" uid="uid://j2uimla0h8n3" path="res://Assets/VFX/Effects Pack 12/3/17.png" id="18_71neo"]
+[ext_resource type="Texture2D" uid="uid://dw608hgm7flxp" path="res://Assets/VFX/Effects Pack 12/3/18.png" id="19_y0pq4"]
+[ext_resource type="Texture2D" uid="uid://nk16umwkblf8" path="res://Assets/VFX/Effects Pack 12/3/19.png" id="20_6ft6o"]
+[ext_resource type="Texture2D" uid="uid://c3aqsb3sdxdob" path="res://Assets/VFX/Effects Pack 12/3/20.png" id="21_qqvkr"]
+[ext_resource type="Texture2D" uid="uid://rnp0uyw1h41r" path="res://Assets/VFX/Effects Pack 12/3/21.png" id="22_5vivq"]
+[ext_resource type="Texture2D" uid="uid://guaces2kh626" path="res://Assets/VFX/Effects Pack 12/3/22.png" id="23_8x2cj"]
+[ext_resource type="Texture2D" uid="uid://cgsn05o0v5m3u" path="res://Assets/VFX/Effects Pack 12/3/23.png" id="24_pwcc4"]
+[ext_resource type="Texture2D" uid="uid://7m6cbf0k6mln" path="res://Assets/VFX/Effects Pack 12/3/24.png" id="25_y3nf8"]
+[ext_resource type="Texture2D" uid="uid://dnv17mc4bog6n" path="res://Assets/VFX/Effects Pack 12/3/25.png" id="26_6ho88"]
+[ext_resource type="Texture2D" uid="uid://c207hokwdkqky" path="res://Assets/VFX/Effects Pack 12/3/26.png" id="27_b046b"]
+[ext_resource type="Texture2D" uid="uid://ebnponq1mgja" path="res://Assets/VFX/Effects Pack 12/3/27.png" id="28_yn7dn"]
+[ext_resource type="Texture2D" uid="uid://pph4tjpmc770" path="res://Assets/VFX/Effects Pack 12/3/28.png" id="29_qoa3m"]
+[ext_resource type="Texture2D" uid="uid://cyw888eorbkr0" path="res://Assets/VFX/Effects Pack 12/3/29.png" id="30_lke86"]
+[ext_resource type="Texture2D" uid="uid://cd43m0d3uipnf" path="res://Assets/VFX/Effects Pack 12/3/30.png" id="31_h33uu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n00ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4cvn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_364ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qbbs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sd6e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dwcck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cqnqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k3780")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yfvig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a03ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_55t81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uo35f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_si8g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_paqk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0w6ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mih25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4hvo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_71neo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_y0pq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6ft6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qqvkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5vivq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8x2cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pwcc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_y3nf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6ho88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_b046b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_yn7dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_qoa3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_lke86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_h33uu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 31.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgfym"]
+lifetime_randomness = 0.4
+emission_shape_offset = Vector3(0, 0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.1
+linear_accel_max = 1.0
+color = Color(0.290196, 0.466667, 1, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8b7j"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.329412, 0.184314, 0.968627, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_35hsr"]
+material = SubResource("StandardMaterial3D_h8b7j")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="MageBullet" type="Node3D"]
+script = ExtResource("1_2i2xr")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, 0.448074, 0.00111353)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0)
+pixel_size = 0.04
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_n00ps")
+autoplay = "default"
+frame_progress = 0.967677
+
+[node name="TrailParticles3D" type="GPUParticles3D" parent="."]
+amount = 64
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_qgfym")
+draw_pass_1 = SubResource("BoxMesh_35hsr")

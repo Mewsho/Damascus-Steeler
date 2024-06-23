@@ -18,7 +18,10 @@ shape = SubResource("BoxShape3D_w1lbh")
 
 [node name="Skeleton_Warrior" parent="." instance=ExtResource("1_nwvor")]
 
+[node name="Skeleton_Warrior_Helmet" parent="Skeleton_Warrior/Rig/Skeleton3D" index="0"]
+transform = Transform3D(0.996112, -0.0879899, 0.00429233, 0.0866224, 0.969434, -0.229553, 0.0160372, 0.229033, 0.973287, 0.00224838, 1.20189, 0.019157)
+
 [node name="Area3D" parent="." instance=ExtResource("3_0dncg")]
-transform = Transform3D(1.42098, 0, 0, 0, 2.67896, 0, 0, 0, 1.30058, 0.00598145, 1.28436, -0.032959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00598145, 1.28436, -0.032959)
 
 [editable path="Skeleton_Warrior"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wm7eh2i3wkla"]
+
+[ext_resource type="Script" path="res://Audio/MusicFader.gd" id="1_qehbq"]
+
+[node name="MusicFader" type="AudioStreamPlayer"]
+script = ExtResource("1_qehbq")

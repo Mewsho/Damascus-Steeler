@@ -8,10 +8,14 @@ extends Node3D
 @onready var test_visual = $TestVisual
 @onready var camera_controller = $"." 
 @onready var camera_3d = $Camera3D as Camera3D
+@onready var sprite_3d = $Sprite3D
+@onready var sprite_3d_2 = $Sprite3D2
+
+
 
 ## Variables que utliza
 var player_nodes = null ## Termina siendo un diccionario de los nodos de los players
-var prev_position = global_position ## Posicion previa
+var prev_position = position ## Posicion previa
 ## Variables para el calculo de la distancia promedio con el offset
 var combined_x_position : float = 0 
 var player_pos_x
@@ -25,6 +29,8 @@ var is_player_in_right_border : bool = false
 func _physics_process(delta):
 	if player_nodes == null:
 		return
+	
+
 	
 	is_player_in_left_border = false
 	is_player_in_right_border = false

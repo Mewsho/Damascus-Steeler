@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerKeybindResource" load_steps=7 format=3 uid="uid://dn5l4fa6llttu"]
+[gd_resource type="Resource" script_class="PlayerKeybindResource" load_steps=8 format=3 uid="uid://dn5l4fa6llttu"]
 
 [ext_resource type="Script" path="res://resources/settings/PlayerKeybindResource.gd" id="1_nj0w4"]
 
@@ -27,6 +27,11 @@ device = -1
 physical_keycode = 68
 unicode = 100
 
+[sub_resource type="InputEventKey" id="InputEventKey_2none"]
+device = -1
+physical_keycode = 80
+unicode = 112
+
 [resource]
 script = ExtResource("1_nj0w4")
 DEFAULT_MOVE_LEFT_KEY = SubResource("InputEventKey_1m1xs")
@@ -34,3 +39,4 @@ DEFAULT_MOVE_RIGHT_KEY = SubResource("InputEventKey_lmlsx")
 DEFAULT_MOVE_FORWARD_KEY = SubResource("InputEventKey_15mak")
 DEFAULT_MOVE_BACKWARD_KEY = SubResource("InputEventKey_crkgw")
 DEFAULT_JUMP_KEY = SubResource("InputEventKey_4yau5")
+DEFAULT_PAUSE_KEY = SubResource("InputEventKey_2none")

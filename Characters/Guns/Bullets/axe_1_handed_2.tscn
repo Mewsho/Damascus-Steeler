@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://clc7j86xgya3o"]
+
+[ext_resource type="PackedScene" uid="uid://cmsnffv0b2rak" path="res://Assets/KayKit Adventurers/Assets/gltf/axe_1handed.gltf" id="1_kjvm1"]
+
+[node name="axe_1handed2" instance=ExtResource("1_kjvm1")]

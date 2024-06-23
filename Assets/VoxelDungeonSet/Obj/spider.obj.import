@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtcoh0jo3co0l"
+path="res://.godot/imported/spider.obj-2e2124e743e00423e9266815db7d9873.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spider.obj-2e2124e743e00423e9266815db7d9873.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/spider.obj"
+dest_files=["res://.godot/imported/spider.obj-2e2124e743e00423e9266815db7d9873.mesh", "res://.godot/imported/spider.obj-2e2124e743e00423e9266815db7d9873.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
