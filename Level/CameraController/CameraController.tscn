@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ifunr870058x"]
+[gd_scene load_steps=9 format=3 uid="uid://ifunr870058x"]
 
 [ext_resource type="Script" path="res://Level/CameraController/CameraController.gd" id="1_w3lq0"]
 [ext_resource type="Script" path="res://Level/CameraController/Camera3D.gd" id="2_4vfik"]
 [ext_resource type="Shader" path="res://dithering.gdshader" id="3_ll5e7"]
 [ext_resource type="Texture2D" uid="uid://l50dmdxykuq5" path="res://Assets/Dither/palette_eeve.png" id="4_cph0p"]
 [ext_resource type="Texture2D" uid="uid://cq25voennu456" path="res://Assets/Dither/bayer16tile2.png" id="5_wuobd"]
-[ext_resource type="Texture2D" uid="uid://dq3wlp5ajqw5e" path="res://Assets/gothicvania church files/gothicvania church files/ENVIRONMENT/test2.png" id="6_r5ij4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_u6rvx"]
 
@@ -49,14 +48,4 @@ mesh = SubResource("CapsuleMesh_q8avl")
 [node name="TestVisual" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -9, 5, -20.6694)
-visible = false
-texture_filter = 0
-texture = ExtResource("6_r5ij4")
-
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.9649, 5, -20.6694)
-visible = false
-texture_filter = 0
-texture = ExtResource("6_r5ij4")
+[node name="ShakeDuration" type="Timer" parent="."]

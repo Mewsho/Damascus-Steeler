@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://br6e24i2cccfa"
+path="res://.godot/imported/Scrape_Buildup3.wav-9ef581fc32ac035d31239b549354914f.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Arcane/Buildup/Scrape_Buildup3.wav"
+dest_files=["res://.godot/imported/Scrape_Buildup3.wav-9ef581fc32ac035d31239b549354914f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

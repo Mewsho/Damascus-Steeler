@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bf8k46c3gdq47"
+path="res://.godot/imported/HighWobble_Impact1.wav-e63e34f1502b50d8a13f0b6060e99afe.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Slime/Impact/HighWobble_Impact1.wav"
+dest_files=["res://.godot/imported/HighWobble_Impact1.wav-e63e34f1502b50d8a13f0b6060e99afe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

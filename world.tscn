@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://58085bwsrxwg"]
+[gd_scene load_steps=17 format=3 uid="uid://58085bwsrxwg"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_8y340"]
 [ext_resource type="MeshLibrary" uid="uid://dyhxdq21pow23" path="res://Level/GridMap/gridmap_tiles.tres" id="2_1e1fv"]
@@ -10,6 +10,7 @@
 [ext_resource type="MeshLibrary" uid="uid://wkfrmw7m80au" path="res://Level/GridMap/Scenery/scenery_tiles.tres" id="6_w8obq"]
 [ext_resource type="PackedScene" uid="uid://dslbqiukydsk5" path="res://Level/background_church.tscn" id="9_w3eil"]
 [ext_resource type="Texture2D" uid="uid://dq3wlp5ajqw5e" path="res://Assets/gothicvania church files/gothicvania church files/ENVIRONMENT/test2.png" id="10_ogl2x"]
+[ext_resource type="AudioStream" uid="uid://blnm5vb1gvqt4" path="res://Music/SFX/retro-rpg-game-dungeon-theme.wav" id="11_qpftw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qjnb4"]
 
@@ -52,9 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20714, 0)
 mesh_library = ExtResource("2_1e1fv")
 collision_layer = 15
 collision_mask = 15
-data = {
-"cells": PackedInt32Array(262142, 0, 1, 262142, 65535, 1, 4, 7, 786433, 2, 4, 786434, 65535, 4, 786435, 65532, 4, 786436, 4, 4, 5)
-}
 script = ExtResource("4_aotu3")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -242,5 +240,10 @@ texture = ExtResource("10_ogl2x")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 275, 13, -20.669)
 texture_filter = 0
 texture = ExtResource("10_ogl2x")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qpftw")
+volume_db = -15.0
+bus = &"Music"
 
 [editable path="CameraController"]

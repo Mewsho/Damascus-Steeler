@@ -33,7 +33,7 @@ var alturaSalto = 1 #Usado para la evaluacion
 var alturaRestar = 5 #Usado para hacer mas bajos los niveles
 var chunkCargado = 0 #Contador de chunk cargado, para que cada uno vaya despues de otro
 var altura_anterior = 2 #Altura del final de un chunk
-var n_chunks_to_generate = 5 #Chunks a generar
+var n_chunks_to_generate = 8 #Chunks a generar
 var Chunks_Elegidos : Array = []
 
 signal PCG_generation_finished

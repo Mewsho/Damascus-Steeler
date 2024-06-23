@@ -12,12 +12,13 @@ const GRAVITY = -2
 @onready var delete_timer = $DeleteTimer
 @onready var init_timer = $InitTimer
 const MAGE_EXPLOSION_SPRITE = preload("res://Characters/Guns/Specials/mage_explosion_sprite.tscn")
+@onready var sfx_cast = $SFXCast
 
 var is_activated : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	sfx_cast.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

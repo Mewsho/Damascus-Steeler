@@ -12,12 +12,14 @@ extends Node3D
 @onready var camera_controller = $CameraController
 @onready var pillars = $Pillars
 @onready var background_church = $BackgroundChurch
+@onready var background_music = $BackgroundMusic
 
 var t:float = 0.0
 var prev_camera_pos = 0
 var paused : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	background_music.play()
 	var ini = Time.get_ticks_msec()
 	#PCGcurrent.PCG_General() ## Invoca a la generacion procedural
 	#var chunks = PCGcurrent.get_chunk_eleg(idos() ## Guarda los chunks elegidos
@@ -28,6 +30,7 @@ func _ready():
 	pillars.global_position.x = -camera_controller.global_position.x
 	prev_camera_pos = camera_controller.global_position
 	
+	
 func _process(delta):
 	## Revisa constantemente si alguien quiere pausar
 	for player in range(PlayerManager.get_player_count()):
@@ -37,7 +40,6 @@ func _process(delta):
 				core.get_node("HUD").visible = false
 				pause_menu_pressed()
 
-	
 	if camera_controller.global_position.is_equal_approx(prev_camera_pos):
 		return
 	pillars.global_transform.origin.x = lerp(pillars.global_transform.origin.x, -camera_controller.global_position.x, delta*0.05)

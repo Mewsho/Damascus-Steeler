@@ -9,10 +9,12 @@ const SPEED = 15
 
 @onready var animated_sprite_3d = $AnimatedSprite3D
 @onready var trail_particles_3d = $TrailParticles3D
+@onready var sfx = $SFX
+@onready var sfx_2 = $SFX2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sfx.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

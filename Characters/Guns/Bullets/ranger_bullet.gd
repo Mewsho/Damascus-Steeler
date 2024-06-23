@@ -6,13 +6,14 @@ const SPEED = 15
 # Import External Meshes
 
 @onready var ray = $RayCast3D
+@onready var sfx = $SFX
 
 @onready var arrow_container = $ArrowContainer
 @onready var trail_particles_3d = $TrailParticles3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sfx.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

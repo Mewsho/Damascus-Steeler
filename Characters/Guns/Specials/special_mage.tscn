@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://d0l8mp1airbix"]
+[gd_scene load_steps=105 format=3 uid="uid://d0l8mp1airbix"]
 
 [ext_resource type="Script" path="res://Characters/Guns/Specials/special_mage.gd" id="1_i8ccg"]
 [ext_resource type="Texture2D" uid="uid://crpbycsugwn3m" path="res://Assets/VFX/FXpack13/Effect2/1.png" id="2_43rto"]
@@ -91,6 +91,10 @@
 [ext_resource type="Texture2D" uid="uid://bq443snsvfke2" path="res://Assets/VFX/Effects Pack 12/1/28.png" id="89_272k0"]
 [ext_resource type="Texture2D" uid="uid://dunxk3sclahqd" path="res://Assets/VFX/Effects Pack 12/1/29.png" id="90_fcdwf"]
 [ext_resource type="Texture2D" uid="uid://cbotj1g777v1k" path="res://Assets/VFX/Effects Pack 12/1/30.png" id="91_g0eyi"]
+[ext_resource type="AudioStream" uid="uid://dnip8w4nucr1h" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg" id="92_5a01b"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="92_tfx2i"]
+[ext_resource type="AudioStream" uid="uid://ct8n7365a1hk5" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 2.ogg" id="94_p0vr8"]
+[ext_resource type="AudioStream" uid="uid://datbpntqwuyae" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 3.ogg" id="95_ctwss"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0iyg"]
 size = Vector3(2, 2, 2)
@@ -489,6 +493,23 @@ process_callback = 0
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="SFXCast" parent="." instance=ExtResource("92_tfx2i")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFXCast"]
+stream = ExtResource("92_5a01b")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFXCast"]
+stream = ExtResource("94_p0vr8")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFXCast"]
+stream = ExtResource("95_ctwss")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="ExplosionArea3D" to="." method="_on_explosion_area_3d_area_entered"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]

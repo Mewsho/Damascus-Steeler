@@ -1,9 +1,12 @@
-[gd_scene load_steps=51 format=3 uid="uid://dix55dml56eks"]
+[gd_scene load_steps=54 format=3 uid="uid://dix55dml56eks"]
 
 [ext_resource type="Script" path="res://Characters/Guns/Specials/special_knight.gd" id="1_5m6fj"]
 [ext_resource type="Texture2D" uid="uid://c1rk3r0iu5xch" path="res://Assets/VFX/Holy VFX 01-02/Holy VFX 02/Holy VFX 02.png" id="1_85fl1"]
 [ext_resource type="Texture2D" uid="uid://dgqefe8psjqeu" path="res://Assets/VFX/Super Pixel Effects Mini Pack 1/spritesheet/fx2_impact_shock_large_brown/spritesheet.png" id="2_15q6c"]
 [ext_resource type="Texture2D" uid="uid://7ehdqyrcs0aa" path="res://Assets/VFX/Gothicvania Magic Pack 9 files/Magic Pack 9 files/spritesheets/Lightning.png" id="3_srgbe"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="5_3nox1"]
+[ext_resource type="AudioStream" uid="uid://dwgse8bwwb38e" path="res://Music/SFX/monster and magic sfx (CC BY)/player attack/player_attack_thunderspher.mp3" id="6_dwjj8"]
+[ext_resource type="AudioStream" uid="uid://b25gjttbiw04l" path="res://Music/SFX/monster and magic sfx (CC BY)/player attack/Thunderclot.ogg" id="7_2qh5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipf0g"]
 atlas = ExtResource("1_85fl1")
@@ -366,7 +369,7 @@ shape = SubResource("BoxShape3D_m6gqi")
 
 [node name="DeleteTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 2.0
+wait_time = 2.5
 one_shot = true
 autostart = true
 
@@ -408,6 +411,16 @@ explosiveness = 1.0
 randomness = 0.4
 process_material = SubResource("ParticleProcessMaterial_s5wyb")
 draw_pass_1 = SubResource("BoxMesh_0xy42")
+
+[node name="SFX" parent="." instance=ExtResource("5_3nox1")]
+
+[node name="TravelSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_dwjj8")
+volume_db = -21.0
+
+[node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_2qh5k")
+volume_db = -16.0
 
 [connection signal="area_entered" from="HitArea3d" to="." method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]

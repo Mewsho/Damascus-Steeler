@@ -7,8 +7,13 @@ extends Node3D
 @onready var mesh_instance_3d = $FloorCheck/MeshInstance3D
 @onready var hit_area_3d = $HitArea3d
 @onready var hit_particles_3d = $HitParticles3D
+@onready var sfx = $SFX
 
 var list_height = []
+
+
+func _ready():
+	sfx.play("TravelSound")
 
 func _on_delete_timer_timeout():
 	queue_free()
@@ -29,7 +34,9 @@ func _on_floor_check_area_3d_area_entered(area):
 	list_height.append(int(check_y))
 	global_position.y = list_height[0] + 1
 	
-	
+	sfx.play("Explosion")
+	sfx.pause("TravelSound")
+	EventBus.emit_especial_shake()
 	light_pillar_sprite.visible = true
 	ground_splat_sprite.visible = true
 	light_pillar_sprite.play("default")

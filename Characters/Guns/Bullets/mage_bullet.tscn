@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://if0ptx5iskqs"]
+[gd_scene load_steps=40 format=3 uid="uid://if0ptx5iskqs"]
 
 [ext_resource type="Script" path="res://Characters/Guns/Bullets/mage_bullet.gd" id="1_2i2xr"]
 [ext_resource type="Texture2D" uid="uid://d3tyvr3n4hgnv" path="res://Assets/VFX/Effects Pack 12/3/1.png" id="2_4cvn6"]
@@ -31,6 +31,10 @@
 [ext_resource type="Texture2D" uid="uid://pph4tjpmc770" path="res://Assets/VFX/Effects Pack 12/3/28.png" id="29_qoa3m"]
 [ext_resource type="Texture2D" uid="uid://cyw888eorbkr0" path="res://Assets/VFX/Effects Pack 12/3/29.png" id="30_lke86"]
 [ext_resource type="Texture2D" uid="uid://cd43m0d3uipnf" path="res://Assets/VFX/Effects Pack 12/3/30.png" id="31_h33uu"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="32_0wb3l"]
+[ext_resource type="AudioStream" uid="uid://fd84ui7xhiup" path="res://Music/SFX/Magic Attacks/Arcane/Attack/Arcane_AttackF1.wav" id="36_2b0b5"]
+[ext_resource type="AudioStream" uid="uid://bd06s28t5w72q" path="res://Music/SFX/Magic Attacks/Arcane/Attack/Arcane_AttackF2.wav" id="37_63x3i"]
+[ext_resource type="AudioStream" uid="uid://173d5x1f7v72" path="res://Music/SFX/Magic Attacks/Arcane/Attack/Arcane_AttackF3.wav" id="38_wbl1k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n00ps"]
 animations = [{
@@ -183,3 +187,20 @@ amount = 64
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_qgfym")
 draw_pass_1 = SubResource("BoxMesh_35hsr")
+
+[node name="SFX" parent="." instance=ExtResource("32_0wb3l")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("36_2b0b5")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("37_63x3i")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("38_wbl1k")
+volume_db = -15.0
+bus = &"SFX"

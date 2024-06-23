@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i4alxuvkpswe"
+path="res://.godot/imported/Wood Jump.ogg-1ea16a88dc4b4bb500d1f2dbaf4b3e6b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Wood/Wood Jump.ogg"
+dest_files=["res://.godot/imported/Wood Jump.ogg-1ea16a88dc4b4bb500d1f2dbaf4b3e6b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

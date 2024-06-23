@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgourr4f0lbxk"
+path="res://.godot/imported/Ice_AttackF1.wav-1b447cf8ec8ac6c86f2bfe9a4b29219e.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Ice/Attack/Ice_AttackF1.wav"
+dest_files=["res://.godot/imported/Ice_AttackF1.wav-1b447cf8ec8ac6c86f2bfe9a4b29219e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

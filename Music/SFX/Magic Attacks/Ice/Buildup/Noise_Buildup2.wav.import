@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://7rdifte60knc"
+path="res://.godot/imported/Noise_Buildup2.wav-3095634717286ce20b2e3a8fa856a69f.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Ice/Buildup/Noise_Buildup2.wav"
+dest_files=["res://.godot/imported/Noise_Buildup2.wav-3095634717286ce20b2e3a8fa856a69f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

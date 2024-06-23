@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvfpbkh6qmejk"
+path="res://.godot/imported/Crackle_Impact1.wav-698ecb17f9b0e3be7f4300312f135f96.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Fire/Impact/Crackle_Impact1.wav"
+dest_files=["res://.godot/imported/Crackle_Impact1.wav-698ecb17f9b0e3be7f4300312f135f96.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

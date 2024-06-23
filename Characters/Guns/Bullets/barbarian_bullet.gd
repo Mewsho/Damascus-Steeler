@@ -7,6 +7,7 @@ const SPEED = 15
 
 @onready var ray = $RayCast3D
 @onready var trail_particles_3d = $TrailParticles3D
+@onready var sfx = $SFX
 
 @onready var weapon_sprite = $WeaponSprite as Sprite3D
 
@@ -26,6 +27,8 @@ func _ready():
 		trail_particles_3d.process_material.color = Color.LIGHT_BLUE
 		trail_particles_3d.draw_pass_1.material.emission = Color.LIGHT_BLUE
 	
+	sfx.play()
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

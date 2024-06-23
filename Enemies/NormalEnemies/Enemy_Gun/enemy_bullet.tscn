@@ -1,6 +1,96 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqyamh0s44mgq"]
+[gd_scene load_steps=103 format=3 uid="uid://bqyamh0s44mgq"]
 
 [ext_resource type="Script" path="res://Enemies/NormalEnemies/Enemy_Gun/enemy_bullet.gd" id="1_3sfgn"]
+[ext_resource type="Texture2D" uid="uid://bp3i5lfp1tswq" path="res://Assets/VFX/MagickArrow/2/1_0.png" id="2_w0de5"]
+[ext_resource type="Texture2D" uid="uid://74m58t0p5kl8" path="res://Assets/VFX/MagickArrow/2/1_1.png" id="3_ha747"]
+[ext_resource type="Texture2D" uid="uid://ckpr8rlwlanit" path="res://Assets/VFX/MagickArrow/2/1_2.png" id="4_0s1pc"]
+[ext_resource type="Texture2D" uid="uid://dv2pio8s6i4yx" path="res://Assets/VFX/MagickArrow/2/1_3.png" id="5_s6ulc"]
+[ext_resource type="Texture2D" uid="uid://wyknkfaquun3" path="res://Assets/VFX/MagickArrow/2/1_4.png" id="6_ae6fu"]
+[ext_resource type="Texture2D" uid="uid://di4ql8bxia0m7" path="res://Assets/VFX/MagickArrow/2/1_5.png" id="7_erlet"]
+[ext_resource type="Texture2D" uid="uid://b65rxw1niwv6l" path="res://Assets/VFX/MagickArrow/2/1_6.png" id="8_s264r"]
+[ext_resource type="Texture2D" uid="uid://2n7ajb6jgcrr" path="res://Assets/VFX/MagickArrow/2/1_7.png" id="9_6uid8"]
+[ext_resource type="Texture2D" uid="uid://irdq5qreklhx" path="res://Assets/VFX/MagickArrow/2/1_8.png" id="10_j3u5c"]
+[ext_resource type="Texture2D" uid="uid://dcrff8mj7o4wx" path="res://Assets/VFX/MagickArrow/2/1_9.png" id="11_bu5yc"]
+[ext_resource type="Texture2D" uid="uid://crxbhwhc0q0pd" path="res://Assets/VFX/MagickArrow/2/1_10.png" id="12_wxp0u"]
+[ext_resource type="Texture2D" uid="uid://ceu4ebjlaoey8" path="res://Assets/VFX/MagickArrow/2/1_11.png" id="13_1wa0t"]
+[ext_resource type="Texture2D" uid="uid://bpcnhubgft1o" path="res://Assets/VFX/MagickArrow/2/1_12.png" id="14_451j4"]
+[ext_resource type="Texture2D" uid="uid://xq34vvvmje46" path="res://Assets/VFX/MagickArrow/2/1_13.png" id="15_e6h3g"]
+[ext_resource type="Texture2D" uid="uid://ctlgyc1eymx08" path="res://Assets/VFX/MagickArrow/2/1_14.png" id="16_ir8mp"]
+[ext_resource type="Texture2D" uid="uid://2lmbejwb40xp" path="res://Assets/VFX/MagickArrow/2/1_15.png" id="17_il6p4"]
+[ext_resource type="Texture2D" uid="uid://5egv5aibkodm" path="res://Assets/VFX/MagickArrow/2/1_16.png" id="18_54jhx"]
+[ext_resource type="Texture2D" uid="uid://bd6ek55kfi85p" path="res://Assets/VFX/MagickArrow/2/1_17.png" id="19_6akve"]
+[ext_resource type="Texture2D" uid="uid://bbdx5xiner2ht" path="res://Assets/VFX/MagickArrow/2/1_18.png" id="20_4arma"]
+[ext_resource type="Texture2D" uid="uid://b3frxtvvo44qp" path="res://Assets/VFX/MagickArrow/2/1_19.png" id="21_hrl5w"]
+[ext_resource type="Texture2D" uid="uid://datghapdre1he" path="res://Assets/VFX/MagickArrow/2/1_20.png" id="22_i6xds"]
+[ext_resource type="Texture2D" uid="uid://dg5cxy7isru06" path="res://Assets/VFX/MagickArrow/2/1_21.png" id="23_v76tx"]
+[ext_resource type="Texture2D" uid="uid://cl4naf24dc8nb" path="res://Assets/VFX/MagickArrow/2/1_22.png" id="24_w623g"]
+[ext_resource type="Texture2D" uid="uid://c7sjvpcqcrciq" path="res://Assets/VFX/MagickArrow/2/1_23.png" id="25_g5m5h"]
+[ext_resource type="Texture2D" uid="uid://ciw58lbsjf1o7" path="res://Assets/VFX/MagickArrow/2/1_24.png" id="26_08ylb"]
+[ext_resource type="Texture2D" uid="uid://dw8sv3waerocq" path="res://Assets/VFX/MagickArrow/2/1_25.png" id="27_khle4"]
+[ext_resource type="Texture2D" uid="uid://kflapcjq8oaq" path="res://Assets/VFX/MagickArrow/2/1_26.png" id="28_qgjvl"]
+[ext_resource type="Texture2D" uid="uid://b85yb1da1bpns" path="res://Assets/VFX/MagickArrow/2/1_27.png" id="29_erhyx"]
+[ext_resource type="Texture2D" uid="uid://dxdd24b0tlsuy" path="res://Assets/VFX/MagickArrow/2/1_28.png" id="30_8gtf7"]
+[ext_resource type="Texture2D" uid="uid://csaahs6twop23" path="res://Assets/VFX/MagickArrow/2/1_29.png" id="31_ypj46"]
+[ext_resource type="Texture2D" uid="uid://ce8qs7cpeftxi" path="res://Assets/VFX/MagickArrow/1/1_0.png" id="32_xduta"]
+[ext_resource type="Texture2D" uid="uid://3ga5nqinurra" path="res://Assets/VFX/MagickArrow/1/1_1.png" id="33_rybo7"]
+[ext_resource type="Texture2D" uid="uid://bk5iwo465c13y" path="res://Assets/VFX/MagickArrow/1/1_2.png" id="34_ornqs"]
+[ext_resource type="Texture2D" uid="uid://ddr3hpjl7ugkt" path="res://Assets/VFX/MagickArrow/1/1_3.png" id="35_aa4yw"]
+[ext_resource type="Texture2D" uid="uid://bd6phhsda52qj" path="res://Assets/VFX/MagickArrow/1/1_4.png" id="36_5sjft"]
+[ext_resource type="Texture2D" uid="uid://bhcmos3q3tvw0" path="res://Assets/VFX/MagickArrow/1/1_5.png" id="37_fsieq"]
+[ext_resource type="Texture2D" uid="uid://bykidni43cfwo" path="res://Assets/VFX/MagickArrow/1/1_6.png" id="38_04w57"]
+[ext_resource type="Texture2D" uid="uid://bk4wjx6wykfd2" path="res://Assets/VFX/MagickArrow/1/1_7.png" id="39_ghgdn"]
+[ext_resource type="Texture2D" uid="uid://cufk4asfbocx7" path="res://Assets/VFX/MagickArrow/1/1_8.png" id="40_fvoge"]
+[ext_resource type="Texture2D" uid="uid://8c00uhiqhjqo" path="res://Assets/VFX/MagickArrow/1/1_9.png" id="41_ucai3"]
+[ext_resource type="Texture2D" uid="uid://dhhwi80k1ptx0" path="res://Assets/VFX/MagickArrow/1/1_10.png" id="42_7rmc4"]
+[ext_resource type="Texture2D" uid="uid://bdji5eci2q1cw" path="res://Assets/VFX/MagickArrow/1/1_11.png" id="43_y0jip"]
+[ext_resource type="Texture2D" uid="uid://dmeh70xtprcvd" path="res://Assets/VFX/MagickArrow/1/1_12.png" id="44_w4gya"]
+[ext_resource type="Texture2D" uid="uid://yx58uaryuvi3" path="res://Assets/VFX/MagickArrow/1/1_13.png" id="45_dnx8t"]
+[ext_resource type="Texture2D" uid="uid://cw58vpbe7oisc" path="res://Assets/VFX/MagickArrow/1/1_14.png" id="46_hylkt"]
+[ext_resource type="Texture2D" uid="uid://tglrjfu1g61l" path="res://Assets/VFX/MagickArrow/1/1_15.png" id="47_6k5n3"]
+[ext_resource type="Texture2D" uid="uid://cs87gbkckj4ob" path="res://Assets/VFX/MagickArrow/1/1_16.png" id="48_7t6so"]
+[ext_resource type="Texture2D" uid="uid://dckbkrb3tiv3m" path="res://Assets/VFX/MagickArrow/1/1_17.png" id="49_ov8w5"]
+[ext_resource type="Texture2D" uid="uid://0k5dhbkdyatp" path="res://Assets/VFX/MagickArrow/1/1_18.png" id="50_5koih"]
+[ext_resource type="Texture2D" uid="uid://dtxrsee76c37g" path="res://Assets/VFX/MagickArrow/1/1_19.png" id="51_3vope"]
+[ext_resource type="Texture2D" uid="uid://51v18hoskfpe" path="res://Assets/VFX/MagickArrow/1/1_20.png" id="52_y7sup"]
+[ext_resource type="Texture2D" uid="uid://c2kscml62edb5" path="res://Assets/VFX/MagickArrow/1/1_21.png" id="53_1qehn"]
+[ext_resource type="Texture2D" uid="uid://bnmvmov1o2f8a" path="res://Assets/VFX/MagickArrow/1/1_22.png" id="54_qqodn"]
+[ext_resource type="Texture2D" uid="uid://b5nlugqo3qb8y" path="res://Assets/VFX/MagickArrow/1/1_23.png" id="55_y2l5b"]
+[ext_resource type="Texture2D" uid="uid://bnlc5hyvthgja" path="res://Assets/VFX/MagickArrow/1/1_24.png" id="56_3pkwo"]
+[ext_resource type="Texture2D" uid="uid://bdfiu66bte068" path="res://Assets/VFX/MagickArrow/1/1_25.png" id="57_1dyc4"]
+[ext_resource type="Texture2D" uid="uid://d00k3ti15cmob" path="res://Assets/VFX/MagickArrow/1/1_26.png" id="58_53phh"]
+[ext_resource type="Texture2D" uid="uid://dt1jt5ngin58i" path="res://Assets/VFX/MagickArrow/1/1_27.png" id="59_du7qb"]
+[ext_resource type="Texture2D" uid="uid://drj58iglmbjwh" path="res://Assets/VFX/MagickArrow/1/1_28.png" id="60_sm312"]
+[ext_resource type="Texture2D" uid="uid://do1u2jk5attuw" path="res://Assets/VFX/MagickArrow/1/1_29.png" id="61_t67dh"]
+[ext_resource type="Texture2D" uid="uid://bnhhg31s7aety" path="res://Assets/VFX/MagickArrow/3/1_0.png" id="62_mj6pm"]
+[ext_resource type="Texture2D" uid="uid://btcqrvhhjl1yh" path="res://Assets/VFX/MagickArrow/3/1_1.png" id="63_e50hy"]
+[ext_resource type="Texture2D" uid="uid://w73itaexi74b" path="res://Assets/VFX/MagickArrow/3/1_2.png" id="64_g7yh5"]
+[ext_resource type="Texture2D" uid="uid://ywaekkcuhi7f" path="res://Assets/VFX/MagickArrow/3/1_3.png" id="65_64w7r"]
+[ext_resource type="Texture2D" uid="uid://b1enfm6mu852u" path="res://Assets/VFX/MagickArrow/3/1_4.png" id="66_u0kid"]
+[ext_resource type="Texture2D" uid="uid://buo8snn32timx" path="res://Assets/VFX/MagickArrow/3/1_5.png" id="67_ln2sy"]
+[ext_resource type="Texture2D" uid="uid://cpeikhw83prgu" path="res://Assets/VFX/MagickArrow/3/1_6.png" id="68_r4gij"]
+[ext_resource type="Texture2D" uid="uid://j1mj5pynua1m" path="res://Assets/VFX/MagickArrow/3/1_7.png" id="69_qm1c4"]
+[ext_resource type="Texture2D" uid="uid://dbnonq50kjq60" path="res://Assets/VFX/MagickArrow/3/1_8.png" id="70_808nm"]
+[ext_resource type="Texture2D" uid="uid://cy1p2w51dwgbo" path="res://Assets/VFX/MagickArrow/3/1_9.png" id="71_oneqi"]
+[ext_resource type="Texture2D" uid="uid://c0trry5ih0v87" path="res://Assets/VFX/MagickArrow/3/1_10.png" id="72_hqo00"]
+[ext_resource type="Texture2D" uid="uid://dhooq2ddh1g8s" path="res://Assets/VFX/MagickArrow/3/1_11.png" id="73_hvfdh"]
+[ext_resource type="Texture2D" uid="uid://bf83qtyjwvv3j" path="res://Assets/VFX/MagickArrow/3/1_12.png" id="74_m8g6r"]
+[ext_resource type="Texture2D" uid="uid://2hm8yo1tenwi" path="res://Assets/VFX/MagickArrow/3/1_13.png" id="75_yly3f"]
+[ext_resource type="Texture2D" uid="uid://dpks5s768643s" path="res://Assets/VFX/MagickArrow/3/1_14.png" id="76_gtg8e"]
+[ext_resource type="Texture2D" uid="uid://b58s8up7g7u38" path="res://Assets/VFX/MagickArrow/3/1_15.png" id="77_nsh67"]
+[ext_resource type="Texture2D" uid="uid://ch6tkleauqlf4" path="res://Assets/VFX/MagickArrow/3/1_16.png" id="78_7vqgr"]
+[ext_resource type="Texture2D" uid="uid://cvw2ebm010q6v" path="res://Assets/VFX/MagickArrow/3/1_17.png" id="79_gxxsn"]
+[ext_resource type="Texture2D" uid="uid://pd1p7sr8s6qk" path="res://Assets/VFX/MagickArrow/3/1_18.png" id="80_3ihxb"]
+[ext_resource type="Texture2D" uid="uid://wmgq0rtnsw2m" path="res://Assets/VFX/MagickArrow/3/1_19.png" id="81_iedil"]
+[ext_resource type="Texture2D" uid="uid://7yr7qgnrlxhi" path="res://Assets/VFX/MagickArrow/3/1_20.png" id="82_dav1p"]
+[ext_resource type="Texture2D" uid="uid://ccoedsgvjap3r" path="res://Assets/VFX/MagickArrow/3/1_21.png" id="83_t75u5"]
+[ext_resource type="Texture2D" uid="uid://cjh4d6jwqif4s" path="res://Assets/VFX/MagickArrow/3/1_22.png" id="84_o7elq"]
+[ext_resource type="Texture2D" uid="uid://blskc1u4tiyb6" path="res://Assets/VFX/MagickArrow/3/1_23.png" id="85_qnrwf"]
+[ext_resource type="Texture2D" uid="uid://mqv0v8wflk6w" path="res://Assets/VFX/MagickArrow/3/1_24.png" id="86_jgilb"]
+[ext_resource type="Texture2D" uid="uid://clf8b8pncxwku" path="res://Assets/VFX/MagickArrow/3/1_25.png" id="87_0453b"]
+[ext_resource type="Texture2D" uid="uid://cmdfk61ywyyy5" path="res://Assets/VFX/MagickArrow/3/1_26.png" id="88_ffrcw"]
+[ext_resource type="Texture2D" uid="uid://b3hvtnmse1xo7" path="res://Assets/VFX/MagickArrow/3/1_27.png" id="89_gdjcp"]
+[ext_resource type="Texture2D" uid="uid://b3b6g0kx1mnsw" path="res://Assets/VFX/MagickArrow/3/1_28.png" id="90_rbjjr"]
+[ext_resource type="Texture2D" uid="uid://02xpedny6xk0" path="res://Assets/VFX/MagickArrow/3/1_29.png" id="91_lwgb3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8to4l"]
 
@@ -24,21 +114,340 @@ emission_energy_multiplier = 5.69
 material = SubResource("StandardMaterial3D_3jj12")
 size = Vector3(0.05, 0.05, 0.05)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vae54"]
+lifetime_randomness = 0.4
+emission_shape_offset = Vector3(0, 0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 0.5
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.1
+linear_accel_max = 1.0
+color = Color(0.588235, 0.905882, 1, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bube4"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.34902, 0.772549, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r6fsr"]
+material = SubResource("StandardMaterial3D_bube4")
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s256l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w0de5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ha747")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0s1pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s6ulc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ae6fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_erlet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s264r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6uid8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j3u5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bu5yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wxp0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1wa0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_451j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_e6h3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ir8mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_il6p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_54jhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6akve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_4arma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hrl5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_i6xds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_v76tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_w623g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_g5m5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_08ylb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_khle4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qgjvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_erhyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8gtf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ypj46")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpgd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_xduta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_rybo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ornqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_aa4yw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5sjft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_fsieq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_04w57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ghgdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_fvoge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ucai3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_7rmc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_y0jip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_w4gya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dnx8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_hylkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_6k5n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_7t6so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ov8w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_5koih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_3vope")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_y7sup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_1qehn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qqodn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_y2l5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_3pkwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_1dyc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_53phh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_du7qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_sm312")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_t67dh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f70wt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("62_mj6pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_e50hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_g7yh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_64w7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_u0kid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_ln2sy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_r4gij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_qm1c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_808nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_oneqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_hqo00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_hvfdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_m8g6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_yly3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_gtg8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_nsh67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_7vqgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_gxxsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_3ihxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_iedil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_dav1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_t75u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_o7elq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_qnrwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_jgilb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_0453b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_ffrcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_gdjcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_rbjjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_lwgb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
 [node name="Enemy_bullet" type="Node3D"]
-transform = Transform3D(-1.45043e-07, 0, 1, 0, 1, 0, -1, 0, -1.45043e-07, 0, 0, 0)
 script = ExtResource("1_3sfgn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-09, -0.05, -4.37114e-08, 0, -2.18557e-09, 1, -0.05, 2.18557e-09, -1.42109e-14, -0.00146484, 0.00311279, 3.8147e-06)
+transform = Transform3D(-2.18557e-09, -0.05, -1.57361e-08, 0, -2.18557e-09, 0.36, -0.05, 2.18557e-09, -5.11592e-15, -0.00146484, 0.00311279, 3.8147e-06)
+visible = false
 mesh = SubResource("BoxMesh_8to4l")
 surface_material_override/0 = SubResource("StandardMaterial3D_i1y8q")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, 0.448074, 0.00111353)
+transform = Transform3D(1.58614, 2.27766e-08, -1.11511e-07, -1.38665e-07, 0.260533, -5.29675e-08, 1.38665e-07, 1.08189e-08, 1.27553, 0, 0.120688, 0)
 collision_mask = 3
 hit_from_inside = true
 collide_with_areas = true
-collide_with_bodies = false
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1.58597, -0.00974296, -0.00734663, -0.0212663, 0.722535, -0.0162687, 0.00940705, -0.00916092, -1.2754, -0.00663341, 0.556154, -0.00695931)
@@ -50,7 +459,38 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_sirxn")
 draw_pass_1 = SubResource("BoxMesh_nfcr2")
 
+[node name="TrailParticles3D" type="GPUParticles3D" parent="."]
+amount = 32
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_vae54")
+draw_pass_1 = SubResource("BoxMesh_r6fsr")
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -1.45043e-07, -1, -4.37114e-08, -1.45043e-07, -1.45043e-07, 1.45043e-07, 1, 0.036, 0.263, 0.063905)
+visible = false
+pixel_size = 0.02
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_s256l")
+autoplay = "default"
+frame_progress = 0.0906461
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -1.45043e-07, -1, -4.37114e-08, -1.45043e-07, -1.45043e-07, 1.45043e-07, 1, 0.0358041, 0.263474, 0.145943)
+visible = false
+pixel_size = 0.02
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rpgd5")
+autoplay = "default"
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -1.45043e-07, -1, -4.37114e-08, -1.45043e-07, -1.45043e-07, 1.45043e-07, 1, 0.0358041, 0.263474, 0)
+visible = false
+pixel_size = 0.02
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_f70wt")
+autoplay = "default"

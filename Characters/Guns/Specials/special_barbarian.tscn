@@ -1,8 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://wilraa75ek7g"]
+[gd_scene load_steps=57 format=3 uid="uid://wilraa75ek7g"]
 
 [ext_resource type="Texture2D" uid="uid://beqkdsyfuerfb" path="res://Assets/VFX/Earth Effect 02/Earth Bump.png" id="1_rfnoi"]
 [ext_resource type="Script" path="res://Characters/Guns/Specials/special_barbarian.gd" id="1_vmbdd"]
 [ext_resource type="Texture2D" uid="uid://bx0pm4wl0lc2e" path="res://Assets/VFX/Earth Effect 02/Earth Wall.png" id="2_m6vt3"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="4_1hbrj"]
+[ext_resource type="AudioStream" uid="uid://dho02eak06c6k" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Rock Meteor Throw 1.ogg" id="5_j0xcn"]
+[ext_resource type="AudioStream" uid="uid://bwb7q1voupbyi" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Rock Meteor Throw 2.ogg" id="6_s5q8h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u3nr"]
 atlas = ExtResource("1_rfnoi")
@@ -512,6 +515,18 @@ process_callback = 0
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="SFX" parent="." instance=ExtResource("4_1hbrj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_j0xcn")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_s5q8h")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="area_entered" from="HitArea3D" to="." method="_on_hit_area_3d_area_entered"]

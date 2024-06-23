@@ -5,16 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://c2hf4qkol6lyl" path="res://Characters/PlayerCharacter/gun.tscn" id="3_p321f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj2a1"]
-size = Vector3(1, 2.05951, 1)
+size = Vector3(0.708374, 2.0592, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vf3r"]
-size = Vector3(1.301, 1.295, 1.323)
+size = Vector3(0.804762, 2.12256, 2.50244)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0alk"]
 size = Vector3(1.5, 1, 2.5)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
-collision_layer = 10
+transform = Transform3D(0.877197, 0, 0, 0, 0.877197, 0, 0, 0, 0.877197, 0, 0, 0)
+collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_485if")
 
@@ -22,7 +23,7 @@ script = ExtResource("1_485if")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.899022, 0, 0, 0, 1.28711, 0, 0, 0, 1.1, 0, 1.32047, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0188599, 1, 0)
 shape = SubResource("BoxShape3D_rj2a1")
 
 [node name="Gun" parent="." instance=ExtResource("3_p321f")]
@@ -36,10 +37,10 @@ wait_time = 0.066
 
 [node name="PlayerArea3D" type="Area3D" parent="." groups=["player"]]
 collision_layer = 2
-collision_mask = 9
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32112, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166863, 1.00321, 0)
 shape = SubResource("BoxShape3D_7vf3r")
 
 [node name="AreaCaida" type="Area3D" parent="."]

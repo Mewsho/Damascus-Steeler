@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dti00nvct1544"
+path="res://.godot/imported/Sword Sheath 1.ogg-4d036e5f3417ab7c4ca4f2948ed9de6a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Sheath 1.ogg"
+dest_files=["res://.godot/imported/Sword Sheath 1.ogg-4d036e5f3417ab7c4ca4f2948ed9de6a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://3qy18xuno4u2"]
+[gd_scene load_steps=17 format=3 uid="uid://3qy18xuno4u2"]
 
 [ext_resource type="Script" path="res://Characters/Guns/Bullets/knight_bullet.gd" id="1_8kwa1"]
 [ext_resource type="Texture2D" uid="uid://dpbedt435grb0" path="res://Assets/VFX/Holy VFX 01-02/Holy VFX 01/Holy VFX 01 Repeatable.png" id="1_xf1tr"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="3_x5vof"]
+[ext_resource type="AudioStream" uid="uid://jamkkotltmui" path="res://Music/SFX/magical-spell-cast-190272.mp3" id="4_cduex"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3bgc"]
 atlas = ExtResource("1_xf1tr")
@@ -84,13 +86,13 @@ color = Color(1, 0.960784, 0.219608, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3y0y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u54ro"]
 vertex_color_use_as_albedo = true
 emission_enabled = true
 emission = Color(0.984314, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a2iir"]
-material = SubResource("StandardMaterial3D_e3y0y")
+material = SubResource("StandardMaterial3D_u54ro")
 size = Vector3(0.05, 0.05, 0.05)
 
 [node name="KnightBullet" type="Node3D"]
@@ -119,3 +121,9 @@ amount = 64
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_4ti1p")
 draw_pass_1 = SubResource("BoxMesh_a2iir")
+
+[node name="SFX" parent="." instance=ExtResource("3_x5vof")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_cduex")
+volume_db = -33.0

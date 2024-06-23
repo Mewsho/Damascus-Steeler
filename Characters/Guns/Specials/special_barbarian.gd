@@ -15,6 +15,7 @@ extends Node3D
 @onready var check_4 = $CheckFloor/RigidBody3D4/Check4
 @onready var delete_timer = $DeleteTimer
 @onready var hit_area_3d = $HitArea3D
+@onready var sfx = $SFX
 
 
 
@@ -27,7 +28,7 @@ var list_x1 = []
 var list_x2 = []
 var list_x3 = []
 var list_x4 = []
-var height_list = [null,null,null,null,null]
+var height_list = [0,0,0,0,0]
 var x_pos_list = [0,0,0,0,0]
 var counter = 0
 var is_first_anim : bool = true
@@ -39,8 +40,7 @@ func _ready():
 	x_pos_list[0] = global_position.x
 	if !is_forward:
 		scale.x = -1
-
-
+	
 func _physics_process(delta):
 	print(height_list)
 
@@ -49,6 +49,8 @@ func _physics_process(delta):
 	print(counter)
 
 func play_animations():
+	sfx.play()
+	EventBus.emit_especial_shake()
 	animated_sprite_3d.visible = true
 	animated_sprite_3d_2.visible = true
 	animated_sprite_3d_3.visible = true
@@ -67,6 +69,8 @@ func _on_animated_sprite_3d_animation_finished():
 		counter+=1
 		position.y = height_list[counter]
 		position.x = x_pos_list[counter]
+		sfx.play()
+		EventBus.emit_especial_shake()
 		animated_sprite_3d.play("default")
 		animated_sprite_3d_2.play("default")
 		animated_sprite_3d_3.play("default")

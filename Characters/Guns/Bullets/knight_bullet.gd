@@ -8,7 +8,10 @@ const SPEED = 15
 @onready var ray = $RayCast3D
 @onready var animated_sprite_3d = $AnimatedSprite3D
 @onready var trail_particles_3d = $TrailParticles3D
+@onready var sfx = $SFX
 
+func _ready():
+	sfx.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -24,7 +24,7 @@ const BARBARIAN_BULLET = preload("res://Characters/Guns/Bullets/barbarian_bullet
 const RANGER_BULLET = preload("res://Characters/Guns/Bullets/ranger_bullet.tscn")
 
 # Regeneracion de mana por dificultad de juego
-var mana_regen_rate = 0.5
+var mana_regen_rate = 1
 # variable por mientras de dificultad ( 0 extremo , 10 dificil, 25 normal, 50 facil,
 var difficulty_level = 50
 const DeviceInput = preload("res://addons/multiplayer_input/device_input.gd")
@@ -38,8 +38,9 @@ var is_dead : bool = false
 @onready var gun_ray_cast_3d = $Gun/RayCast3D as RayCast3D
 @onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
 @onready var player_node_container = get_parent()
-@onready var area_3d = $Area3D
 @onready var area_caida = $AreaCaida
+@onready var player_area_3d = $PlayerArea3D
+@onready var collision_shape_3d = $CollisionShape3D
 
 ## Timer invul
 @onready var invul_timer = $InvulTimer
@@ -58,6 +59,8 @@ var animation_player : AnimationPlayer
 var is_landing : bool
 var is_facing_front: bool = true
 var is_moving_forward : bool = false
+var rig
+var tween_scale : Tween
 
 signal leave
 signal mana_change(n_player, amount)
@@ -73,6 +76,7 @@ func init(player_num: int):
 	input = DeviceInput.new(device)
 	animation_player = get_node(player_class).get_node("AnimationPlayer") as AnimationPlayer
 	animation_player.animation_finished.connect(on_animation_finished)
+	rig = get_node(player_class)
 
 func _ready():
 	area_caida.monitoring = true
@@ -86,8 +90,7 @@ func get_player_class()-> String:
 	
 func _physics_process(delta):
 	
-	
-	
+
 	# Get the input direction and handle the movement/deceleration.
 	var move_dir = 0
 	# Add the gravity.
@@ -133,8 +136,24 @@ func handle_movement(move_dir):
 			is_landing = false
 			animation_player.set_default_blend_time(0.2)
 			animation_player.play("Running_A")
-			
-		
+	
+	if input.is_action_pressed("move_down"):
+		tween_scale = create_tween()
+		player_area_3d.scale.y = 0.5
+		collision_shape_3d.scale.y = 0.5
+		collision_shape_3d.position.y = 0.5
+		tween_scale.tween_property(rig,"scale", Vector3(1,0.5,1),0.1)
+		#rig.scale.y = 0.5
+	else:
+		player_area_3d.scale.y = 1
+		collision_shape_3d.scale.y = 1
+		collision_shape_3d.position.y = 1
+		#if tween_scale:
+			#tween_scale.kill()
+		tween_scale = create_tween()
+		tween_scale.tween_property(rig,"scale", Vector3(1,1,1),0.1).set_trans(Tween.TRANS_QUAD)
+
+
 	if is_dead:
 		move_dir = 0;
 

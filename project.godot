@@ -18,7 +18,7 @@ boot_splash/custom_image=""
 
 [audio]
 
-buses/default_bus_layout="res://Audio/default_bus_layout.tres"
+buses/default_bus_layout="res://Music/default_bus_layout.tres"
 
 [autoload]
 
@@ -29,6 +29,7 @@ PlayerVariables="*res://autoloads/PlayerVariables.gd"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 PlayerManager="*res://autoloads/PlayerManager.gd"
 PCGcurrent="*res://autoloads/PCGcurrent.gd"
+EventBus="*res://autoloads/EventBus.gd"
 
 [display]
 
@@ -48,7 +49,6 @@ enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "yellow",
-"res://Audio/": "teal",
 "res://Characters/": "orange",
 "res://Characters/Unused/": "gray",
 "res://Enemies/": "orange",
@@ -57,6 +57,7 @@ folder_colors={
 "res://MishoCosas/": "purple",
 "res://Music/": "blue",
 "res://PCGTest/": "gray",
+"res://VFX/": "blue",
 "res://addons/": "orange",
 "res://autoloads/": "gray",
 "res://resources/": "gray"

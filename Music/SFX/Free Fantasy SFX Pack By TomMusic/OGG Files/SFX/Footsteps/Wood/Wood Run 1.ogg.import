@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://daasoyw2at7aa"
+path="res://.godot/imported/Wood Run 1.ogg-b127e3fb84693664426d37a80f7d7a1e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Wood/Wood Run 1.ogg"
+dest_files=["res://.godot/imported/Wood Run 1.ogg-b127e3fb84693664426d37a80f7d7a1e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

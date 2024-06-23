@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8beelf12d022"
+path="res://.godot/imported/Sizzle_Impact3.wav-6f8b37759513006324b89dc91a9ba2ea.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Arcane/Impact/Sizzle_Impact3.wav"
+dest_files=["res://.godot/imported/Sizzle_Impact3.wav-6f8b37759513006324b89dc91a9ba2ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

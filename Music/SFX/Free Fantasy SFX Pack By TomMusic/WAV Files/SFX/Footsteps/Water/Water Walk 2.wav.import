@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx4cs6mq6mnd5"
+path="res://.godot/imported/Water Walk 2.wav-6fda35929e92e226bd859e7a13a8132b.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/WAV Files/SFX/Footsteps/Water/Water Walk 2.wav"
+dest_files=["res://.godot/imported/Water Walk 2.wav-6fda35929e92e226bd859e7a13a8132b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://6oi1se3uv30c"]
+[gd_scene load_steps=7 format=3 uid="uid://6oi1se3uv30c"]
 
 [ext_resource type="Script" path="res://Core.gd" id="1_qruwx"]
 [ext_resource type="Shader" path="res://scene_transition.gdshader" id="2_fmnqx"]
 [ext_resource type="PackedScene" uid="uid://bn2civsgcxpq3" path="res://Menu/MainMenu.tscn" id="2_uec3o"]
+[ext_resource type="PackedScene" uid="uid://cfearbm2sfjm" path="res://VFX/DamageOverlay.tscn" id="3_7p48p"]
 [ext_resource type="PackedScene" uid="uid://crfsotemq1cp7" path="res://Menu/HUD/gameplay_hud.tscn" id="3_ce0ij"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5vn25"]
@@ -22,6 +23,10 @@ script = ExtResource("1_qruwx")
 
 [node name="MainMenu" parent="SceneNodeContainer" groups=["Menus"] instance=ExtResource("2_uec3o")]
 
+[node name="PlayerNodeContainer" type="Node" parent="."]
+
+[node name="DamageOverlay" parent="." instance=ExtResource("3_7p48p")]
+
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -32,8 +37,6 @@ grow_vertical = 2
 
 [node name="GameplayHUD" parent="HUD" instance=ExtResource("3_ce0ij")]
 layout_mode = 1
-
-[node name="PlayerNodeContainer" type="Node" parent="."]
 
 [node name="TransicionColorRect" type="ColorRect" parent="."]
 process_mode = 3

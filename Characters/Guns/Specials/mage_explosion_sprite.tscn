@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://btgyh06dgjjqg"]
+[gd_scene load_steps=24 format=3 uid="uid://btgyh06dgjjqg"]
 
 [ext_resource type="Texture2D" uid="uid://dhdw3kovmk8v4" path="res://Assets/VFX/Fire Effect 2/Explosion 2 SpriteSheet.png" id="1_d3uqk"]
 [ext_resource type="Script" path="res://Characters/Guns/Specials/mage_explosion_sprite.gd" id="2_epc72"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="3_qs6er"]
+[ext_resource type="AudioStream" uid="uid://kjlu60veqanv" path="res://Music/SFX/8-bit-explosion-low-resonant-45659.mp3" id="4_c3uvc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yjslk"]
 atlas = ExtResource("1_d3uqk")
@@ -145,5 +147,11 @@ sprite_frames = SubResource("SpriteFrames_eursb")
 autoplay = "default"
 speed_scale = 0.7
 script = ExtResource("2_epc72")
+
+[node name="SFX" parent="." instance=ExtResource("3_qs6er")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_c3uvc")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfhr7l6lk3th0"
+path="res://.godot/imported/Water Chain Walk 2.wav-23201470d774ec706deab4ce0c68bb55.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/WAV Files/SFX/Footsteps/Water/Water Chain Walk 2.wav"
+dest_files=["res://.godot/imported/Water Chain Walk 2.wav-23201470d774ec706deab4ce0c68bb55.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

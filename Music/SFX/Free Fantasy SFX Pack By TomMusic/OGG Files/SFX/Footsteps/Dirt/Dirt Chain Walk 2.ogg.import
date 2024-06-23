@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccgpnfpdcxho6"
+path="res://.godot/imported/Dirt Chain Walk 2.ogg-5503457184508860dc69b5274c26733d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Dirt/Dirt Chain Walk 2.ogg"
+dest_files=["res://.godot/imported/Dirt Chain Walk 2.ogg-5503457184508860dc69b5274c26733d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

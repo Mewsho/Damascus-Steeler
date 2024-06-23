@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bes3h3rfaung3"
+path="res://.godot/imported/Sword Unsheath 1.ogg-df8f6feab89a1e202692f772f9df805b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Unsheath 1.ogg"
+dest_files=["res://.godot/imported/Sword Unsheath 1.ogg-df8f6feab89a1e202692f772f9df805b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

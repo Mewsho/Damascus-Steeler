@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dck7f2lkskv8u"]
+[gd_scene load_steps=10 format=3 uid="uid://dck7f2lkskv8u"]
 
 [ext_resource type="Script" path="res://Characters/Guns/Bullets/barbarian_bullet.gd" id="1_lbryt"]
 [ext_resource type="Texture2D" uid="uid://cebfkosr38ecp" path="res://Assets/VFX/PixelWeapons/Weapon-Asset-Part1.png" id="2_48jm4"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="3_f4doa"]
+[ext_resource type="AudioStream" uid="uid://nwr4iekmncjt" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 1.ogg" id="4_stvyh"]
+[ext_resource type="AudioStream" uid="uid://ddfdlxtyj5mk6" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 2.ogg" id="5_gikgg"]
+[ext_resource type="AudioStream" uid="uid://crulxgaxakdhr" path="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 3.ogg" id="6_cx7u5"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_be0y3"]
 resource_local_to_scene = true
@@ -63,3 +67,20 @@ amount = 64
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_be0y3")
 draw_pass_1 = SubResource("BoxMesh_rwtqf")
+
+[node name="SFX" parent="." instance=ExtResource("3_f4doa")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_stvyh")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_gikgg")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_cx7u5")
+volume_db = -15.0
+bus = &"SFX"
