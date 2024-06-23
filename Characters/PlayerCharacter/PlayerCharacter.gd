@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const SPEED = 6.2
+const SPEED = 6.1
 # Altura de Salto del PJ
-const JUMP_VELOCITY = 12.5
+const JUMP_VELOCITY = 12.6
 # Gravedad del socio
 var gravity = 26.2
 var y_velo = 0
@@ -38,6 +38,12 @@ var is_dead : bool = false
 @onready var gun_ray_cast_3d = $Gun/RayCast3D as RayCast3D
 @onready var gun_animation_player = $Gun/Pistola/AnimationPlayer as AnimationPlayer
 @onready var player_node_container = get_parent()
+@onready var area_3d = $Area3D
+@onready var area_caida = $AreaCaida
+
+## Timer invul
+@onready var invul_timer = $InvulTimer
+
 
 
 var player: int
@@ -69,7 +75,8 @@ func init(player_num: int):
 	animation_player.animation_finished.connect(on_animation_finished)
 
 func _ready():
-	pass
+	area_caida.monitoring = true
+
 	
 func set_player_class(name : String):
 	self.player_class = name
@@ -93,10 +100,12 @@ func _physics_process(delta):
 	camera_checks()
 	
 	if is_dead:
-		velocity = Vector3(0,0,0)
+		velocity.x = 0
+		velocity.z = 0
 
 	move_and_slide()
-	handle_gun_actions()
+	if !is_dead:
+		handle_gun_actions()
 
 	# Test
 	if input.is_action_just_pressed("test_action"):
@@ -163,7 +172,7 @@ func handle_movement(move_dir):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		
 func camera_checks():
 	if is_in_left_border == true:
 		#velocity.clamp(Vector3(0,0,0),Vector3(100,100,100))
@@ -213,6 +222,7 @@ func handle_gun_actions():
 		gun.rotation.z = 0.5
 	if input.is_action_just_released("move_up") && input.is_action_pressed("move_left") :
 		gun.rotation.z = 0
+
 
 func handle_special(p_class : String):
 	if mana < 39:
@@ -322,13 +332,16 @@ func _set_mana(_mana):
 	emit_signal("mana_change", player, mana)
 
 func _set_lifes(n_lifes):
+	area_caida.monitoring = false
 	var prev_lifes = lifes
 	lifes = max(0,n_lifes)
 	is_dead = true
 	#animation_player.set_speed_scale(5) #Comedia
 	animation_player.set_speed_scale(1)
 	if prev_lifes == 0:
+		
 		animation_player.play("Death_B") ##Game over
+		
 	else:
 		animation_player.play("Death_A") ## Muerte normal
 	emit_signal("lifes_change",player, lifes)
@@ -349,7 +362,18 @@ func on_animation_finished(anim_name):
 	if anim_name == "Jump_Start":
 		is_landing = false
 
+func hit(dam):
+	if is_dead:
+		return
+	if !invul_timer.is_stopped():
+		return
+	lifes -= dam
+	
+	
 
+func iniciartimer():
+	invul_timer.start()
+	print("Concepcion")
 
 func _on_test_caida_area_entered(area):
 	if velocity.y < 0:

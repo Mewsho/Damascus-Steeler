@@ -8,13 +8,13 @@
 size = Vector3(1, 2.05951, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vf3r"]
-size = Vector3(1, 2.166, 1)
+size = Vector3(1.301, 1.295, 1.323)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0alk"]
 size = Vector3(1.5, 1, 2.5)
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player"]]
-collision_layer = 2
+collision_layer = 10
 collision_mask = 5
 script = ExtResource("1_485if")
 
@@ -36,6 +36,7 @@ wait_time = 0.066
 
 [node name="PlayerArea3D" type="Area3D" parent="." groups=["player"]]
 collision_layer = 2
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32112, 0)
@@ -52,6 +53,11 @@ shape = SubResource("BoxShape3D_p0alk")
 
 [node name="PetFollowPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="InvulTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
 
 [connection signal="area_entered" from="AreaCaida" to="." method="_on_test_caida_area_entered"]
 

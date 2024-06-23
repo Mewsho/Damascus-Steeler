@@ -30,6 +30,7 @@ script = ExtResource("1_mmxvo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-09, -0.05, -4.37114e-08, 0, -2.18557e-09, 1, -0.05, 2.18557e-09, -1.42109e-14, -0.00146484, 0.00311279, 3.8147e-06)
+layers = 5
 mesh = SubResource("BoxMesh_8to4l")
 surface_material_override/0 = SubResource("StandardMaterial3D_i1y8q")
 
