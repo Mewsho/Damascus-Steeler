@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://3qy18xuno4u2"]
+
+[ext_resource type="Script" path="res://Characters/Guns/Bullets/knight_bullet.gd" id="1_8kwa1"]
+[ext_resource type="Texture2D" uid="uid://dpbedt435grb0" path="res://Assets/VFX/Holy VFX 01-02/Holy VFX 01/Holy VFX 01 Repeatable.png" id="1_xf1tr"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="3_x5vof"]
+[ext_resource type="AudioStream" uid="uid://jamkkotltmui" path="res://Music/SFX/magical-spell-cast-190272.mp3" id="4_cduex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3bgc"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srr6i"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p23v7"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v70bg"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qhhl"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1qt5"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5420"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l75uk"]
+atlas = ExtResource("1_xf1tr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpdlb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3bgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srr6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p23v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v70bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qhhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1qt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5420")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l75uk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ti1p"]
+lifetime_randomness = 0.4
+emission_shape_offset = Vector3(0, 0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 0.5
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.1
+linear_accel_max = 1.0
+color = Color(1, 0.960784, 0.219608, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u54ro"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.984314, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2iir"]
+material = SubResource("StandardMaterial3D_u54ro")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="KnightBullet" type="Node3D"]
+script = ExtResource("1_8kwa1")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1.58614, 6.31769e-08, -1.1151e-07, -1.38665e-07, 0.72266, 1.05934e-06, 1.38665e-07, 3.00091e-08, 1.27553, -0.00146485, 0.448074, 0.00111353)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, 0, 0.428979, 0)
+pixel_size = 0.04
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_kpdlb")
+autoplay = "default"
+frame_progress = 0.726529
+
+[node name="TrailParticles3D" type="GPUParticles3D" parent="."]
+amount = 64
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_4ti1p")
+draw_pass_1 = SubResource("BoxMesh_a2iir")
+
+[node name="SFX" parent="." instance=ExtResource("3_x5vof")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_cduex")
+volume_db = -33.0

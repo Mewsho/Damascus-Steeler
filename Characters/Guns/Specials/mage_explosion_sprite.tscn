@@ -1,0 +1,157 @@
+[gd_scene load_steps=24 format=3 uid="uid://btgyh06dgjjqg"]
+
+[ext_resource type="Texture2D" uid="uid://dhdw3kovmk8v4" path="res://Assets/VFX/Fire Effect 2/Explosion 2 SpriteSheet.png" id="1_d3uqk"]
+[ext_resource type="Script" path="res://Characters/Guns/Specials/mage_explosion_sprite.gd" id="2_epc72"]
+[ext_resource type="PackedScene" uid="uid://dlss42kcs75j8" path="res://Music/sfx.tscn" id="3_qs6er"]
+[ext_resource type="AudioStream" uid="uid://kjlu60veqanv" path="res://Music/SFX/8-bit-explosion-low-resonant-45659.mp3" id="4_c3uvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjslk"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee5f"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51uxq"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhjj0"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07knm"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb6g8"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5x3d"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mn3d"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onm0o"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yajjc"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hg4f"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_787jn"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8s8c"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j1jq"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaj6n"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(672, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yiy7"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(720, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgjt0"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(768, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alo5w"]
+atlas = ExtResource("1_d3uqk")
+region = Rect2(816, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eursb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjslk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gee5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51uxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhjj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07knm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb6g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5x3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mn3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onm0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yajjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hg4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_787jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8s8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j1jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaj6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yiy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgjt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alo5w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="MageExplosionSprite" type="AnimatedSprite3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+pixel_size = 0.05
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_eursb")
+autoplay = "default"
+speed_scale = 0.7
+script = ExtResource("2_epc72")
+
+[node name="SFX" parent="." instance=ExtResource("3_qs6er")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_c3uvc")
+volume_db = -20.0
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

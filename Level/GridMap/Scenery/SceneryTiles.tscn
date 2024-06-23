@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdmqm0xpjeny4"]
+
+[ext_resource type="ArrayMesh" uid="uid://b37r1lwv4b7dc" path="res://Assets/VoxelDungeonSet/Obj/wall_raised.obj" id="1_2qs7k"]
+[ext_resource type="ArrayMesh" uid="uid://x4xxggatiayw" path="res://Assets/VoxelDungeonSet/Obj/wall_flat.obj" id="2_2aws3"]
+[ext_resource type="ArrayMesh" uid="uid://nmkn2am3qhrs" path="res://Assets/VoxelDungeonSet/Obj/wall_raised_small_tile.obj" id="3_egubi"]
+[ext_resource type="ArrayMesh" uid="uid://r61bmf0xupul" path="res://Assets/VoxelDungeonSet/Obj/wall_raised_diagonal_small_tile.obj" id="4_uwdmw"]
+
+[node name="SceneryTiles" type="Node3D"]
+
+[node name="WallRaisedSmallTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.333, 0, 0, 0, 1.25, 0, -3, 0)
+mesh = ExtResource("3_egubi")
+
+[node name="WallRaisedDiagonalSmallTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.333, 0, 0, 0, 1.25, 0, -3, 0)
+mesh = ExtResource("4_uwdmw")
+
+[node name="WallRaised" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.24, 0, 0, 0, 1.24, 0, 0, 0, 1.24, 0, -2, 0)
+mesh = ExtResource("1_2qs7k")
+
+[node name="WallFlat" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -2, 0)
+mesh = ExtResource("2_2aws3")

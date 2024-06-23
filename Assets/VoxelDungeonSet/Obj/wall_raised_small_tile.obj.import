@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://nmkn2am3qhrs"
+path="res://.godot/imported/wall_raised_small_tile.obj-8bf16f6ac2dbb1448fa9c057078968cb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_raised_small_tile.obj-8bf16f6ac2dbb1448fa9c057078968cb.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/wall_raised_small_tile.obj"
+dest_files=["res://.godot/imported/wall_raised_small_tile.obj-8bf16f6ac2dbb1448fa9c057078968cb.mesh", "res://.godot/imported/wall_raised_small_tile.obj-8bf16f6ac2dbb1448fa9c057078968cb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

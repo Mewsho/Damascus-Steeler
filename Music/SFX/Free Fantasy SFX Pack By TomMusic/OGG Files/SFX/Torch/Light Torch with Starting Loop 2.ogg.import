@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3k18ou3ugekl"
+path="res://.godot/imported/Light Torch with Starting Loop 2.ogg-0c4331759a99c645c6c8f5134767fdcc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Torch/Light Torch with Starting Loop 2.ogg"
+dest_files=["res://.godot/imported/Light Torch with Starting Loop 2.ogg-0c4331759a99c645c6c8f5134767fdcc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

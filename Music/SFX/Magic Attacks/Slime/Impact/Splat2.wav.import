@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://critd0st02lo0"
+path="res://.godot/imported/Splat2.wav-7c13fb4009d26998e0bc3d3598f739bb.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Slime/Impact/Splat2.wav"
+dest_files=["res://.godot/imported/Splat2.wav-7c13fb4009d26998e0bc3d3598f739bb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

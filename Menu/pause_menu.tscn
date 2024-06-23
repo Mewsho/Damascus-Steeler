@@ -1,18 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://ch5a43uyl6iql"]
+[gd_scene load_steps=10 format=3 uid="uid://ch5a43uyl6iql"]
 
 [ext_resource type="Script" path="res://Menu/Scripts/pause_menu.gd" id="1_lkxp8"]
 [ext_resource type="Shader" path="res://Menu/pause_menu.gdshader" id="2_2o12h"]
 [ext_resource type="PackedScene" uid="uid://xqmbygw0vs75" path="res://Menu/OptionsMenu.tscn" id="2_wa5k8"]
 [ext_resource type="AudioStream" uid="uid://dmw6d3pohhcey" path="res://Music/UI Audio/select_001.ogg" id="3_0edf5"]
+[ext_resource type="FontFile" uid="uid://smo7lppwsmt4" path="res://Assets/Fonts/PeaberryDoublespace.ttf" id="3_30evt"]
+[ext_resource type="Texture2D" uid="uid://wegj6iko3j2u" path="res://Assets/Assets UI/kenney_fantasy-ui-borders/Vector/fantasy-ui-borders.svg" id="4_3xf78"]
+[ext_resource type="Theme" uid="uid://cd41u207uxt4u" path="res://Assets/Assets UI/FlatUIKenneyThemeGodot/kenneyUI-green.tres" id="4_waxhc"]
 [ext_resource type="PackedScene" uid="uid://bke034tyehh1s" path="res://Menu/players_hud_container.tscn" id="5_f4s4m"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ij7sq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6h2xw"]
 shader = ExtResource("2_2o12h")
-shader_parameter/amount = 4.0
-
-[sub_resource type="SystemFont" id="SystemFont_82vv5"]
-font_names = PackedStringArray("Consolas")
-subpixel_positioning = 0
+shader_parameter/amount = 2.0
 
 [node name="PauseMenu" type="Control" groups=["Menus"]]
 layout_mode = 3
@@ -24,11 +23,15 @@ grow_vertical = 2
 script = ExtResource("1_lkxp8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_ij7sq")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+material = SubResource("ShaderMaterial_6h2xw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+color = Color(0.14902, 0.282353, 0.309804, 0.827451)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,11 +52,14 @@ theme_override_constants/separation = 32
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = SubResource("SystemFont_82vv5")
+theme_override_fonts/font = ExtResource("3_30evt")
 theme_override_font_sizes/font_size = 64
 text = "PAUSE"
 horizontal_alignment = 1
@@ -61,8 +67,37 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 64
 alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_3xf78")
+region_rect = Rect2(164, 164, 48, 48)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+vertical = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -73,26 +108,42 @@ alignment = 1
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(180, 52)
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme = ExtResource("4_waxhc")
 text = "Resume"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(180, 52)
 layout_mode = 2
+theme = ExtResource("4_waxhc")
 text = "Options"
 
 [node name="MainMenuButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(180, 52)
 layout_mode = 2
+theme = ExtResource("4_waxhc")
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(180, 52)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ResumeButton")
+theme = ExtResource("4_waxhc")
 text = "Quit"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_wa5k8")]
 visible = false
@@ -103,4 +154,18 @@ stream = ExtResource("3_0edf5")
 bus = &"UI"
 
 [node name="PlayerContainer" parent="." instance=ExtResource("5_f4s4m")]
+visible = false
+texture_filter = 1
 layout_mode = 1
+alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14902, 0.282353, 0.309804, 0.827451)

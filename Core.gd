@@ -9,7 +9,7 @@ extends Node
 @onready var player_node_container = $PlayerNodeContainer as Node
 @onready var hud = $HUD
 @onready var gameplay_hud = $HUD/GameplayHUD
-@onready var color_rect = $ColorRect
+@onready var transicion_color_rect = $TransicionColorRect
 @onready var scene_timer = $SceneTimer
 
 var scene_wait_time = 1
@@ -159,6 +159,7 @@ func spawn_player(player: int, player_node):
 	player_node.position = Vector3(spawn_position_x-2, randf_range(10, 14),1)
 	player_node.is_dead = false
 	player_node.mana = 100
+	player_node.iniciartimer()
 ## Funcion para eliminar al jugador cuando salga, si esta en un menu, elimina el icono del hud tambien
 func delete_player(player: int):
 	var current_scene = scene_node_container.get_child(0)
@@ -202,11 +203,12 @@ func switch_scene(scene_path: String):
 	
 
 func scene_transition_animation(ini : float, end: float):
-	var tween = create_tween()
+	var tween = transicion_color_rect.create_tween()
+	
 	tween.tween_method(set_shader_value, ini, end, scene_wait_time)
 
 func set_shader_value(value : float):
-	var shader = color_rect.material as ShaderMaterial
+	var shader = transicion_color_rect.material as ShaderMaterial
 	shader.set_shader_parameter("progress",value)
 
 

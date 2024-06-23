@@ -1,0 +1,778 @@
+[gd_scene load_steps=3 format=3 uid="uid://dslbqiukydsk5"]
+
+[ext_resource type="Texture2D" uid="uid://if3u34fnygxh" path="res://Assets/gothicvania church files/gothicvania church files/ENVIRONMENT/test.png" id="2_hrva6"]
+[ext_resource type="Texture2D" uid="uid://cqxw6gxsnw3ss" path="res://Assets/gothicvania church files/gothicvania church files/ENVIRONMENT/back.png" id="3_ijimf"]
+
+[node name="BackgroundChurch" type="Node3D"]
+
+[node name="BackgroundWindow" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4498, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1015, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76935, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7962, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.905159, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55575, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80069, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.68045, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2348, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9712, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1251, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8394, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5339, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3355, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4101, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32021, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundWindow3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5502, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.1015, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7694, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7962, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch13" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9052, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch14" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5557, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch15" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.8007, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch16" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6804, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch17" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.2348, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch18" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9712, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch19" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.8085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch20" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.1251, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch21" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.8394, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch22" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5339, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch23" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3355, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4101, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.3202, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundWindow5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5502, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1015, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.7693, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7962, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch24" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9052, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch25" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.5557, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch26" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8007, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch27" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.6805, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch28" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.2348, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch29" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.9712, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch30" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.8085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch31" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1251, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch32" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.8394, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch33" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5339, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch34" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.3355, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4101, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.1085, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.3202, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 25.9243, 0, -0.339884)
+texture = ExtResource("3_ijimf")
+
+[node name="BackgroundWindow7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.5502, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.102, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7693, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.796, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch35" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.9052, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch36" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5558, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch37" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8007, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch38" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.68, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch39" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.235, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch40" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.971, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch41" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.809, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch42" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.125, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch43" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.839, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch44" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.534, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch45" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.335, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.41, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.109, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue13" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.32, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundWindow9" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.55, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.102, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar10" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.769, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.796, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch46" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.905, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch47" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.556, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch48" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.801, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch49" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.68, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch50" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.235, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch51" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.971, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch52" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.809, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch53" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.125, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch54" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.839, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch55" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.534, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch56" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.335, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue14" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.41, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue15" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.109, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue16" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.32, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundWindow11" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.55, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundWindow12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.102, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 192)
+
+[node name="BackgroundAltar12" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.769, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundAltar13" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175.796, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(320, 0, 128, 192)
+
+[node name="BackgroundTorch57" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.905, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch58" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.556, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch59" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.801, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch60" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.68, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch61" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.235, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch62" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.971, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch63" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.809, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch64" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.125, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch65" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.839, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch66" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.534, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundTorch67" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.335, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(560, 0, 64, 192)
+
+[node name="BackgroundStatue17" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.41, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue18" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.109, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="BackgroundStatue19" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.32, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_hrva6")
+region_enabled = true
+region_rect = Rect2(464, 0, 80, 192)
+
+[node name="Background3" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 118.924, 0, -0.339884)
+texture = ExtResource("3_ijimf")
+
+[node name="Background2" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 86.9243, 0, -0.339884)
+texture = ExtResource("3_ijimf")
+
+[node name="Background4" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 177.924, 0, -0.339884)
+texture = ExtResource("3_ijimf")

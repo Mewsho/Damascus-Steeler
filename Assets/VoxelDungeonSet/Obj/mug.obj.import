@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d4lb7ttcrqhb6"
+path="res://.godot/imported/mug.obj-b5a7f6545c28c2fb8f3b2967959bcdce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mug.obj-b5a7f6545c28c2fb8f3b2967959bcdce.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/mug.obj"
+dest_files=["res://.godot/imported/mug.obj-b5a7f6545c28c2fb8f3b2967959bcdce.mesh", "res://.godot/imported/mug.obj-b5a7f6545c28c2fb8f3b2967959bcdce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

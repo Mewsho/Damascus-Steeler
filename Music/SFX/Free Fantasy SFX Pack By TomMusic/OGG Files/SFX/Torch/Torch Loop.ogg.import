@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://55hwkj3j4jdy"
+path="res://.godot/imported/Torch Loop.ogg-9fbc097127b8ee37b290ffbd0227b5f9.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Torch/Torch Loop.ogg"
+dest_files=["res://.godot/imported/Torch Loop.ogg-9fbc097127b8ee37b290ffbd0227b5f9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

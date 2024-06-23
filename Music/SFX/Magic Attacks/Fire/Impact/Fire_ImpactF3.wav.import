@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://byif483mg8mai"
+path="res://.godot/imported/Fire_ImpactF3.wav-883de28d95db58453d76d49ed13a7292.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Fire/Impact/Fire_ImpactF3.wav"
+dest_files=["res://.godot/imported/Fire_ImpactF3.wav-883de28d95db58453d76d49ed13a7292.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

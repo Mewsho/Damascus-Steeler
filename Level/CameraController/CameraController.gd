@@ -9,9 +9,24 @@ extends Node3D
 @onready var camera_controller = $"." 
 @onready var camera_3d = $Camera3D as Camera3D
 
+
+@export  var shake_strength = Vector2(0.1, 0.1)
+@export  var duration = 1.0
+
+@export  var joystick_index = 0
+@export  var vibration_strength_weak_motor = 0.5
+@export  var vibration_strength_strong_motor = 0.5
+
+@onready var shake_duration = $ShakeDuration
+
+
+
+signal shake_started
+signal shake_finished
+
 ## Variables que utliza
 var player_nodes = null ## Termina siendo un diccionario de los nodos de los players
-var prev_position = global_position ## Posicion previa
+var prev_position = position ## Posicion previa
 ## Variables para el calculo de la distancia promedio con el offset
 var combined_x_position : float = 0 
 var player_pos_x
@@ -22,9 +37,16 @@ var is_player_in_left_border : bool = false
 var is_player_in_right_border : bool = false
 
 
+func _ready():
+	EventBus.on_especial_shake.connect(shake)
+	set_process(false)
+	shake_duration.connect("timeout", Callable(self, "stop"))
+
 func _physics_process(delta):
 	if player_nodes == null:
 		return
+	
+
 	
 	is_player_in_left_border = false
 	is_player_in_right_border = false
@@ -81,6 +103,10 @@ func _physics_process(delta):
 		global_position = prev_position
 	prev_position = global_position
 
+func _process(delta):
+	camera_3d.h_offset = randf_range(-shake_strength.x, shake_strength.x)
+	camera_3d.v_offset = randf_range(-shake_strength.y, shake_strength.y)
+
 ## Inicializa los nodos de los jugadores
 func init(_player_nodes):
 	player_nodes = _player_nodes
@@ -93,5 +119,20 @@ func set_player_position(player, is_dead):
 
 func handle_game_over(player):
 	player_nodes.erase(player)
+
+func shake():
+	print("help")
+	shake_duration.start()
+	set_process(true)
+	emit_signal("shake_started")
+
+
+func stop():
+	if not shake_duration.is_stopped():
+		shake_duration.stop()
+	camera_3d.h_offset = 0
+	camera_3d.v_offset = 0
+	set_process(false)
+	emit_signal("shake_finished")
 
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfnyiu2wbqxbi"
+path="res://.godot/imported/demon_hit_2.mp3-f483dd0c35bf84e204176267c266dfec.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/monster and magic sfx (CC BY)/demon/demon_hit_2.mp3"
+dest_files=["res://.godot/imported/demon_hit_2.mp3-f483dd0c35bf84e204176267c266dfec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

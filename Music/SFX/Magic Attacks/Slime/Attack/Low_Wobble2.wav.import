@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqpb3smqdhyiv"
+path="res://.godot/imported/Low_Wobble2.wav-8dfe35c1f4b4a724dd81f0a14d23e98b.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Slime/Attack/Low_Wobble2.wav"
+dest_files=["res://.godot/imported/Low_Wobble2.wav-8dfe35c1f4b4a724dd81f0a14d23e98b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

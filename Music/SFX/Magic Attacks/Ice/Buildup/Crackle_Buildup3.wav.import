@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnxi2kn6nkpjq"
+path="res://.godot/imported/Crackle_Buildup3.wav-fbd173229302928807c50afc9ad278c5.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Ice/Buildup/Crackle_Buildup3.wav"
+dest_files=["res://.godot/imported/Crackle_Buildup3.wav-fbd173229302928807c50afc9ad278c5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

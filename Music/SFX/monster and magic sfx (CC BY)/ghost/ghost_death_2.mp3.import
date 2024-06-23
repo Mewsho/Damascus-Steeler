@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://v576vp1qfney"
+path="res://.godot/imported/ghost_death_2.mp3-17671bf04b10e14fb376b14e9309659b.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/monster and magic sfx (CC BY)/ghost/ghost_death_2.mp3"
+dest_files=["res://.godot/imported/ghost_death_2.mp3-17671bf04b10e14fb376b14e9309659b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

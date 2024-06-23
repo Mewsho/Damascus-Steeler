@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlss42kcs75j8"]
+
+[ext_resource type="Script" path="res://Music/SFXContainer.gd" id="1_jcup4"]
+
+[node name="SFX" type="Node"]
+script = ExtResource("1_jcup4")

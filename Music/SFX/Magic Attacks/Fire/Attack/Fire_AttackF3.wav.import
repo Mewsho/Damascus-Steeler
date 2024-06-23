@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp3n8y081f31b"
+path="res://.godot/imported/Fire_AttackF3.wav-1397313bdff00c5c6b970f402953d7a9.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Fire/Attack/Fire_AttackF3.wav"
+dest_files=["res://.godot/imported/Fire_AttackF3.wav-1397313bdff00c5c6b970f402953d7a9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

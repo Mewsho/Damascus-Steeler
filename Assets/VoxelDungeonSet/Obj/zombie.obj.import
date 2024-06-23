@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cw25lyactr0kg"
+path="res://.godot/imported/zombie.obj-155edd0698e8bad1a72532ae7b6b6421.mesh"
+
+[deps]
+
+files=["res://.godot/imported/zombie.obj-155edd0698e8bad1a72532ae7b6b6421.mesh"]
+
+source_file="res://Assets/VoxelDungeonSet/Obj/zombie.obj"
+dest_files=["res://.godot/imported/zombie.obj-155edd0698e8bad1a72532ae7b6b6421.mesh", "res://.godot/imported/zombie.obj-155edd0698e8bad1a72532ae7b6b6421.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

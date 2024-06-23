@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kmpsiq4iufxm"
+path="res://.godot/imported/Wood Chain Land.wav-a6536cc6a6eb508a22ec9f65e666e53d.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/WAV Files/SFX/Footsteps/Wood/Wood Chain Land.wav"
+dest_files=["res://.godot/imported/Wood Chain Land.wav-a6536cc6a6eb508a22ec9f65e666e53d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

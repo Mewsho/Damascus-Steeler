@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccqrhot8e8ohr"
+path="res://.godot/imported/player_attack_thunderspher_mod.ogg-eec94a02bfffecc1d9df7cca75b3e75c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/monster and magic sfx (CC BY)/player attack/player_attack_thunderspher_mod.ogg"
+dest_files=["res://.godot/imported/player_attack_thunderspher_mod.ogg-eec94a02bfffecc1d9df7cca75b3e75c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

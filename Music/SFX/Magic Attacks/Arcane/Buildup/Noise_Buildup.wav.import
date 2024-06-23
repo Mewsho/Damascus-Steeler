@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cq0x1ljtc5c2h"
+path="res://.godot/imported/Noise_Buildup.wav-5af57af4aa5ec82e5fd9d431e581c345.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Arcane/Buildup/Noise_Buildup.wav"
+dest_files=["res://.godot/imported/Noise_Buildup.wav-5af57af4aa5ec82e5fd9d431e581c345.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

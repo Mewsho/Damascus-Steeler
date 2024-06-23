@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp1iq1ucib1qt"
+path="res://.godot/imported/attack_standart_2.mp3-49a7875bb923e1cbfcc9db4612e3dbc6.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/monster and magic sfx (CC BY)/attack/attack_standart_2.mp3"
+dest_files=["res://.godot/imported/attack_standart_2.mp3-49a7875bb923e1cbfcc9db4612e3dbc6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

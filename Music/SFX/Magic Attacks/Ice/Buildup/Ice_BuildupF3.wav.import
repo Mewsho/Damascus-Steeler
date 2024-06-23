@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8dvh1fen71am"
+path="res://.godot/imported/Ice_BuildupF3.wav-a5c6e42dbf3285304af12e6f3f7bf35d.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Ice/Buildup/Ice_BuildupF3.wav"
+dest_files=["res://.godot/imported/Ice_BuildupF3.wav-a5c6e42dbf3285304af12e6f3f7bf35d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

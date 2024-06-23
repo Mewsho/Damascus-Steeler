@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buqch8bt456tj"
+path="res://.godot/imported/Arcane_Buildup_PitchbendF3.wav-6398e3b76c170307e5f30cf0eca3cac6.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Magic Attacks/Arcane/Buildup/Arcane_Buildup_PitchbendF3.wav"
+dest_files=["res://.godot/imported/Arcane_Buildup_PitchbendF3.wav-6398e3b76c170307e5f30cf0eca3cac6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

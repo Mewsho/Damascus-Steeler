@@ -61,7 +61,7 @@ _data = {
 script = ExtResource("1_wyhvp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00125099, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197432, 0)
 mesh = SubResource("SphereMesh_e42bv")
 
 [node name="PickUpArea3d" type="Area3D" parent="."]
@@ -73,7 +73,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 shape = SubResource("BoxShape3D_3kjk0")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.502914, 0, 0, 0, 0.502914, 0, 0, 0, 0.502914, 0, 0.00125099, 0)
+transform = Transform3D(0.502914, 0, 0, 0, 0.502914, 0, 0, 0, 0.502914, 0, -0.197432, 0)
 amount = 32
 preprocess = 1.0
 randomness = 0.65

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckxxeut6aqmmn"
+path="res://.godot/imported/Water Jump.wav-f85385d0ef8440c9982d955718e11fca.sample"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/WAV Files/SFX/Footsteps/Water/Water Jump.wav"
+dest_files=["res://.godot/imported/Water Jump.wav-f85385d0ef8440c9982d955718e11fca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

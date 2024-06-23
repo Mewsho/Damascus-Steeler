@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de8a5jse5iqqr"
+path="res://.godot/imported/ghost_hit_1.mp3-1fffa2f919280b6e9915123eedd1f3b2.mp3str"
+
+[deps]
+
+source_file="res://Music/SFX/monster and magic sfx (CC BY)/ghost/ghost_hit_1.mp3"
+dest_files=["res://.godot/imported/ghost_hit_1.mp3-1fffa2f919280b6e9915123eedd1f3b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

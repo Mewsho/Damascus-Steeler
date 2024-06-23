@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://w00j2y5femiq"
+path="res://.godot/imported/Torch Attack Strike 2.ogg-cc3f366c123813d42e70bbcf635106d3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/SFX/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Torch/Torch Attack Strike 2.ogg"
+dest_files=["res://.godot/imported/Torch Attack Strike 2.ogg-cc3f366c123813d42e70bbcf635106d3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
